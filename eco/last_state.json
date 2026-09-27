@@ -3,37 +3,16 @@
     "B971002": {
       "dept_id": "B971002",
       "center_name": "북한산",
-      "rooms": {
-        "B971002_2026-10-02_EB97100200017": {
-          "slot_id": "B971002_2026-10-02_EB97100200017",
-          "dept_id": "B971002",
-          "date": "2026-10-02",
-          "dow": "금",
-          "prd_id": "EB97100200017",
-          "prd_name": "[202호]4인실 침대(숲전망)",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "북한산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T15:17:27.500731"
+      "updated_at": "2026-09-27T15:22:26.038943"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T15:17:33.757901"
+      "updated_at": "2026-09-27T15:22:35.098916"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -161,17 +140,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T15:17:39.466812"
+      "updated_at": "2026-09-27T15:22:43.409991"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T15:17:46.339584"
+      "updated_at": "2026-09-27T15:22:53.290898"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-27 15:22:26",
+      "center": "북한산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-02(금) [202호]4인실 침대(숲전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-27 15:17:27",
       "center": "북한산 생태탐방원",
@@ -213,5 +200,5 @@
     }
   ],
   "baseline_at": "2026-09-27T20:40:11.901535",
-  "updated_at": "2026-09-27T15:17:46.640123"
+  "updated_at": "2026-09-27T15:22:53.591518"
 }
