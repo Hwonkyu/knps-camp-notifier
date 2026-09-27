@@ -5,39 +5,19 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:37:58.501491"
+      "updated_at": "2026-09-27T20:42:25.077638"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:38:04.166167"
+      "updated_at": "2026-09-27T20:42:30.965572"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {
-        "B123002_2026-10-10_EB12300200018": {
-          "slot_id": "B123002_2026-10-10_EB12300200018",
-          "dept_id": "B123002",
-          "date": "2026-10-10",
-          "dow": "토",
-          "prd_id": "EB12300200018",
-          "prd_name": "[105호]4인실 침대",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
-        },
         "B123002_2026-10-16_EB12300200022": {
           "slot_id": "B123002_2026-10-16_EB12300200022",
           "dept_id": "B123002",
@@ -160,17 +140,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:38:09.507248"
+      "updated_at": "2026-09-27T20:42:36.874294"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:38:15.938396"
+      "updated_at": "2026-09-27T20:42:43.661542"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-27 20:42:36",
+      "center": "소백산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-10(토) [105호]4인실 침대(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-27 20:17:39",
       "center": "소백산 생태탐방원",
@@ -259,5 +247,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-27T20:38:16.239037"
+  "updated_at": "2026-09-27T20:42:43.962028"
 }
