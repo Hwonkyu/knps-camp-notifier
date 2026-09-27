@@ -5,14 +5,14 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T22:47:26.431352"
+      "updated_at": "2026-09-27T22:52:27.716298"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T22:47:32.499172"
+      "updated_at": "2026-09-27T22:52:33.436294"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -140,14 +140,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T22:47:38.780605"
+      "updated_at": "2026-09-27T22:52:39.868329"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T22:47:46.237289"
+      "updated_at": "2026-09-27T22:52:47.392065"
     }
   },
   "history": [
@@ -247,5 +247,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-27T22:47:46.537933"
+  "updated_at": "2026-09-27T22:52:47.692524"
 }
