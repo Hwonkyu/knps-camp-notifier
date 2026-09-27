@@ -1,0 +1,62 @@
+{
+  "campsites": [
+    {
+      "park_name": "변산반도",
+      "camp_name": "고사포2",
+      "dept_id": "B181004",
+      "types": ["특화야영장"]
+    },
+    {
+      "park_name": "오대산",
+      "camp_name": "소금강산",
+      "dept_id": "B061001",
+      "types": ["카라반"]
+    },
+    {
+      "park_name": "설악산",
+      "camp_name": "설악동",
+      "dept_id": "B031005",
+      "types": ["카라반"]
+    },
+    {
+      "park_name": "덕유산",
+      "camp_name": "덕유대3",
+      "dept_id": "B051006",
+      "types": ["특화야영장"]
+    }
+  ],
+  "filters": {
+    "target_dates": [],
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-31",
+    "target_weekdays": ["금", "토", "일"],
+    "target_types": [],
+    "target_sites": [],
+    "include_waiting": true
+  },
+  "notification": {
+    "only_new_slots": true,
+    "notify_closed_slots": true,
+    "notify_status_changes": true,
+    "notify_consecutive_weekend": true,
+    "consecutive_include_waiting": true,
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": ""
+    },
+    "discord": {
+      "enabled": true,
+      "webhook_url": ""
+    },
+    "email": {
+      "enabled": false,
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587,
+      "smtp_user": "",
+      "smtp_pass": "",
+      "to_email": "",
+      "use_tls": true
+    }
+  }
+}

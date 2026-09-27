@@ -1,0 +1,67 @@
+# 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
+
+> 🕒 **마지막 모니터링 시각**: `2026-09-27 12:05:29` (KST)  
+> 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **오대산 소금강산**[카라반], **설악산 설악동**[카라반], **덕유산 덕유대3**[특화야영장]  
+> ⚙️ **필터 조건**: 요일: `금, 토` | 대기예약: `포함 (R+W)` | 2박 연박 감지: `활성화 (금+토 2박 단독 알림)`
+
+---
+
+## 🔥 주말 2박(금,토) 연박 가능 영지 (2박 3일)
+
+*현재 감시 대상 야영장 중 주말 2박(금,토) 연박 가능한 자리가 없습니다.*
+
+---
+
+## 📊 현재 예약/대기 가능한 전체 잔여석 현황
+
+| 공원명 | 야영장 | 날짜 (요일) | 시설타입 | 사이트 번호 | 예약 상태 | 1박 요금 | 바로가기 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-1(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-2(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-3(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-6(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-7(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-9(4인, 무공해영지)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-02 (금) | 복합야영지 | **카라반3** | 🟡 대기예약 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 오대산 | 소금강산 | 2026-10-02 (금) | 카라반 | **B11(4인)** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 오대산 | 소금강산 | 2026-10-02 (금) | 카라반 | **B3(4인)** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-1(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-17(여우)(6인)** | 🔵 예약가능 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-18(주목)** | 🔵 예약가능 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-2(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-3(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-8(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-16 (금) | 특화야영장 | **하우스-9(4인, 무공해영지)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-1(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-15(머루)(4인)** | 🔵 예약가능 | 110,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-3(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-4(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-5(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-7(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-23 (금) | 특화야영장 | **하우스-8(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-23 (금) | 카라반 | **카라반1** | 🟡 대기예약 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-1(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-18(주목)** | 🔵 예약가능 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-2(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-6(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-7(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-9(4인, 무공해영지)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+
+---
+
+## 📜 최근 알림 발송 히스토리 (최근 20건)
+
+| 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
+|:---:|:---:|:---:|:---|
+| 2026-09-27 10:15:26 | 오대산 소금강산 | **🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-02(금) 카라반 B3(4인)번 (마감 ➔ 예약가능) |
+| 2026-09-27 07:30:28 | 변산반도 고사포2 | **🔴 완전마감 1건** | 🔴 완전마감: 2026-10-30(금) 특화야영장 하우스-26번 (대기예약 ➔ 마감) |
+| 2026-09-27 07:15:23 | 변산반도 고사포2 | **🟡 대기접수 1건** | 🟡 대기접수: 2026-10-30(금) 특화야영장 하우스-26번 (마감 ➔ 대기예약) |
+| 2026-09-27 07:05:30 | 덕유산 덕유대3 | **🔴 완전마감 1건** | 🔴 완전마감: 2026-10-16(금) 특화야영장 하우스-11(4인)번 (대기예약 ➔ 마감) |
+| 2026-09-27 07:00:50 | 덕유산 덕유대3 | **🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 특화야영장 하우스-11(4인)번 (예약가능 ➔ 대기예약) |
+| 2026-09-27 06:40:30 | 설악산 설악동 | **🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 복합야영지 카라반3번 (마감 ➔ 대기예약) |
+| 2026-09-27 06:35:40 | 덕유산 덕유대3 | **🔵 즉시예약 27건** | 🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-1(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-1(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-23(금) 특화야영장 하우스-1(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-30(금) 특화야영장 하우스-1(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-2(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-2(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-30(금) 특화야영장 하우스-2(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-3(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-3(4인)번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-23(금) 특화야영장 하우스-3(4인)번 (마감 ➔ 예약가능) |
+| 2026-09-27 06:35:36 | 설악산 설악동 | **🟡 대기접수 1건** | 🟡 대기접수: 2026-10-23(금) 카라반 카라반1번 (마감 ➔ 대기예약) |
+| 2026-09-27 06:35:32 | 오대산 소금강산 | **🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-02(금) 카라반 B11(4인)번 (마감 ➔ 예약가능) |
+
+---
+*이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*

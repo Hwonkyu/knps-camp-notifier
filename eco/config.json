@@ -1,0 +1,54 @@
+{
+  "eco_centers": [
+    {
+      "name": "북한산",
+      "dept_id": "B971002",
+      "capacities": []
+    },
+    {
+      "name": "설악산",
+      "dept_id": "B301002",
+      "capacities": []
+    },
+    {
+      "name": "소백산",
+      "dept_id": "B123002",
+      "capacities": []
+    },
+    {
+      "name": "변산반도",
+      "dept_id": "B183001",
+      "capacities": []
+    }
+  ],
+  "filters": {
+    "target_dates": [],
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-31",
+    "target_weekdays": ["금", "토"],
+    "pet_only": false
+  },
+  "notification": {
+    "only_new_slots": true,
+    "notify_closed_slots": true,
+    "notify_consecutive_weekend": true,
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": ""
+    },
+    "discord": {
+      "enabled": true,
+      "webhook_url": ""
+    },
+    "email": {
+      "enabled": false,
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587,
+      "smtp_user": "",
+      "smtp_pass": "",
+      "to_email": "",
+      "use_tls": true
+    }
+  }
+}

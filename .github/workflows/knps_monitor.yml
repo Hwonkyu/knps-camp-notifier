@@ -1,0 +1,70 @@
+name: KNPS Campsite Vacancy Monitor
+
+on:
+  # 외부 웹 크론(cron-job.org) API 호출 및 수동 실행 트리거
+  workflow_dispatch:
+
+concurrency:
+  group: knps-monitor
+  cancel-in-progress: true
+
+jobs:
+  check-campsite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4  # 5분 주기 크론 중첩 방지 및 네트워크 안정성을 위해 4분으로 설정
+    permissions:
+      contents: write  # STATUS.md 및 last_state.json 자동 커밋 및 푸시 권한
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v7
+
+      - name: 파이썬 환경 설정
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 의존성 패키지 설치
+        run: |
+          pip install -r requirements.txt
+
+      # 빈자리 조회 및 알림 발송 실행
+      - name: 국립공원 빈자리 모니터링 실행
+        env:
+          # GitHub Repository Secrets 에서 설정한 비밀값 주입
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EMAIL_SMTP_HOST: ${{ secrets.EMAIL_SMTP_HOST }}
+          EMAIL_SMTP_PORT: ${{ secrets.EMAIL_SMTP_PORT }}
+          EMAIL_SMTP_USER: ${{ secrets.EMAIL_SMTP_USER }}
+          EMAIL_SMTP_PASS: ${{ secrets.EMAIL_SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python -u campsite/main.py
+
+      # 변동 사항이 발생한 경우 STATUS.md 및 상태(last_state.json)를 GitHub 저장소에 자동 커밋 & 푸시
+      - name: 실시간 현황(campsite/STATUS.md) 및 상태(campsite/last_state.json) Git 커밋 & 푸시
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset origin/main
+            git add campsite/STATUS.md campsite/last_state.json
+            if ! git diff --staged --quiet; then
+              echo "최신 현황(campsite/STATUS.md)을 GitHub 저장소에 커밋 및 푸시합니다. (시도 $i)"
+              git commit -m "docs: 실시간 야영장 빈자리 현황(campsite/STATUS.md) 및 상태 업데이트 [자동]"
+              if git push origin main; then
+                echo "푸시 완료 ✅"
+                break
+              fi
+              echo "동시 푸시 충돌 감지, 2초 후 재시도..."
+              sleep 2
+            else
+              echo "변동 사항이 없어 Git 커밋을 생략합니다."
+              break
+            fi
+          done
