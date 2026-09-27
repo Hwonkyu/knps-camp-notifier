@@ -5,19 +5,39 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:12:28.681798"
+      "updated_at": "2026-09-27T20:17:22.767028"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:12:35.040579"
+      "updated_at": "2026-09-27T20:17:30.767240"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {
+        "B123002_2026-10-10_EB12300200018": {
+          "slot_id": "B123002_2026-10-10_EB12300200018",
+          "dept_id": "B123002",
+          "date": "2026-10-10",
+          "dow": "토",
+          "prd_id": "EB12300200018",
+          "prd_name": "[105호]4인실 침대",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "소백산"
+        },
         "B123002_2026-10-16_EB12300200022": {
           "slot_id": "B123002_2026-10-16_EB12300200022",
           "dept_id": "B123002",
@@ -140,17 +160,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:12:40.939230"
+      "updated_at": "2026-09-27T20:17:39.042878"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T20:12:47.952475"
+      "updated_at": "2026-09-27T20:17:49.707513"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-27 20:17:39",
+      "center": "소백산 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-10(토) [105호]4인실 침대(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-27 16:01:33",
       "center": "변산반도 생태탐방원",
@@ -231,5 +259,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-27T20:12:48.253040"
+  "updated_at": "2026-09-27T20:17:50.008055"
 }
