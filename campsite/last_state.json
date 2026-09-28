@@ -27,7 +27,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T15:15:27.613156"
+      "last_checked": "2026-09-28T15:20:23.908385"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -532,7 +532,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T15:15:32.112047"
+      "last_checked": "2026-09-28T15:20:27.793417"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -646,7 +646,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T15:15:35.491038"
+      "last_checked": "2026-09-28T15:20:31.317769"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -1746,7 +1746,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T15:15:39.629020"
+      "last_checked": "2026-09-28T15:20:36.916983"
     }
   },
   "history": [
@@ -2110,5 +2110,5 @@
     }
   ],
   "baseline_at": "2026-09-28T12:48:35.265523",
-  "updated_at": "2026-09-28T15:15:40.130013"
+  "updated_at": "2026-09-28T15:20:37.417968"
 }
