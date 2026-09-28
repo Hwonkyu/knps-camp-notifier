@@ -3,9 +3,30 @@
     "B971002": {
       "dept_id": "B971002",
       "center_name": "북한산",
-      "rooms": {},
+      "rooms": {
+        "B971002_2026-10-02_EB97100200013": {
+          "slot_id": "B971002_2026-10-02_EB97100200013",
+          "dept_id": "B971002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB97100200013",
+          "prd_name": "[206호]4인실 침대(숲전망)",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "북한산"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T12:42:28.327895"
+      "updated_at": "2026-09-28T12:47:27.105635"
     },
     "B301002": {
       "dept_id": "B301002",
@@ -73,7 +94,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T12:42:36.355411"
+      "updated_at": "2026-09-28T12:47:33.205162"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -201,17 +222,54 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T12:42:43.339334"
+      "updated_at": "2026-09-28T12:47:39.752491"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-16_EB18300100042": {
+          "slot_id": "B183001_2026-10-16_EB18300100042",
+          "dept_id": "B183001",
+          "date": "2026-10-16",
+          "dow": "금",
+          "prd_id": "EB18300100042",
+          "prd_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
+          "category": "(3인실)자연의집(적정 수용 3명)",
+          "capacity": 3,
+          "price": 60000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T12:42:51.781172"
+      "updated_at": "2026-09-28T12:47:47.504489"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 12:47:47",
+      "center": "변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-16(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
+      ]
+    },
+    {
+      "timestamp": "2026-09-28 12:47:27",
+      "center": "북한산 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-02(금) [206호]4인실 침대(숲전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 11:22:28",
       "center": "북한산 생태탐방원",
@@ -460,20 +518,8 @@
         "2026-10-23(금) [108호]6인실 온돌 (6인실)",
         "2026-10-23(금) [111호]6인실 온돌 (6인실)"
       ]
-    },
-    {
-      "timestamp": "2026-09-27 20:40:14",
-      "center": "설악산 생태탐방원",
-      "summary": "📋 일일 종합: 잔여 0실 (2박 연박 0건)",
-      "details": []
-    },
-    {
-      "timestamp": "2026-09-27 20:40:13",
-      "center": "북한산 생태탐방원",
-      "summary": "📋 일일 종합: 잔여 0실 (2박 연박 0건)",
-      "details": []
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-28T12:42:52.081758"
+  "updated_at": "2026-09-28T12:47:47.805151"
 }
