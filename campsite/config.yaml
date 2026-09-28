@@ -7,16 +7,6 @@ campsites:
     dept_id: "B181004"
     types: ["특화야영장"]
 
-  - park_name: "오대산"
-    camp_name: "소금강산"
-    dept_id: "B061001"
-    types: ["카라반"]
-
-  - park_name: "설악산"
-    camp_name: "설악동"
-    dept_id: "B031005"
-    types: ["카라반"]
-
   - park_name: "덕유산"
     camp_name: "덕유대3"
     dept_id: "B051006"
