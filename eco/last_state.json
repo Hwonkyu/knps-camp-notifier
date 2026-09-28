@@ -26,7 +26,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T22:07:24.774815"
+      "updated_at": "2026-09-28T22:12:27.411717"
     },
     "B301002": {
       "dept_id": "B301002",
@@ -94,7 +94,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T22:07:33.485614"
+      "updated_at": "2026-09-28T22:12:34.031377"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -130,26 +130,6 @@
           "category": "(4인실)A타입(적정 수용 4명)",
           "capacity": 4,
           "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
-        },
-        "B123002_2026-10-02_EB12300200030": {
-          "slot_id": "B123002_2026-10-02_EB12300200030",
-          "dept_id": "B123002",
-          "date": "2026-10-02",
-          "dow": "금",
-          "prd_id": "EB12300200030",
-          "prd_name": "[206호]6인실 침대+온돌(복층)",
-          "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-          "capacity": 6,
-          "price": 120000,
           "pet_allowed": false,
           "barrier_free": false,
           "remaining": 1,
@@ -302,17 +282,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T22:07:41.951195"
+      "updated_at": "2026-09-28T22:12:42.041508"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T22:07:51.175635"
+      "updated_at": "2026-09-28T22:12:50.167562"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 22:12:42",
+      "center": "소백산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-02(금) [206호]6인실 침대+온돌(복층)(6인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 21:17:28",
       "center": "북한산 생태탐방원",
@@ -571,16 +559,8 @@
       "details": [
         "2026-10-02(금) [206호]4인실 침대(숲전망) (4인실)"
       ]
-    },
-    {
-      "timestamp": "2026-09-28 11:22:28",
-      "center": "북한산 생태탐방원",
-      "summary": "🔴 -1실 마감",
-      "details": [
-        "🔴 [예약마감] 2026-10-02(금) [장애인편의객실][201호]4인실 침대(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-09-28T22:07:51.476293"
+  "updated_at": "2026-09-28T22:12:50.468311"
 }
