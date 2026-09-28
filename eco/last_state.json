@@ -5,7 +5,7 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T02:27:22.837327"
+      "updated_at": "2026-09-28T02:32:24.615562"
     },
     "B301002": {
       "dept_id": "B301002",
@@ -191,26 +191,6 @@
           "is_available": true,
           "center_name": "설악산"
         },
-        "B301002_2026-10-09_EB30100200034": {
-          "slot_id": "B301002_2026-10-09_EB30100200034",
-          "dept_id": "B301002",
-          "date": "2026-10-09",
-          "dow": "금",
-          "prd_id": "EB30100200034",
-          "prd_name": "[206호]4인실 온돌(산전망)",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        },
         "B301002_2026-10-09_EB30100200024": {
           "slot_id": "B301002_2026-10-09_EB30100200024",
           "dept_id": "B301002",
@@ -333,7 +313,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T02:27:29.424713"
+      "updated_at": "2026-09-28T02:32:32.071925"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -461,17 +441,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T02:27:35.847838"
+      "updated_at": "2026-09-28T02:32:38.713438"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T02:27:43.743077"
+      "updated_at": "2026-09-28T02:32:46.836280"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 02:32:32",
+      "center": "설악산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-09(금) [206호]4인실 온돌(산전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 02:22:32",
       "center": "설악산 생태탐방원",
@@ -626,5 +614,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-28T02:27:44.118427"
+  "updated_at": "2026-09-28T02:32:47.136841"
 }
