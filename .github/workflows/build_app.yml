@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build-apk:
     name: 📱 안드로이드 APK 빌드
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: write  # GitHub Releases 에 APK 파일 업로드 권한
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 자바(JDK 17) 환경 설정
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -37,10 +37,23 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: 안드로이드 플랫폼 템플릿 보강 및 패키지 설치
+      - name: 안드로이드 플랫폼 템플릿 보강 및 인터넷 권한 추가
         working-directory: app
         run: |
           flutter create --platforms=android --org com.knps.notifier .
+          python3 -c "
+          manifest_path = 'android/app/src/main/AndroidManifest.xml'
+          with open(manifest_path, 'r', encoding='utf-8') as f:
+              content = f.read()
+          if 'android.permission.INTERNET' not in content:
+              content = content.replace(
+                  '<application',
+                  '    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n\n    <application'
+              )
+              with open(manifest_path, 'w', encoding='utf-8') as f:
+                  f.write(content)
+              print('인터넷 권한(INTERNET, ACCESS_NETWORK_STATE) 주입 완료!')
+          "
           flutter pub get
 
       - name: 안드로이드 릴리즈 APK 빌드

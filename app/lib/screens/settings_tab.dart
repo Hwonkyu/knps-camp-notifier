@@ -61,18 +61,19 @@ class _SettingsTabState extends State<SettingsTab> {
     });
 
     await _service.saveSettings(
-      owner: _ownerController.text,
-      repo: _repoController.text,
-      branch: _branchController.text,
-      token: _tokenController.text,
+      owner: _ownerController.text.trim(),
+      repo: _repoController.text.trim(),
+      branch: _branchController.text.trim(),
+      token: _tokenController.text.trim(),
     );
 
-    final ok = await _service.testConnection();
+    final res = await _service.testConnection();
 
+    if (!mounted) return;
     setState(() {
       _isTesting = false;
-      _testSuccess = ok;
-      _testResult = ok ? 'GitHub 저장소 연결 성공! (읽기/쓰기 가능 ✅)' : '연결 실패: 토큰 또는 저장소 이름을 확인하세요 ❌';
+      _testSuccess = res.success;
+      _testResult = res.message;
     });
   }
 

@@ -45,30 +45,84 @@ class GitHubService {
 
   Map<String, String> get _headers => {
         'Accept': 'application/vnd.github.v3+json',
-        if (token.isNotEmpty) 'Authorization': 'Bearer $token',
+        if (token.trim().isNotEmpty) 'Authorization': 'Bearer ${token.trim()}',
         'User-Agent': 'KNPS-Mobile-App/1.0',
       };
 
-  /// 연결 테스트 (저장소 접근 권한 확인)
-  Future<bool> testConnection() async {
+  /// 연결 테스트 (저장소 접근 권한 확인 및 구체적 원인 반환)
+  Future<ConnectionResult> testConnection() async {
     try {
-      final url = Uri.parse('https://api.github.com/repos/$owner/$repo');
-      final resp = await http.get(url, headers: _headers);
-      return resp.statusCode == 200;
-    } catch (_) {
-      return false;
+      final cleanToken = token.trim();
+      final cleanOwner = owner.trim();
+      final cleanRepo = repo.trim();
+
+      if (cleanToken.isEmpty) {
+        return ConnectionResult(
+          success: false,
+          message: '토큰(PAT)을 입력해주세요.',
+        );
+      }
+      if (cleanOwner.isEmpty || cleanRepo.isEmpty) {
+        return ConnectionResult(
+          success: false,
+          message: 'GitHub 아이디(Owner)와 저장소(Repo)를 입력해주세요.',
+        );
+      }
+
+      final url = Uri.parse('https://api.github.com/repos/$cleanOwner/$cleanRepo');
+      final resp = await http.get(url, headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': 'Bearer $cleanToken',
+        'User-Agent': 'KNPS-Mobile-App/1.0',
+      }).timeout(const Duration(seconds: 10));
+
+      if (resp.statusCode == 200) {
+        final scopes = resp.headers['x-oauth-scopes'] ?? 'repo';
+        return ConnectionResult(
+          success: true,
+          message: 'GitHub 저장소 연결 성공! (권한: $scopes) ✅',
+        );
+      } else if (resp.statusCode == 401) {
+        return ConnectionResult(
+          success: false,
+          message: '인증 실패 (401): 토큰이 만료되었거나 복사가 잘못되었습니다.',
+        );
+      } else if (resp.statusCode == 404) {
+        return ConnectionResult(
+          success: false,
+          message: '저장소를 찾을 수 없음 (404): 아이디($cleanOwner) 또는 저장소($cleanRepo) 확인',
+        );
+      } else if (resp.statusCode == 403) {
+        return ConnectionResult(
+          success: false,
+          message: '권한 부족 (403): 토큰에 repo 권한이 부여되지 않았습니다.',
+        );
+      } else {
+        return ConnectionResult(
+          success: false,
+          message: '연결 실패: HTTP 상태 코드 ${resp.statusCode}',
+        );
+      }
+    } catch (e) {
+      return ConnectionResult(
+        success: false,
+        message: '통신 오류 ($e)',
+      );
     }
   }
 
   /// 파일 내용 및 SHA 조회
   Future<Map<String, dynamic>?> fetchFile(String path) async {
     try {
-      final url = Uri.parse('https://api.github.com/repos/$owner/$repo/contents/$path?ref=$branch');
-      final resp = await http.get(url, headers: _headers);
+      final cleanOwner = owner.trim();
+      final cleanRepo = repo.trim();
+      final cleanBranch = branch.trim();
+      final url = Uri.parse('https://api.github.com/repos/$cleanOwner/$cleanRepo/contents/$path?ref=$cleanBranch');
+      final resp = await http.get(url, headers: _headers).timeout(const Duration(seconds: 10));
 
       if (resp.statusCode == 200) {
         final data = json.decode(resp.body);
-        final String rawBase64 = (data['content'] as String).replaceAll('\n', '');
+        final String rawBase64 = (data['content'] as String).replaceAll('\n', '').replaceAll('\r', '');
         final String decodedContent = utf8.decode(base64.decode(rawBase64));
         final String sha = data['sha'] ?? '';
         return {
@@ -90,20 +144,33 @@ class GitHubService {
     required String commitMessage,
   }) async {
     try {
-      final url = Uri.parse('https://api.github.com/repos/$owner/$repo/contents/$path');
+      final cleanOwner = owner.trim();
+      final cleanRepo = repo.trim();
+      final cleanBranch = branch.trim();
+      final url = Uri.parse('https://api.github.com/repos/$cleanOwner/$cleanRepo/contents/$path');
       final base64Content = base64.encode(utf8.encode(newContent));
 
-      final body = json.encode({
+      final Map<String, dynamic> bodyMap = {
         'message': commitMessage,
         'content': base64Content,
-        'sha': sha,
-        'branch': branch,
-      });
+        'branch': cleanBranch,
+      };
+      if (sha.isNotEmpty) {
+        bodyMap['sha'] = sha;
+      }
 
-      final resp = await http.put(url, headers: _headers, body: body);
+      final body = json.encode(bodyMap);
+      final resp = await http.put(url, headers: _headers, body: body).timeout(const Duration(seconds: 15));
       return resp.statusCode == 200 || resp.statusCode == 201;
     } catch (_) {
       return false;
     }
   }
+}
+
+class ConnectionResult {
+  final bool success;
+  final String message;
+
+  ConnectionResult({required this.success, required this.message});
 }
