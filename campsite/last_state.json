@@ -6,10 +6,28 @@
       "types": [
         "특화야영장"
       ],
-      "slots": {},
+      "slots": {
+        "20261016_CB18100400017": {
+          "slot_id": "20261016_CB18100400017_R",
+          "site_key": "20261016_CB18100400017",
+          "park_name": "변산반도",
+          "camp_name": "고사포2",
+          "site_type": "특화야영장",
+          "site_num": "하우스-20",
+          "full_title": "변산반도-고사포2-특화야영장-하우스-20",
+          "payment_title": "특화야영장 하우스-20",
+          "date": "2026-10-16",
+          "raw_date": "20261016",
+          "dow": "금",
+          "status": "R",
+          "status_text": "예약가능",
+          "price": 90000,
+          "prod_id": "CB18100400017"
+        }
+      },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T00:50:19.608865"
+      "last_checked": "2026-09-28T00:55:16.597160"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -55,7 +73,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T00:50:24.365939"
+      "last_checked": "2026-09-28T00:55:21.651646"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -84,7 +102,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T00:50:28.341538"
+      "last_checked": "2026-09-28T00:55:26.643585"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -555,10 +573,18 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T00:50:31.496504"
+      "last_checked": "2026-09-28T00:55:30.570877"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 00:55:16",
+      "camp": "변산반도 고사포2",
+      "summary": "🔵 즉시예약 1건",
+      "details": [
+        "🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-20번 (마감 ➔ 예약가능)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 00:16:08",
       "camp": "덕유산 덕유대3",
@@ -731,5 +757,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.644666",
-  "updated_at": "2026-09-28T00:50:31.997096"
+  "updated_at": "2026-09-28T00:55:31.071541"
 }
