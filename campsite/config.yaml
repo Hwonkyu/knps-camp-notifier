@@ -7,11 +7,6 @@ campsites:
     dept_id: "B181004"
     types: ["특화야영장"]
 
-  - park_name: "덕유산"
-    camp_name: "덕유대3"
-    dept_id: "B051006"
-    types: ["특화야영장"]
-
 # 2. 필터링 조건
 filters:
   target_dates: []
