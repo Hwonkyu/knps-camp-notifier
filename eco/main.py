@@ -217,7 +217,7 @@ def run_eco_monitoring(
     """
     생태탐방원 빈자리 모니터링 실행
     :param dry_run: True이면 알림 발송 및 파일 저장 건너뜀
-    :param is_daily: True이면 새벽 01시 일일 종합 브리핑 모드로 실행
+    :param is_daily: True이면 06시/18시 정기 종합 브리핑 모드로 실행
     :param send_alert: False이면 알림 전송 안 함 (--check 등)
     """
     centers_cfg = config.get("eco_centers", [])
@@ -236,7 +236,7 @@ def run_eco_monitoring(
         print("[경고] 조건에 부합하는 조회 대상 날짜가 없습니다.")
         return
 
-    report_title = "생태탐방원 일일 종합 빈자리 리포트 (새벽 01시)" if is_daily else "생태탐방원 모니터링"
+    report_title = "생태탐방원 정기 종합 빈자리 리포트 (06시/18시)" if is_daily else "생태탐방원 모니터링"
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {report_title} 시작 (대상 날짜: {len(target_dates)}개 일자)")
 
     state = load_eco_state()
@@ -285,9 +285,9 @@ def run_eco_monitoring(
             prev_consec = {p["pair_id"] for p in prev_center_data.get("consecutive_pairs", [])}
 
             if is_daily:
-                # 1. 일일 종합 브리핑 모드
+                # 1. 정기 종합 브리핑(06시/18시) 모드
                 if send_alert and not dry_run:
-                    print(f"📢 [{c_name}] 일일 종합 브리핑 발송 (잔여: {len(curr_avail_rooms)}실, 연박: {len(curr_consec_pairs)}건)")
+                    print(f"📢 [{c_name}] 정기 종합 브리핑(06시/18시) 발송 (잔여: {len(curr_avail_rooms)}실, 연박: {len(curr_consec_pairs)}건)")
                     eco_notifier.send_eco_daily_report(
                         notif_cfg,
                         center_meta,
@@ -295,7 +295,7 @@ def run_eco_monitoring(
                         curr_consec_pairs
                     )
 
-                daily_summary = f"📋 일일 종합: 잔여 {len(curr_avail_rooms)}실 (2박 연박 {len(curr_consec_pairs)}건)"
+                daily_summary = f"📋 정기 종합(06시/18시): 잔여 {len(curr_avail_rooms)}실 (2박 연박 {len(curr_consec_pairs)}건)"
                 daily_details = [
                     f"{r['date']}({r['dow']}) {r['prd_name']} ({r['capacity']}인실)"
                     for r in list(curr_avail_rooms.values())[:10]
@@ -335,12 +335,36 @@ def run_eco_monitoring(
 
                 if should_notify and send_alert and not dry_run:
                     print(f"📢 [{c_name}] 알림 발송: +{len(blue_slots)}실 예약가능, -{len(red_slots)}실 마감, 🔥 {len(new_consec_pairs)}개 2박연박")
+                    
+                    # 변동이 발생한 해당 날짜에 한해서만 잔여 객실 계산
+                    active_changed_items = blue_slots + red_slots
+                    changed_dates = sorted(list(set(
+                        r.get("date") for r in active_changed_items if r.get("date")
+                    )))
+
+                    date_rem_list = []
+                    for d in changed_dates:
+                        avail_on_d = [r for r in curr_avail_rooms.values() if r.get("date") == d]
+                        dow = ""
+                        if avail_on_d:
+                            dow = avail_on_d[0].get("dow", "")
+                        else:
+                            for it in active_changed_items:
+                                if it.get("date") == d and it.get("dow"):
+                                    dow = it.get("dow")
+                                    break
+                        d_label = f"{d}({dow})" if dow else d
+                        cnt = len(avail_on_d)
+                        date_rem_list.append(f"{d_label} {cnt}실")
+
+                    date_remaining_str = ", ".join(date_rem_list) if date_rem_list else f"{len(curr_avail_rooms)}실"
+
                     eco_notifier.send_eco_change_notification(
                         notif_cfg,
                         center_meta,
                         blue_slots,
                         red_slots,
-                        total_remaining=len(curr_avail_rooms),
+                        total_remaining=date_remaining_str,
                         consecutive_pairs=curr_consec_pairs if new_consec_pairs else None
                     )
 
@@ -391,7 +415,7 @@ def main():
     parser.add_argument("--check", action="store_true", help="알림 발송 없이 현재 잔여 객실 현황만 콘솔로 즉시 확인")
     parser.add_argument("--test", action="store_true", help="알림 채널(디스코드, 텔레그램 등) 연동 테스트")
     parser.add_argument("--dry-run", action="store_true", help="알림 발송 및 상태 저장 없이 조회만 수행")
-    parser.add_argument("--daily", action="store_true", help="매일 새벽 01시 전체 빈자리 종합 리포트 모드로 실행")
+    parser.add_argument("--daily", action="store_true", help="정기(06시/18시) 전체 빈자리 종합 리포트 모드로 실행")
 
     args = parser.parse_args()
 

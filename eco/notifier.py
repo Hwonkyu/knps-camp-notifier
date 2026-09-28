@@ -16,7 +16,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Union
 from common import notifier
 
 ECO_RESERVATION_URL = "https://res.knps.or.kr/eco/searchEcoReservation.do"
@@ -26,7 +26,7 @@ def format_eco_diff_text(
     center_info: Dict[str, Any],
     blue_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining: int,
+    total_remaining: Union[int, str],
     consecutive_pairs: Optional[List[Dict[str, Any]]] = None
 ) -> str:
     """
@@ -46,9 +46,13 @@ def format_eco_diff_text(
         parts.append(f"🔴 -{len(red_slots)} 마감")
     summary_str = " / ".join(parts) if parts else "변동 감지"
 
+    rem_str = str(total_remaining)
+    if isinstance(total_remaining, int) or rem_str.isdigit():
+        rem_str = f"{rem_str}실"
+
     lines = [
         f"🚨 [국립공원 생태탐방원 빈자리 변동 알림 ({summary_str})]",
-        f"📍 대상: {center_name} 생태탐방원 (현재 잔여: {total_remaining}실)",
+        f"📍 대상: {center_name} 생태탐방원 (현재 잔여: {rem_str})",
         "-" * 30
     ]
 
@@ -103,7 +107,7 @@ def send_discord_eco_diff(
     center_info: Dict[str, Any],
     blue_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining: int,
+    total_remaining: Union[int, str],
     consecutive_pairs: Optional[List[Dict[str, Any]]] = None
 ) -> bool:
     """
@@ -191,7 +195,11 @@ def send_discord_eco_diff(
         header_content = f"ℹ️ **[{center_name} 생태탐방원] 객실 예약 마감 ({summary_str})**"
         embed_color = 15158332 # Red
 
-    embed_desc = f"현재 예약 가능 객실: **{total_remaining}실**\n[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
+    rem_str = str(total_remaining)
+    if isinstance(total_remaining, int) or rem_str.isdigit():
+        rem_str = f"{rem_str}실"
+
+    embed_desc = f"현재 예약 가능 객실: **{rem_str}**\n[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
 
     payload = {
         "content": header_content,
@@ -231,7 +239,7 @@ def send_eco_change_notification(
     center_info: Dict[str, Any],
     blue_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining: int,
+    total_remaining: Union[int, str],
     consecutive_pairs: Optional[List[Dict[str, Any]]] = None
 ):
     """
@@ -296,7 +304,7 @@ def format_eco_daily_text(
     consecutive_pairs = consecutive_pairs or []
 
     lines = [
-        f"📊 [국립공원 생태탐방원 일일 빈자리 리포트 (새벽 01시)]",
+        f"📊 [국립공원 생태탐방원 정기 빈자리 리포트 (06시/18시)]",
         f"📍 대상: {center_name} 생태탐방원 (총 {len(available_rooms)}실 예약가능)",
         "-" * 30
     ]
@@ -385,11 +393,11 @@ def send_discord_eco_daily(
         })
 
     if available_rooms:
-        header_content = f"📊 **[{center_name} 생태탐방원] 일일 빈자리 종합 리포트 ({len(available_rooms)}실)**"
+        header_content = f"📊 **[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 ({len(available_rooms)}실)**"
         embed_color = 3447003  # Blue
         embed_desc = f"[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
     else:
-        header_content = f"📊 **[{center_name} 생태탐방원] 일일 빈자리 종합 리포트 (새벽 01시)**"
+        header_content = f"📊 **[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 (06시/18시)**"
         embed_color = 8421504  # Gray
         embed_desc = f"현재 설정된 조건에 부합하는 빈자리 객실이 없습니다.\n[👉 국립공원 생태탐방원 예약시스템 확인하기]({ECO_RESERVATION_URL})"
 
@@ -397,11 +405,11 @@ def send_discord_eco_daily(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🏡 {center_name} 생태탐방원 일일 브리핑",
+                "title": f"🏡 {center_name} 생태탐방원 정기 브리핑 (06시/18시)",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
-                "footer": {"text": "국립공원 생태탐방원 일일 리포트 (GitHub Actions)"}
+                "footer": {"text": "국립공원 생태탐방원 정기 리포트 (GitHub Actions)"}
             }
         ]
     }
@@ -420,7 +428,7 @@ def send_discord_eco_daily(
         with urllib.request.urlopen(req, timeout=10, context=ctx) as resp:
             return resp.status in (200, 204)
     except Exception as e:
-        print(f"[Eco Notifier Error] Discord 일일 리포트 전송 실패: {e}")
+        print(f"[Eco Notifier Error] Discord 정기 리포트 전송 실패: {e}")
         return False
 
 
@@ -446,7 +454,7 @@ def send_eco_daily_report(
             consecutive_pairs
         )
         if success:
-            print(f"[일일 리포트] 디스코드 전송 완료: {center_name} 생태탐방원")
+            print(f"[정기 리포트] 디스코드 전송 완료: {center_name} 생태탐방원")
 
     # 2. 텔레그램
     tg_cfg = notification_cfg.get("telegram", {})
@@ -457,12 +465,12 @@ def send_eco_daily_report(
             text_msg
         )
         if success:
-            print(f"[일일 리포트] 텔레그램 전송 완료: {center_name} 생태탐방원")
+            print(f"[정기 리포트] 텔레그램 전송 완료: {center_name} 생태탐방원")
 
     # 3. 이메일
     em_cfg = notification_cfg.get("email", {})
     if em_cfg.get("enabled"):
-        subject = f"[국립공원 생태탐방원] {center_name} 일일 종합 빈자리 리포트"
+        subject = f"[국립공원 생태탐방원] {center_name} 정기 종합 빈자리 리포트 (06시/18시)"
         notifier.send_email(
             em_cfg.get("smtp_host", "smtp.gmail.com"),
             em_cfg.get("smtp_port", 587),

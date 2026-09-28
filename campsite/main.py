@@ -337,7 +337,7 @@ def cmd_test_alert(config: Dict[str, Any]):
 def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool = False):
     """
     설정된 야영장들의 빈자리를 조회하고 조건에 맞으면 알림을 발송합니다.
-    - is_daily=True: 매일 새벽 01시 전체 잔여석 종합 리포트 발송 및 당일 기준선(baseline) 저장.
+    - is_daily=True: 매일 06시/18시 전체 잔여석 종합 리포트 발송 및 정기 기준선(baseline) 저장.
     - is_daily=False: 이전 상태 대비 6대 변동(🔵 파란 불: 즉시예약 / 🟡 노란 불: 대기접수 / 🔴 빨간 불: 완전마감) 감지 및 알림 발송.
     """
     campsites = config.get("campsites", [])
@@ -356,7 +356,7 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
     state = load_state()
     camp_states = state.setdefault("campsites", {})
 
-    report_title = "일일 빈자리 종합 리포트 (새벽 01시 기준선 확립)" if is_daily else "실시간 빈자리 변동 모니터링"
+    report_title = "정기 빈자리 종합 리포트 (06시/18시 기준선 확립)" if is_daily else "실시간 빈자리 변동 모니터링"
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 국립공원 야영장 {report_title} 시작")
 
     total_changes_notified = 0
@@ -464,9 +464,9 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                         consecutive_pairs=consecutive_pairs
                     )
                     for ch, ok in res.items():
-                        print(f"      [일일 리포트 전송] {ch}: {'성공' if ok else '실패'}")
+                        print(f"      [정기 리포트(06시/18시) 전송] {ch}: {'성공' if ok else '실패'}")
                 
-                # 2. 오늘 날짜 기준선(baseline) 저장
+                # 2. 정기 기준선(baseline) 저장
                 camp_states[state_key] = {
                     "park_name": p_name,
                     "camp_name": c_name,
@@ -478,8 +478,8 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                 }
                 total_changes_notified += len(matched_slots)
 
-                # 일일 종합 현황을 히스토리에 기록
-                daily_summary = f"📋 일일 종합: 잔여석 {len(matched_slots)}개 (2박 연박 {len(consecutive_pairs)}건)"
+                # 정기 종합 현황을 히스토리에 기록
+                daily_summary = f"📋 정기 종합(06시/18시): 잔여석 {len(matched_slots)}개 (2박 연박 {len(consecutive_pairs)}건)"
                 daily_details = [
                     f"{s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({'🔵 예약가능' if s['status'] == 'R' else '🟡 대기예약'})"
                     for s in matched_slots[:10]
@@ -659,13 +659,52 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                     )
 
                     if send_alert:
+                        # 변동이 발생한 해당 날짜에 한해서만 잔여석을 계산하여 전달
+                        active_changed_items = blue_slots + (yellow_slots if notify_status_changes else []) + (red_slots if notify_closed_slots else [])
+                        changed_dates = sorted(list(set(
+                            (item.get("slot") or item).get("date")
+                            for item in active_changed_items
+                            if (item.get("slot") or item).get("date")
+                        )))
+
+                        date_rem_list = []
+                        for d in changed_dates:
+                            r_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "R"]
+                            w_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "W"]
+
+                            dow = ""
+                            if r_slots_on_d:
+                                dow = r_slots_on_d[0].get("dow", "")
+                            else:
+                                for it in active_changed_items:
+                                    s_temp = it.get("slot") or it
+                                    if s_temp.get("date") == d and s_temp.get("dow"):
+                                        dow = s_temp.get("dow")
+                                        break
+                            d_label = f"{d}({dow})" if dow else d
+                            r_cnt = len(r_slots_on_d)
+                            w_cnt = len(w_slots_on_d)
+
+                            if r_cnt > 0:
+                                if w_cnt > 0:
+                                    date_rem_list.append(f"{d_label} {r_cnt}자리(대기 {w_cnt})")
+                                else:
+                                    date_rem_list.append(f"{d_label} {r_cnt}자리")
+                            else:
+                                if w_cnt > 0:
+                                    date_rem_list.append(f"{d_label} 0자리(대기 {w_cnt})")
+                                else:
+                                    date_rem_list.append(f"{d_label} 0자리")
+
+                        date_remaining_str = ", ".join(date_rem_list) if date_rem_list else f"{len(matched_slots)}자리"
+
                         res = notifier.dispatch_diff_notifications(
                             config=config,
                             campsite_info=camp,
                             blue_slots=blue_slots,
                             yellow_slots=yellow_slots if notify_status_changes else [],
                             red_slots=red_slots if notify_closed_slots else [],
-                            total_remaining_count=len(matched_slots),
+                            total_remaining_count=date_remaining_str,
                             consecutive_pairs=consecutive_pairs
                         )
                         for ch, ok in res.items():
@@ -720,7 +759,7 @@ def main():
     parser.add_argument("--status", action="store_true", help="현재 STATUS.md 실시간 현황 마크다운을 콘솔에 출력합니다.")
     parser.add_argument("--test-alert", action="store_true", help="설정된 알림 채널(텔레그램, 디스코드, 이메일)로 테스트 메시지 발송")
     parser.add_argument("--reset-state", action="store_true", help="알림 상태(last_state.json)를 초기화합니다.")
-    parser.add_argument("--daily", action="store_true", help="매일 새벽 01시 전체 빈자리 종합 리포트 모드로 실행")
+    parser.add_argument("--daily", action="store_true", help="정기(06시/18시) 전체 빈자리 종합 리포트 모드로 실행")
 
     args = parser.parse_args()
 

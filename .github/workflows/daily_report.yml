@@ -1,4 +1,4 @@
-name: KNPS Campsite Daily Report
+name: KNPS Campsite & Eco Center Regular Report (06:00, 18:00 KST)
 
 on:
   # 외부 웹 크론(cron-job.org) API 호출 및 수동 실행 트리거
@@ -30,8 +30,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      # 야영장 일일 리포트 실행 (장애 격리를 위해 개별 단계 및 continue-on-error 적용)
-      - name: 🏕️ 국립공원 야영장 일일 종합 리포트 실행
+      # 야영장 정기 리포트 실행 (장애 격리를 위해 개별 단계 및 continue-on-error 적용)
+      - name: 🏕️ 국립공원 야영장 정기 종합 리포트(06시/18시) 실행
         continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -45,8 +45,8 @@ jobs:
         run: |
           python -u campsite/main.py --daily
 
-      # 생태탐방원 일일 리포트 실행 (야영장 실행 결과와 무관하게 반드시 독립 실행)
-      - name: 🏡 국립공원 생태탐방원 일일 종합 리포트 실행
+      # 생태탐방원 정기 리포트 실행 (야영장 실행 결과와 무관하게 반드시 독립 실행)
+      - name: 🏡 국립공원 생태탐방원 정기 종합 리포트(06시/18시) 실행
         continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -72,7 +72,7 @@ jobs:
             git add campsite/STATUS.md campsite/last_state.json eco/STATUS.md eco/last_state.json
             if ! git diff --staged --quiet; then
               echo "최신 현황(야영장 & 생태탐방원)을 GitHub 저장소에 커밋 및 푸시합니다. (시도 $i)"
-              git commit -m "docs: 새벽 01시 일일 종합 현황(야영장 & 생태탐방원) 및 기준선 업데이트 [자동]"
+              git commit -m "docs: 06시/18시 정기 종합 현황(야영장 & 생태탐방원) 및 기준선 업데이트 [자동]"
               if git push origin main; then
                 echo "푸시 완료 ✅"
                 break

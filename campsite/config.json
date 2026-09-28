@@ -39,7 +39,7 @@
     "notify_closed_slots": true,
     "notify_status_changes": true,
     "notify_consecutive_weekend": true,
-    "consecutive_include_waiting": true,
+    "consecutive_include_waiting": false,
     "telegram": {
       "enabled": false,
       "bot_token": "",

@@ -13,7 +13,7 @@ import ssl
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Union
 
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
 
@@ -33,7 +33,7 @@ def format_notification_message(
 
     lines = []
     if is_daily:
-        lines.append(f"📊 [국립공원 야영장 일일 빈자리 리포트 (새벽 01시)]")
+        lines.append(f"📊 [국립공원 야영장 정기 빈자리 리포트 (06시/18시)]")
         lines.append(f"📍 대상: {park_name} - {camp_name}{types_label}")
     else:
         lines.append(f"🏕️ [국립공원 야영장 빈자리 실시간 알림]")
@@ -168,11 +168,11 @@ def send_discord(
 
     if is_daily:
         if slots:
-            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 일일 빈자리 종합 리포트 ({len(slots)}자리)**"
+            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 정기 빈자리 종합 리포트 ({len(slots)}자리)**"
             embed_color = 3447003 # Blue
             embed_desc = f"[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
         else:
-            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 일일 빈자리 리포트 (새벽 01시)**"
+            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 정기 빈자리 리포트 (06시/18시)**"
             embed_color = 8421504 # Gray
             embed_desc = f"현재 설정된 조건에 부합하는 빈자리가 없습니다.\n[👉 국립공원 예약시스템 확인하기]({RESERVATION_URL})"
     else:
@@ -364,7 +364,7 @@ def format_diff_message(
     blue_slots: List[Dict[str, Any]],
     yellow_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining_count: int,
+    total_remaining_count: Union[int, str],
     consecutive_pairs: List[Dict[str, Any]] = None
 ) -> str:
     """
@@ -386,9 +386,13 @@ def format_diff_message(
     if red_slots: parts.append(f"🔴 -{len(red_slots)} 완전마감")
     summary_str = " / ".join(parts) if parts else "변동 감지"
 
+    rem_str = str(total_remaining_count)
+    if isinstance(total_remaining_count, int) or rem_str.isdigit():
+        rem_str = f"{rem_str}자리"
+
     lines = [
         f"🚨 [국립공원 야영장 빈자리 변동 알림 ({summary_str})]",
-        f"📍 대상: {park_name} - {camp_name}{types_label} (현재 잔여: {total_remaining_count}자리)",
+        f"📍 대상: {park_name} - {camp_name}{types_label} (현재 잔여: {rem_str})",
         "-" * 30
     ]
 
@@ -421,7 +425,7 @@ def send_discord_diff(
     blue_slots: List[Dict[str, Any]],
     yellow_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining_count: int,
+    total_remaining_count: Union[int, str],
     consecutive_pairs: List[Dict[str, Any]] = None
 ) -> bool:
     """
@@ -493,7 +497,11 @@ def send_discord_diff(
         header_content = f"ℹ️ **[{park_name} {camp_name}{type_suffix}] 빈자리 예약 마감 ({summary_str})**"
         embed_color = 15158332 # Red
 
-    embed_desc = f"현재 잔여석: **{total_remaining_count}자리**\n[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
+    rem_str = str(total_remaining_count)
+    if isinstance(total_remaining_count, int) or rem_str.isdigit():
+        rem_str = f"{rem_str}자리"
+
+    embed_desc = f"현재 잔여석: **{rem_str}**\n[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
 
     payload = {
         "content": header_content,
@@ -534,7 +542,7 @@ def dispatch_diff_notifications(
     blue_slots: List[Dict[str, Any]],
     yellow_slots: List[Dict[str, Any]],
     red_slots: List[Dict[str, Any]],
-    total_remaining_count: int,
+    total_remaining_count: Union[int, str],
     consecutive_pairs: List[Dict[str, Any]] = None
 ) -> Dict[str, bool]:
     """
@@ -651,7 +659,7 @@ def dispatch_notifications(
         type_suffix = f" [{', '.join(camp_types)}]" if camp_types else ""
         if is_daily:
             con_str = f" (🔥2박연박 {len(consecutive_pairs)}개)" if consecutive_pairs else ""
-            subject = f"[국립공원 일일 리포트] {p_name} {c_name}{type_suffix} 잔여 {len(available_slots)}자리{con_str} 현황"
+            subject = f"[국립공원 정기 리포트] {p_name} {c_name}{type_suffix} 잔여 {len(available_slots)}자리{con_str} 현황"
         else:
             subject = f"[국립공원 빈자리 알림] {p_name} {c_name}{type_suffix} {len(available_slots)}자리 오픈!"
         results["email"] = send_email(

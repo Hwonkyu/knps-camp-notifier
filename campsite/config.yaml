@@ -127,9 +127,9 @@ notification:
   notify_consecutive_weekend: true
 
   # 2박 연박 판정 시 대기예약 포함 여부
-  # true: 4가지 모든 케이스(1.대기+예약, 2.예약+대기, 3.예약+예약, 4.대기+대기) 알림 발송
-  # false: 3번(예약+예약, 완전 즉시예약 2박)만 알림 발송
-  consecutive_include_waiting: true
+  # true: 대기 포함 연박도 알림 발송
+  # false: 양일 모두 즉시 예약 가능(R)인 경우만 2박 연박 알림 발송 (권장)
+  consecutive_include_waiting: false
 
   # [텔레그램 봇] (스마트폰 푸시 추천 1위)
   telegram:

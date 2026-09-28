@@ -261,23 +261,11 @@ def filter_slots(
 
 def find_consecutive_weekend_slots(
     slots: List[Dict[str, Any]],
-    include_waiting: bool = True
+    include_waiting: bool = False
 ) -> List[Dict[str, Any]]:
     """
     동일 야영장 내 동일 영지(site_type + site_num)에서 금요일과 토요일 연속 2박이 가능한 슬롯 쌍을 찾습니다.
-    
-    2박 4가지 경우의 수:
-    - Case 1: 금:대기예약(W) + 토:예약가능(R)
-    - Case 2: 금:예약가능(R) + 토:대기예약(W)
-    - Case 3: 금:예약가능(R) + 토:예약가능(R) [완전 즉시예약 2박]
-    - Case 4: 금:대기예약(W) + 토:대기예약(W) [전체 대기접수]
-    
-    Args:
-        slots: 필터링된 잔여석 슬롯 목록
-        include_waiting: 대기예약(W) 상태 슬롯도 2박 조합에 포함할지 여부 (True: 1,2,3,4 전체 / False: 3번 즉시예약만)
-        
-    Returns:
-        2박 연박 가능한 정보 딕셔너리 목록
+    사용자 요구사항에 따라 양일 모두 '즉시 예약 가능(R)'인 경우만 2박 연박으로 판정합니다. (대기예약은 2박 연박에서 제외)
     """
     spots: Dict[str, Dict[str, Dict[str, Any]]] = {}
     for s in slots:
@@ -308,33 +296,16 @@ def find_consecutive_weekend_slots(
                             f_stat = fri_slot.get("status", "R")
                             s_stat = sat_slot.get("status", "R")
 
-                            # 2박 4가지 경우의 수 분류
-                            if f_stat == "W" and s_stat == "R":
-                                case_num = 1
-                                case_name = "대기예약 + 예약가능"
-                                case_badge = "🟡 [대기 + 예약]"
-                                status_summary = "금:대기 / 토:예약"
-                            elif f_stat == "R" and s_stat == "W":
-                                case_num = 2
-                                case_name = "예약가능 + 대기예약"
-                                case_badge = "🟡 [예약 + 대기]"
-                                status_summary = "금:예약 / 토:대기"
-                            elif f_stat == "R" and s_stat == "R":
-                                case_num = 3
-                                case_name = "예약가능 + 예약가능"
-                                case_badge = "🔵 [예약 + 예약]"
-                                status_summary = "금:예약 / 토:예약 (즉시2박)"
-                            else:  # f_stat == "W" and s_stat == "W"
-                                case_num = 4
-                                case_name = "대기예약 + 대기예약"
-                                case_badge = "🟠 [대기 + 대기]"
-                                status_summary = "금:대기 / 토:대기"
-
-                            # include_waiting이 False인 경우 3번(예약가능+예약가능)만 허용
-                            if not include_waiting and case_num != 3:
+                            # 둘 다 즉시 예약가능(R)인 경우만 2박 연박으로 인정
+                            if not include_waiting and (f_stat != "R" or s_stat != "R"):
                                 continue
 
-                            both_direct = (case_num == 3)
+                            both_direct = (f_stat == "R" and s_stat == "R")
+                            case_num = 3 if both_direct else 1
+                            case_name = "예약가능 + 예약가능" if both_direct else "대기 포함"
+                            case_badge = "🔵 [즉시 2박 예약]" if both_direct else "🟡 [대기 포함]"
+                            status_summary = "금:예약 / 토:예약 (즉시2박)" if both_direct else f"금:{f_stat} / 토:{s_stat}"
+
                             pair_id = f"{d_str}_{expected_sat_str}_{spot_id}_{f_stat}_{s_stat}"
 
                             pairs.append({
