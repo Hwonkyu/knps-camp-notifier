@@ -5,14 +5,35 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T00:32:24.705836"
+      "updated_at": "2026-09-28T00:37:31.928235"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {},
+      "rooms": {
+        "B301002_2026-10-03_EB30100200037": {
+          "slot_id": "B301002_2026-10-03_EB30100200037",
+          "dept_id": "B301002",
+          "date": "2026-10-03",
+          "dow": "토",
+          "prd_id": "EB30100200037",
+          "prd_name": "[103호]6인실 침대(산전망)",
+          "category": "(6인실)C타입(적정 수용 6명)",
+          "capacity": 6,
+          "price": 120000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "설악산"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T00:32:32.577918"
+      "updated_at": "2026-09-28T00:37:42.545109"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -160,17 +181,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T00:32:40.204731"
+      "updated_at": "2026-09-28T00:37:55.723945"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T00:32:48.969793"
+      "updated_at": "2026-09-28T00:38:06.149630"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 00:37:42",
+      "center": "설악산 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-03(토) [103호]6인실 침대(산전망)(6인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 00:02:49",
       "center": "소백산 생태탐방원",
@@ -275,5 +304,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-28T00:32:49.270427"
+  "updated_at": "2026-09-28T00:38:06.450251"
 }
