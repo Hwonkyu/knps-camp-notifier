@@ -25,7 +25,7 @@ filters:
 # 3. 알림 설정
 notification:
   only_new_slots: true
-  notify_closed_slots: true
+  notify_closed_slots: false
   notify_consecutive_weekend: true
 
   discord:
