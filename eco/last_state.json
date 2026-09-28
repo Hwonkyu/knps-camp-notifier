@@ -4,6 +4,26 @@
       "dept_id": "B971002",
       "center_name": "북한산",
       "rooms": {
+        "B971002_2026-10-02_EB97100200018": {
+          "slot_id": "B971002_2026-10-02_EB97100200018",
+          "dept_id": "B971002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB97100200018",
+          "prd_name": "[209호]4인실 침대",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "북한산"
+        },
         "B971002_2026-10-02_EB97100200025": {
           "slot_id": "B971002_2026-10-02_EB97100200025",
           "dept_id": "B971002",
@@ -14,6 +34,26 @@
           "category": "(6인실)B타입(적정 수용 6명)",
           "capacity": 6,
           "price": 120000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "북한산"
+        },
+        "B971002_2026-10-02_EB97100200027": {
+          "slot_id": "B971002_2026-10-02_EB97100200027",
+          "dept_id": "B971002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB97100200027",
+          "prd_name": "[101호]8인실 침대+온돌(독채,숲전망)",
+          "category": "(8인실)C타입(적정 수용 8명)",
+          "capacity": 8,
+          "price": 160000,
           "pet_allowed": false,
           "barrier_free": false,
           "remaining": 1,
@@ -46,7 +86,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T14:02:29.583806"
+      "updated_at": "2026-09-28T14:07:25.346313"
     },
     "B301002": {
       "dept_id": "B301002",
@@ -114,7 +154,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T14:02:35.861903"
+      "updated_at": "2026-09-28T14:07:32.129537"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -242,17 +282,26 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T14:02:42.270544"
+      "updated_at": "2026-09-28T14:07:39.857415"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T14:02:49.497968"
+      "updated_at": "2026-09-28T14:07:47.758091"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 14:07:25",
+      "center": "북한산 생태탐방원",
+      "summary": "🔵 +2실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-02(금) [209호]4인실 침대(4인)",
+        "🔵 [예약가능] 2026-10-02(금) [101호]8인실 침대+온돌(독채,숲전망)(8인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 14:02:29",
       "center": "북한산 생태탐방원",
@@ -516,16 +565,8 @@
       "details": [
         "🔴 [예약마감] 2026-10-10(토) [105호]4인실 침대(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-09-27 20:17:39",
-      "center": "소백산 생태탐방원",
-      "summary": "🔵 +1실 예약가능",
-      "details": [
-        "🔵 [예약가능] 2026-10-10(토) [105호]4인실 침대(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T12:48:35.351447",
-  "updated_at": "2026-09-28T14:02:49.798547"
+  "updated_at": "2026-09-28T14:07:48.058988"
 }
