@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T12:05:19.945536"
+      "last_checked": "2026-09-28T12:10:22.018581"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -72,7 +72,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T12:05:23.216850"
+      "last_checked": "2026-09-28T12:10:26.940456"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -118,7 +118,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T12:05:27.443733"
+      "last_checked": "2026-09-28T12:10:32.361057"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -710,7 +710,7 @@
           "price_total": 140000
         }
       ],
-      "last_checked": "2026-09-28T12:05:30.960007"
+      "last_checked": "2026-09-28T12:10:35.803055"
     }
   },
   "history": [
@@ -961,5 +961,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.644666",
-  "updated_at": "2026-09-28T12:05:31.460671"
+  "updated_at": "2026-09-28T12:10:36.303733"
 }
