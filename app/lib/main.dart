@@ -4,6 +4,7 @@ import 'models/eco_config.dart';
 import 'screens/campsite_tab.dart';
 import 'screens/eco_tab.dart';
 import 'screens/settings_tab.dart';
+import 'screens/splash_screen.dart';
 import 'services/github_service.dart';
 
 void main() async {
@@ -36,7 +37,7 @@ class KnpsApp extends StatelessWidget {
           centerTitle: false,
         ),
       ),
-      home: const MainScreen(),
+      home: const SplashScreen(),
     );
   }
 }
