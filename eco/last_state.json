@@ -5,35 +5,14 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:07:26.286343"
+      "updated_at": "2026-09-28T03:12:30.442245"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {
-        "B301002_2026-10-09_EB30100200018": {
-          "slot_id": "B301002_2026-10-09_EB30100200018",
-          "dept_id": "B301002",
-          "date": "2026-10-09",
-          "dow": "금",
-          "prd_id": "EB30100200018",
-          "prd_name": "[장애인편의객실][102호]4인실 침대(산전망)",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:07:33.392809"
+      "updated_at": "2026-09-28T03:12:36.811073"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -161,17 +140,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:07:40.080080"
+      "updated_at": "2026-09-28T03:12:42.971930"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:07:47.950932"
+      "updated_at": "2026-09-28T03:12:50.158026"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 03:12:36",
+      "center": "설악산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-09(금) [장애인편의객실][102호]4인실 침대(산전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 03:07:33",
       "center": "설악산 생태탐방원",
@@ -383,5 +370,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-28T03:07:48.251599"
+  "updated_at": "2026-09-28T03:12:50.458630"
 }
