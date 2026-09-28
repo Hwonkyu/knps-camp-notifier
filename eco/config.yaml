@@ -2,10 +2,6 @@
 
 # 1. 감시할 생태탐방원 목록
 eco_centers:
-  - name: "북한산"
-    dept_id: "B971002"
-    capacities: []
-
   - name: "설악산"
     dept_id: "B301002"
     capacities: []
