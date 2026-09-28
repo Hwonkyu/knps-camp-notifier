@@ -280,9 +280,19 @@ GitHub Actions 자체 스케줄러(`schedule: cron`)는 무료 티어에서 수�
 knps-camp-notifier/
 ├── .github/
 │   └── workflows/
+│       ├── build_app.yml      # [모바일 앱] 안드로이드용 APK 자동 빌드 및 Releases 배포 워크플로우
 │       ├── daily_report.yml   # [야영장 & 생태탐방원] 매일 06:00, 18:00 정기 실행 (기준선 확립 및 전체 브리핑)
 │       ├── knps_monitor.yml   # [야영장] 5분 주기 변동(오픈/마감) 감지 독립 워크플로우
 │       └── eco_monitor.yml    # [생태탐방원] 5분 주기 독립 모니터링 워크플로우
+│
+├── app/                       # 📱 Flutter 안드로이드 모바일 설정 앱 (Material 3)
+│   ├── lib/
+│   │   ├── data/             # 전국 48개 야영장 & 10개 생태탐방원 메타데이터
+│   │   ├── models/           # YAML 파서 및 설정 데이터 모델
+│   │   ├── screens/          # 야영장 설정 / 생태탐방원 설정 / GitHub PAT 설정 화면
+│   │   ├── services/         # GitHub REST API 자동 커밋 & 푸시 서비스
+│   │   └── main.dart         # Flutter 모바일 앱 메인 엔트리포인트
+│   └── pubspec.yaml
 │
 ├── campsite/                  # 🏕️ 국립공원 야영장 모니터링 모듈
 │   ├── __init__.py

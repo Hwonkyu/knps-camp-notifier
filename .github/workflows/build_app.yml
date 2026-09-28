@@ -1,0 +1,74 @@
+name: Build Android App (APK)
+
+on:
+  # 수동 빌드 트리거 (GitHub Actions 탭에서 버튼 클릭 1번으로 빌드 가능)
+  workflow_dispatch:
+  # app 폴더 내 코드가 변경되어 푸시되었을 때 자동 빌드
+  push:
+    paths:
+      - 'app/**'
+      - '.github/workflows/build_app.yml'
+
+concurrency:
+  group: knps-build-app
+  cancel-in-progress: true
+
+jobs:
+  build-apk:
+    name: 📱 안드로이드 APK 빌드
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write  # GitHub Releases 에 APK 파일 업로드 권한
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 자바(JDK 17) 환경 설정
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 플러터(Flutter) 최신 안정 버전 설치
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: 안드로이드 플랫폼 템플릿 보강 및 패키지 설치
+        working-directory: app
+        run: |
+          flutter create --platforms=android --org com.knps.notifier .
+          flutter pub get
+
+      - name: 안드로이드 릴리즈 APK 빌드
+        working-directory: app
+        run: |
+          flutter build apk --release
+
+      - name: 빌드 완료된 APK를 GitHub Actions 아티팩트로 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: knps-notifier-app-release
+          path: app/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
+
+      - name: 스마트폰에서 바로 다운로드 가능한 GitHub Release 생성 및 APK 배포
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        with:
+          tag_name: app-latest
+          name: "📱 KNPS Notifier 모바일 앱 (최신 버전)"
+          body: |
+            ### 🏕️ 국립공원 빈자리 알림 모바일 설정 앱 (Android APK)
+            
+            스마트폰에서 아래 첨부된 `app-release.apk` 파일을 다운로드하여 설치하시면, 모바일에서 직접 야영장/생태탐방원 설정을 변경하고 GitHub에 즉시 반영할 수 있습니다.
+            
+            - **빌드 일시**: ${{ github.event.head_commit.timestamp || '수동 빌드' }}
+            - **커밋**: ${{ github.sha }}
+            - **지원 OS**: 안드로이드 8.0 이상
+          files: app/build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
