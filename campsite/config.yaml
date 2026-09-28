@@ -26,8 +26,8 @@ campsites:
 filters:
   target_dates: []
   start_date: "2026-10-01"
-  end_date: "2026-10-31"
-  target_weekdays: ["토", "금"]
+  end_date: "2027-01-26"
+  target_weekdays: ["토", "금", "일"]
   target_types: []
   target_sites: []
   include_waiting: true
