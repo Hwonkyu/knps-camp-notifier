@@ -109,7 +109,7 @@ class _SettingsTabState extends State<SettingsTab> {
                     obscureText: _obscureToken,
                     decoration: InputDecoration(
                       labelText: 'Personal Access Token (PAT)',
-                      hintText: 'ghp_...',
+                      hintText: 'github_pat_... 또는 ghp_...',
                       prefixIcon: const Icon(Icons.key, color: Color(0xFF0F766E)),
                       suffixIcon: IconButton(
                         icon: Icon(_obscureToken ? Icons.visibility_off : Icons.visibility),
@@ -244,12 +244,16 @@ class _SettingsTabState extends State<SettingsTab> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
+                    '🛡️ [보안 추천] Fine-grained 토큰 (이 저장소 1개만 접근):\n'
                     '1. GitHub 로그인 ➔ 우측 상단 프로필 ➔ Settings\n'
-                    '2. 좌측 최하단 Developer settings ➔ Personal access tokens ➔ Tokens (classic)\n'
-                    '3. Generate new token (classic) 클릭\n'
-                    '4. 권한 중 [repo] (Full control of private repositories) 체크\n'
-                    '5. 발급된 ghp_... 토큰을 복사하여 위 입력창에 붙여넣기',
-                    style: TextStyle(fontSize: 12.5, height: 1.6, color: Colors.black87),
+                    '2. 좌측 최하단 Developer settings ➔ Personal access tokens ➔ Fine-grained tokens\n'
+                    '3. Generate new token 클릭\n'
+                    '4. Repository access: [Only select repositories] ➔ [knps-camp-notifier] 선택\n'
+                    '5. Permissions: [Repository permissions] ➔ [Contents]를 [Read and write]로 설정\n'
+                    '6. 발급된 github_pat_... 토큰을 복사하여 위 입력창에 붙여넣기\n\n'
+                    '⚙️ [간편 방식] Classic 토큰:\n'
+                    'Tokens (classic) ➔ [repo] 체크 후 ghp_... 토큰 발급',
+                    style: TextStyle(fontSize: 12, height: 1.55, color: Colors.black87),
                   ),
                 ],
               ),
