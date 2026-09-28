@@ -5,32 +5,12 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:02:25.059953"
+      "updated_at": "2026-09-28T03:07:26.286343"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {
-        "B301002_2026-10-09_EB30100200030": {
-          "slot_id": "B301002_2026-10-09_EB30100200030",
-          "dept_id": "B301002",
-          "date": "2026-10-09",
-          "dow": "금",
-          "prd_id": "EB30100200030",
-          "prd_name": "[110호]4인실 침대",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        },
         "B301002_2026-10-09_EB30100200018": {
           "slot_id": "B301002_2026-10-09_EB30100200018",
           "dept_id": "B301002",
@@ -53,7 +33,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:02:32.261129"
+      "updated_at": "2026-09-28T03:07:33.392809"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -181,17 +161,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:02:39.418169"
+      "updated_at": "2026-09-28T03:07:40.080080"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-28T03:02:48.089011"
+      "updated_at": "2026-09-28T03:07:47.950932"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 03:07:33",
+      "center": "설악산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-09(금) [110호]4인실 침대(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 03:02:32",
       "center": "설악산 생태탐방원",
@@ -395,5 +383,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-28T03:02:48.389674"
+  "updated_at": "2026-09-28T03:07:48.251599"
 }
