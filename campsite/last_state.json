@@ -8,7 +8,7 @@
       ],
       "slots": {
         "20261002_CB18100400016": {
-          "slot_id": "20261002_CB18100400016_R",
+          "slot_id": "20261002_CB18100400016_W",
           "site_key": "20261002_CB18100400016",
           "park_name": "변산반도",
           "camp_name": "고사포2",
@@ -19,15 +19,15 @@
           "date": "2026-10-02",
           "raw_date": "20261002",
           "dow": "금",
-          "status": "R",
-          "status_text": "예약가능",
+          "status": "W",
+          "status_text": "대기예약",
           "price": 90000,
           "prod_id": "CB18100400016"
         }
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T01:50:21.131449"
+      "last_checked": "2026-09-28T01:55:18.937086"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -73,7 +73,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T01:50:24.672804"
+      "last_checked": "2026-09-28T01:55:22.291764"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -102,7 +102,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T01:50:29.094506"
+      "last_checked": "2026-09-28T01:55:27.080101"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -573,10 +573,18 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T01:50:32.572160"
+      "last_checked": "2026-09-28T01:55:29.647197"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 01:55:18",
+      "camp": "변산반도 고사포2",
+      "summary": "🟡 대기접수 1건",
+      "details": [
+        "🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-21번 (예약가능 ➔ 대기예약)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 01:50:20",
       "camp": "변산반도 고사포2",
@@ -797,5 +805,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.644666",
-  "updated_at": "2026-09-28T01:50:33.072477"
+  "updated_at": "2026-09-28T01:55:30.147976"
 }
