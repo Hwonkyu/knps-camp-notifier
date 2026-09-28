@@ -5,19 +5,39 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T23:57:21.535513"
+      "updated_at": "2026-09-28T00:02:30.846692"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T23:57:28.828945"
+      "updated_at": "2026-09-28T00:02:40.008503"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {
+        "B123002_2026-10-02_EB12300200030": {
+          "slot_id": "B123002_2026-10-02_EB12300200030",
+          "dept_id": "B123002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB12300200030",
+          "prd_name": "[206호]6인실 침대+온돌(복층)",
+          "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
+          "capacity": 6,
+          "price": 120000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "소백산"
+        },
         "B123002_2026-10-16_EB12300200022": {
           "slot_id": "B123002_2026-10-16_EB12300200022",
           "dept_id": "B123002",
@@ -140,17 +160,25 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T23:57:35.643661"
+      "updated_at": "2026-09-28T00:02:49.090260"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-27T23:57:43.697299"
+      "updated_at": "2026-09-28T00:02:58.929417"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 00:02:49",
+      "center": "소백산 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-02(금) [206호]6인실 침대+온돌(복층)(6인)"
+      ]
+    },
     {
       "timestamp": "2026-09-27 20:42:36",
       "center": "소백산 생태탐방원",
@@ -247,5 +275,5 @@
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.766511",
-  "updated_at": "2026-09-27T23:57:43.999878"
+  "updated_at": "2026-09-28T00:02:59.230044"
 }
