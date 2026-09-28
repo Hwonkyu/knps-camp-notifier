@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T08:35:22.569468"
+      "last_checked": "2026-09-28T08:40:20.938622"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -72,7 +72,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T08:35:26.898790"
+      "last_checked": "2026-09-28T08:40:24.185982"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -101,7 +101,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T08:35:31.933621"
+      "last_checked": "2026-09-28T08:40:27.707569"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -111,7 +111,7 @@
       ],
       "slots": {
         "20261002_CB05100601962": {
-          "slot_id": "20261002_CB05100601962_W",
+          "slot_id": "20261002_CB05100601962_R",
           "site_key": "20261002_CB05100601962",
           "park_name": "덕유산",
           "camp_name": "덕유대3",
@@ -122,8 +122,8 @@
           "date": "2026-10-02",
           "raw_date": "20261002",
           "dow": "금",
-          "status": "W",
-          "status_text": "대기예약",
+          "status": "R",
+          "status_text": "예약가능",
           "price": 70000,
           "prod_id": "CB05100601962"
         },
@@ -572,10 +572,18 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-28T08:35:35.343924"
+      "last_checked": "2026-09-28T08:40:31.256021"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-28 08:40:30",
+      "camp": "덕유산 덕유대3",
+      "summary": "🔵 즉시예약 1건",
+      "details": [
+        "🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-1(4인)번 (대기예약 ➔ 예약가능)"
+      ]
+    },
     {
       "timestamp": "2026-09-28 07:50:34",
       "camp": "덕유산 덕유대3",
@@ -816,16 +824,8 @@
       "camp": "변산반도 고사포2",
       "summary": "📋 일일 종합: 잔여석 0개 (2박 연박 0건)",
       "details": []
-    },
-    {
-      "timestamp": "2026-09-27 12:45:35",
-      "camp": "덕유산 덕유대3",
-      "summary": "🔴 완전마감 1건",
-      "details": [
-        "🔴 완전마감: 2026-10-09(금) 특화야영장 하우스-3(4인)번 (대기예약 ➔ 마감)"
-      ]
     }
   ],
   "baseline_at": "2026-09-27T16:01:07.644666",
-  "updated_at": "2026-09-28T08:35:35.844576"
+  "updated_at": "2026-09-28T08:40:31.756608"
 }
