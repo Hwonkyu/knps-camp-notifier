@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T06:00:39.720410"
+      "last_checked": "2026-09-29T06:10:21.174477"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -38,7 +38,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T06:00:43.741275"
+      "last_checked": "2026-09-29T06:10:25.864178"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -84,7 +84,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T06:00:48.260519"
+      "last_checked": "2026-09-29T06:10:30.141777"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -467,23 +467,6 @@
           "price": 90000,
           "prod_id": "CB05100601936"
         },
-        "20261003_CB05100601938": {
-          "slot_id": "20261003_CB05100601938_W",
-          "site_key": "20261003_CB05100601938",
-          "park_name": "덕유산",
-          "camp_name": "덕유대3",
-          "site_type": "특화야영장",
-          "site_num": "하우스-15(머루)(4인)",
-          "full_title": "덕유산-덕유대3-특화야영장-하우스-15(머루)(4인)",
-          "payment_title": "특화야영장 하우스-15(머루)(4인)",
-          "date": "2026-10-03",
-          "raw_date": "20261003",
-          "dow": "토",
-          "status": "W",
-          "status_text": "대기예약",
-          "price": 110000,
-          "prod_id": "CB05100601938"
-        },
         "20261016_CB05100601939": {
           "slot_id": "20261016_CB05100601939_R",
           "site_key": "20261016_CB05100601939",
@@ -521,10 +504,18 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T06:00:51.379832"
+      "last_checked": "2026-09-29T06:10:34.600165"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-29 06:10:34",
+      "camp": "덕유산 덕유대3 (User 1)",
+      "summary": "[User 1] 🔴 완전마감 1건",
+      "details": [
+        "🔴 완전마감: 2026-10-03(토) 특화야영장 하우스-15(머루)(4인)번 (대기예약 ➔ 마감)"
+      ]
+    },
     {
       "timestamp": "2026-09-29 06:00:51",
       "camp": "덕유산 덕유대3 (User 1)",
@@ -893,18 +884,10 @@
         "🔵 즉시예약: 2026-10-25(일) 카라반 B4(4인)번 (마감 ➔ 예약가능)",
         "🔵 즉시예약: 2026-10-11(일) 카라반 B5(4인)번 (마감 ➔ 예약가능)"
       ]
-    },
-    {
-      "timestamp": "2026-09-27 10:15:26",
-      "camp": "오대산 소금강산",
-      "summary": "🔵 즉시예약 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-02(금) 카라반 B3(4인)번 (마감 ➔ 예약가능)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T12:48:35.265523",
-  "updated_at": "2026-09-29T06:00:51.380438",
+  "updated_at": "2026-09-29T06:10:34.600734",
   "users": {
     "user1": {
       "campsites": {
@@ -917,7 +900,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T06:00:39.720410"
+          "last_checked": "2026-09-29T06:10:21.174477"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -946,7 +929,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T06:00:43.741275"
+          "last_checked": "2026-09-29T06:10:25.864178"
         },
         "B031005_카라반": {
           "park_name": "설악산",
@@ -992,7 +975,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T06:00:48.260519"
+          "last_checked": "2026-09-29T06:10:30.141777"
         },
         "B051006_특화야영장": {
           "park_name": "덕유산",
@@ -1375,23 +1358,6 @@
               "price": 90000,
               "prod_id": "CB05100601936"
             },
-            "20261003_CB05100601938": {
-              "slot_id": "20261003_CB05100601938_W",
-              "site_key": "20261003_CB05100601938",
-              "park_name": "덕유산",
-              "camp_name": "덕유대3",
-              "site_type": "특화야영장",
-              "site_num": "하우스-15(머루)(4인)",
-              "full_title": "덕유산-덕유대3-특화야영장-하우스-15(머루)(4인)",
-              "payment_title": "특화야영장 하우스-15(머루)(4인)",
-              "date": "2026-10-03",
-              "raw_date": "20261003",
-              "dow": "토",
-              "status": "W",
-              "status_text": "대기예약",
-              "price": 110000,
-              "prod_id": "CB05100601938"
-            },
             "20261016_CB05100601939": {
               "slot_id": "20261016_CB05100601939_R",
               "site_key": "20261016_CB05100601939",
@@ -1429,7 +1395,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T06:00:51.379832"
+          "last_checked": "2026-09-29T06:10:34.600165"
         }
       }
     },
