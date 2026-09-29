@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T12:55:27.707470"
+      "last_checked": "2026-09-29T13:00:39.699249"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -72,7 +72,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T12:55:31.514408"
+      "last_checked": "2026-09-29T13:00:43.082392"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -101,7 +101,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T12:55:35.409064"
+      "last_checked": "2026-09-29T13:00:47.298648"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -538,7 +538,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T12:55:38.872534"
+      "last_checked": "2026-09-29T13:00:50.803377"
     }
   },
   "history": [
@@ -843,7 +843,7 @@
     }
   ],
   "baseline_at": "2026-09-29T09:01:05.928821",
-  "updated_at": "2026-09-29T12:55:39.076082",
+  "updated_at": "2026-09-29T13:00:50.803931",
   "users": {
     "user1": {
       "campsites": {
@@ -856,7 +856,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T12:55:27.707470"
+          "last_checked": "2026-09-29T13:00:39.699249"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -919,7 +919,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T12:55:31.514408"
+          "last_checked": "2026-09-29T13:00:43.082392"
         },
         "B031005_카라반": {
           "park_name": "설악산",
@@ -948,7 +948,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T12:55:35.409064"
+          "last_checked": "2026-09-29T13:00:47.298648"
         },
         "B051006_특화야영장": {
           "park_name": "덕유산",
@@ -1385,7 +1385,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T12:55:38.872534"
+          "last_checked": "2026-09-29T13:00:50.803377"
         }
       }
     },
