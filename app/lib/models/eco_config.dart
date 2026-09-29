@@ -1,3 +1,5 @@
+import 'package:yaml/yaml.dart';
+
 class EcoCenterItem {
   String name;
   String deptId;
@@ -19,8 +21,8 @@ class EcoFilters {
 
   EcoFilters({
     List<String>? targetDates,
-    this.startDate = '',
-    this.endDate = '',
+    this.startDate = '2026-10-01',
+    this.endDate = '2026-10-31',
     List<String>? targetWeekdays,
     this.petOnly = false,
   })  : targetDates = targetDates ?? [],
@@ -31,187 +33,259 @@ class EcoNotification {
   bool onlyNewSlots;
   bool notifyClosedSlots;
   bool notifyConsecutiveWeekend;
+  bool discordEnabled;
+  String discordWebhookUrl;
+  bool telegramEnabled;
+  String telegramBotToken;
+  String telegramChatId;
 
   EcoNotification({
     this.onlyNewSlots = true,
     this.notifyClosedSlots = true,
     this.notifyConsecutiveWeekend = true,
+    this.discordEnabled = true,
+    this.discordWebhookUrl = '',
+    this.telegramEnabled = false,
+    this.telegramBotToken = '',
+    this.telegramChatId = '',
   });
 }
 
-class EcoConfig {
+class EcoUser {
+  String id;
+  String name;
+  bool enabled;
   List<EcoCenterItem> ecoCenters;
   EcoFilters filters;
   EcoNotification notification;
 
-  EcoConfig({
+  EcoUser({
+    required this.id,
+    required this.name,
+    this.enabled = true,
     List<EcoCenterItem>? ecoCenters,
     EcoFilters? filters,
     EcoNotification? notification,
   })  : ecoCenters = ecoCenters ?? [],
         filters = filters ?? EcoFilters(),
         notification = notification ?? EcoNotification();
+}
+
+class EcoConfig {
+  List<EcoUser> users;
+
+  EcoConfig({List<EcoUser>? users})
+      : users = users ?? [
+          EcoUser(id: 'user1', name: 'User 1'),
+          EcoUser(id: 'user2', name: 'User 2'),
+        ];
+
+  EcoUser getUser(String id) {
+    return users.firstWhere(
+      (u) => u.id == id,
+      orElse: () => users.isNotEmpty ? users.first : EcoUser(id: id, name: id),
+    );
+  }
+
+  void addUser(String name) {
+    final nextNum = users.length + 1;
+    final newId = 'user$nextNum';
+    users.add(EcoUser(id: newId, name: name));
+  }
+
+  void removeUser(String id) {
+    if (users.length <= 1) return;
+    users.removeWhere((u) => u.id == id);
+  }
 
   static EcoConfig parse(String yamlStr) {
-    final lines = yamlStr.split('\n');
-    final config = EcoConfig();
+    final config = EcoConfig(users: []);
+    try {
+      final doc = loadYaml(yamlStr);
+      if (doc is! Map) return EcoConfig();
 
-    String currentSection = '';
-    EcoCenterItem? currentCenter;
-
-    for (int i = 0; i < lines.length; i++) {
-      final line = lines[i].trim();
-      if (line.isEmpty || line.startsWith('#')) continue;
-
-      if (line.startsWith('eco_centers:')) {
-        currentSection = 'eco_centers';
-        continue;
-      } else if (line.startsWith('filters:')) {
-        currentSection = 'filters';
-        continue;
-      } else if (line.startsWith('notification:')) {
-        currentSection = 'notification';
-        continue;
+      if (doc['users'] is List) {
+        for (final uMap in doc['users']) {
+          if (uMap is! Map) continue;
+          config.users.add(_parseUser(uMap));
+        }
+      } else {
+        // 기존 단일 유저 설정 파일 호환
+        config.users.add(_parseLegacyUser(doc));
+        config.users.add(EcoUser(id: 'user2', name: 'User 2'));
       }
-
-      if (currentSection == 'eco_centers') {
-        if (line.startsWith('- name:') || line.startsWith('-')) {
-          currentCenter = EcoCenterItem(name: '', deptId: '');
-          config.ecoCenters.add(currentCenter);
-        }
-
-        if (currentCenter != null) {
-          if (line.contains('name:')) {
-            currentCenter.name = _extractValue(line, 'name:');
-          } else if (line.contains('dept_id:')) {
-            currentCenter.deptId = _extractValue(line, 'dept_id:');
-          } else if (line.contains('capacities:')) {
-            currentCenter.capacities = _extractIntList(line, 'capacities:');
-          }
-        }
-      } else if (currentSection == 'filters') {
-        if (line.startsWith('start_date:')) {
-          config.filters.startDate = _extractValue(line, 'start_date:');
-        } else if (line.startsWith('end_date:')) {
-          config.filters.endDate = _extractValue(line, 'end_date:');
-        } else if (line.startsWith('target_weekdays:')) {
-          config.filters.targetWeekdays = _extractList(line, 'target_weekdays:');
-        } else if (line.startsWith('pet_only:')) {
-          config.filters.petOnly = _extractBool(line);
-        }
-      } else if (currentSection == 'notification') {
-        if (line.startsWith('only_new_slots:')) {
-          config.notification.onlyNewSlots = _extractBool(line);
-        } else if (line.startsWith('notify_closed_slots:')) {
-          config.notification.notifyClosedSlots = _extractBool(line);
-        } else if (line.startsWith('notify_consecutive_weekend:')) {
-          config.notification.notifyConsecutiveWeekend = _extractBool(line);
-        }
-      }
+    } catch (e) {
+      // 파싱 실패 시 기본값
     }
 
+    if (config.users.isEmpty) {
+      config.users = [
+        EcoUser(id: 'user1', name: 'User 1'),
+        EcoUser(id: 'user2', name: 'User 2'),
+      ];
+    }
     return config;
   }
 
-  static String _extractValue(String line, String key) {
-    final idx = line.indexOf(key);
-    if (idx == -1) return '';
-    String val = line.substring(idx + key.length).trim();
-    if (val.contains('#')) {
-      val = val.substring(0, val.indexOf('#')).trim();
-    }
-    return val.replaceAll('"', '').replaceAll("'", "").trim();
-  }
+  static EcoUser _parseUser(Map map) {
+    final id = map['id']?.toString() ?? 'user1';
+    final name = map['name']?.toString() ?? 'User';
+    final enabled = map['enabled'] == null ? true : (map['enabled'] as bool);
 
-  static bool _extractBool(String line) {
-    final lower = line.toLowerCase();
-    return lower.contains('true');
-  }
-
-  static List<String> _extractList(String line, String key) {
-    final idx = line.indexOf(key);
-    if (idx == -1) return [];
-    String val = line.substring(idx + key.length).trim();
-    if (val.contains('#')) {
-      val = val.substring(0, val.indexOf('#')).trim();
-    }
-    val = val.replaceAll('[', '').replaceAll(']', '').trim();
-    if (val.isEmpty) return [];
-    return val
-        .split(',')
-        .map((e) => e.replaceAll('"', '').replaceAll("'", "").trim())
-        .where((e) => e.isNotEmpty)
-        .toList();
-  }
-
-  static List<int> _extractIntList(String line, String key) {
-    final list = _extractList(line, key);
-    return list.map((e) => int.tryParse(e) ?? 0).where((n) => n > 0).toList();
-  }
-
-  String toYaml({String? originalYaml}) {
-    final sb = StringBuffer();
-    sb.writeln('# 국립공원 생태탐방원 모니터링 설정 파일 (모바일 앱 생성)');
-    sb.writeln();
-    sb.writeln('# 1. 감시할 생태탐방원 목록');
-    sb.writeln('eco_centers:');
-    if (ecoCenters.isEmpty) {
-      sb.writeln('  []');
-    } else {
-      for (final c in ecoCenters) {
-        sb.writeln('  - name: "${c.name}"');
-        sb.writeln('    dept_id: "${c.deptId}"');
-        if (c.capacities.isNotEmpty) {
-          sb.writeln('    capacities: [${c.capacities.join(', ')}]');
-        } else {
-          sb.writeln('    capacities: []');
+    final centers = <EcoCenterItem>[];
+    if (map['eco_centers'] is List) {
+      for (final item in map['eco_centers']) {
+        if (item is Map) {
+          final caps = <int>[];
+          if (item['capacities'] is List) {
+            for (final c in item['capacities']) {
+              final val = int.tryParse(c.toString());
+              if (val != null) caps.add(val);
+            }
+          }
+          centers.add(EcoCenterItem(
+            name: item['name']?.toString() ?? '',
+            deptId: item['dept_id']?.toString() ?? '',
+            capacities: caps,
+          ));
         }
-        sb.writeln();
       }
     }
 
-    sb.writeln('# 2. 필터링 조건');
-    sb.writeln('filters:');
-    if (filters.targetDates.isEmpty) {
-      sb.writeln('  target_dates: []');
-    } else {
-      final datesStr = filters.targetDates.map((d) => '"$d"').join(', ');
-      sb.writeln('  target_dates: [$datesStr]');
+    final filters = EcoFilters();
+    if (map['filters'] is Map) {
+      final fMap = map['filters'] as Map;
+      filters.startDate = fMap['start_date']?.toString() ?? '2026-10-01';
+      filters.endDate = fMap['end_date']?.toString() ?? '2026-10-31';
+      filters.petOnly = fMap['pet_only'] == true;
+      if (fMap['target_weekdays'] is List) {
+        filters.targetWeekdays = (fMap['target_weekdays'] as List).map((e) => e.toString()).toList();
+      }
     }
 
-    sb.writeln('  start_date: "${filters.startDate}"');
-    sb.writeln('  end_date: "${filters.endDate}"');
+    final notif = EcoNotification();
+    if (map['notification'] is Map) {
+      final nMap = map['notification'] as Map;
+      notif.onlyNewSlots = nMap['only_new_slots'] ?? true;
+      notif.notifyClosedSlots = nMap['notify_closed_slots'] ?? true;
+      notif.notifyConsecutiveWeekend = nMap['notify_consecutive_weekend'] ?? true;
 
-    final dowsStr = filters.targetWeekdays.map((w) => '"$w"').join(', ');
-    sb.writeln('  target_weekdays: [$dowsStr]');
+      if (nMap['discord'] is Map) {
+        final dMap = nMap['discord'] as Map;
+        notif.discordEnabled = dMap['enabled'] ?? true;
+        notif.discordWebhookUrl = dMap['webhook_url']?.toString() ?? '';
+      }
+      if (nMap['telegram'] is Map) {
+        final tMap = nMap['telegram'] as Map;
+        notif.telegramEnabled = tMap['enabled'] ?? false;
+        notif.telegramBotToken = tMap['bot_token']?.toString() ?? '';
+        notif.telegramChatId = tMap['chat_id']?.toString() ?? '';
+      }
+    }
 
-    sb.writeln('  pet_only: ${filters.petOnly}');
-    sb.writeln();
+    return EcoUser(
+      id: id,
+      name: name,
+      enabled: enabled,
+      ecoCenters: centers,
+      filters: filters,
+      notification: notif,
+    );
+  }
 
-    sb.writeln('# 3. 알림 설정');
-    sb.writeln('notification:');
-    sb.writeln('  only_new_slots: ${notification.onlyNewSlots}');
-    sb.writeln('  notify_closed_slots: ${notification.notifyClosedSlots}');
-    sb.writeln('  notify_consecutive_weekend: ${notification.notifyConsecutiveWeekend}');
-    sb.writeln();
-    sb.writeln('  discord:');
-    sb.writeln('    enabled: true');
-    sb.writeln('    webhook_url: ""');
-    sb.writeln();
-    sb.writeln('  telegram:');
-    sb.writeln('    enabled: false');
-    sb.writeln('    bot_token: ""');
-    sb.writeln('    chat_id: ""');
-    sb.writeln();
-    sb.writeln('  email:');
-    sb.writeln('    enabled: false');
-    sb.writeln('    smtp_host: "smtp.gmail.com"');
-    sb.writeln('    smtp_port: 587');
-    sb.writeln('    smtp_user: ""');
-    sb.writeln('    smtp_pass: ""');
-    sb.writeln('    to_email: ""');
-    sb.writeln('    use_tls: true');
+  static EcoUser _parseLegacyUser(Map doc) {
+    final centers = <EcoCenterItem>[];
+    if (doc['eco_centers'] is List) {
+      for (final item in doc['eco_centers']) {
+        if (item is Map) {
+          final caps = <int>[];
+          if (item['capacities'] is List) {
+            for (final c in item['capacities']) {
+              final val = int.tryParse(c.toString());
+              if (val != null) caps.add(val);
+            }
+          }
+          centers.add(EcoCenterItem(
+            name: item['name']?.toString() ?? '',
+            deptId: item['dept_id']?.toString() ?? '',
+            capacities: caps,
+          ));
+        }
+      }
+    }
 
-    return sb.toString();
+    final filters = EcoFilters();
+    if (doc['filters'] is Map) {
+      final fMap = doc['filters'] as Map;
+      filters.startDate = fMap['start_date']?.toString() ?? '2026-10-01';
+      filters.endDate = fMap['end_date']?.toString() ?? '2026-10-31';
+      filters.petOnly = fMap['pet_only'] == true;
+      if (fMap['target_weekdays'] is List) {
+        filters.targetWeekdays = (fMap['target_weekdays'] as List).map((e) => e.toString()).toList();
+      }
+    }
+
+    final notif = EcoNotification();
+    if (doc['notification'] is Map) {
+      final nMap = doc['notification'] as Map;
+      notif.onlyNewSlots = nMap['only_new_slots'] ?? true;
+      notif.notifyClosedSlots = nMap['notify_closed_slots'] ?? true;
+      notif.notifyConsecutiveWeekend = nMap['notify_consecutive_weekend'] ?? true;
+      if (nMap['discord'] is Map) {
+        notif.discordEnabled = nMap['discord']['enabled'] ?? true;
+        notif.discordWebhookUrl = nMap['discord']['webhook_url']?.toString() ?? '';
+      }
+    }
+
+    return EcoUser(
+      id: 'user1',
+      name: 'User 1',
+      enabled: true,
+      ecoCenters: centers,
+      filters: filters,
+      notification: notif,
+    );
+  }
+
+  String toYaml() {
+    final buf = StringBuffer();
+    buf.writeln('# 국립공원 생태탐방원 모니터링 설정 파일 (멀티 유저 지원)\n');
+    buf.writeln('users:');
+    for (final user in users) {
+      buf.writeln('  - id: "${user.id}"');
+      buf.writeln('    name: "${user.name}"');
+      buf.writeln('    enabled: ${user.enabled}');
+      buf.writeln('    notification:');
+      buf.writeln('      only_new_slots: ${user.notification.onlyNewSlots}');
+      buf.writeln('      notify_closed_slots: ${user.notification.notifyClosedSlots}');
+      buf.writeln('      notify_consecutive_weekend: ${user.notification.notifyConsecutiveWeekend}');
+      buf.writeln('      discord:');
+      buf.writeln('        enabled: ${user.notification.discordEnabled}');
+      buf.writeln('        webhook_url: "${user.notification.discordWebhookUrl}"');
+      buf.writeln('      telegram:');
+      buf.writeln('        enabled: ${user.notification.telegramEnabled}');
+      buf.writeln('        bot_token: "${user.notification.telegramBotToken}"');
+      buf.writeln('        chat_id: "${user.notification.telegramChatId}"');
+
+      buf.writeln('    eco_centers:');
+      if (user.ecoCenters.isEmpty) {
+        buf.writeln('      []');
+      } else {
+        for (final c in user.ecoCenters) {
+          buf.writeln('      - name: "${c.name}"');
+          buf.writeln('        dept_id: "${c.deptId}"');
+          buf.writeln('        capacities: [${c.capacities.join(', ')}]');
+        }
+      }
+
+      buf.writeln('    filters:');
+      buf.writeln('      target_dates: []');
+      buf.writeln('      start_date: "${user.filters.startDate}"');
+      buf.writeln('      end_date: "${user.filters.endDate}"');
+      buf.writeln('      target_weekdays: [${user.filters.targetWeekdays.map((w) => '"$w"').join(', ')}]');
+      buf.writeln('      pet_only: ${user.filters.petOnly}');
+      buf.writeln();
+    }
+    return buf.toString();
   }
 }

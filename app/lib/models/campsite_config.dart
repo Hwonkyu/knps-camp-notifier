@@ -1,3 +1,5 @@
+import 'package:yaml/yaml.dart';
+
 class CampsiteItem {
   String parkName;
   String campName;
@@ -30,12 +32,12 @@ class CampsiteFilters {
 
   CampsiteFilters({
     List<String>? targetDates,
-    this.startDate = '',
-    this.endDate = '',
+    this.startDate = '2026-10-01',
+    this.endDate = '2026-10-31',
     List<String>? targetWeekdays,
     List<String>? targetTypes,
     List<String>? targetSites,
-    this.includeWaiting = false,
+    this.includeWaiting = true,
   })  : targetDates = targetDates ?? [],
         targetWeekdays = targetWeekdays ?? ['금', '토'],
         targetTypes = targetTypes ?? [],
@@ -48,6 +50,11 @@ class CampsiteNotification {
   bool notifyStatusChanges;
   bool notifyConsecutiveWeekend;
   bool consecutiveIncludeWaiting;
+  bool discordEnabled;
+  String discordWebhookUrl;
+  bool telegramEnabled;
+  String telegramBotToken;
+  String telegramChatId;
 
   CampsiteNotification({
     this.onlyNewSlots = true,
@@ -55,196 +62,264 @@ class CampsiteNotification {
     this.notifyStatusChanges = true,
     this.notifyConsecutiveWeekend = true,
     this.consecutiveIncludeWaiting = false,
+    this.discordEnabled = true,
+    this.discordWebhookUrl = '',
+    this.telegramEnabled = false,
+    this.telegramBotToken = '',
+    this.telegramChatId = '',
   });
 }
 
-class CampsiteConfig {
+class CampsiteUser {
+  String id;
+  String name;
+  bool enabled;
   List<CampsiteItem> campsites;
   CampsiteFilters filters;
   CampsiteNotification notification;
 
-  CampsiteConfig({
+  CampsiteUser({
+    required this.id,
+    required this.name,
+    this.enabled = true,
     List<CampsiteItem>? campsites,
     CampsiteFilters? filters,
     CampsiteNotification? notification,
   })  : campsites = campsites ?? [],
         filters = filters ?? CampsiteFilters(),
         notification = notification ?? CampsiteNotification();
+}
+
+class CampsiteConfig {
+  List<CampsiteUser> users;
+
+  CampsiteConfig({List<CampsiteUser>? users})
+      : users = users ?? [
+          CampsiteUser(id: 'user1', name: 'User 1'),
+          CampsiteUser(id: 'user2', name: 'User 2'),
+        ];
+
+  CampsiteUser getUser(String id) {
+    return users.firstWhere(
+      (u) => u.id == id,
+      orElse: () => users.isNotEmpty ? users.first : CampsiteUser(id: id, name: id),
+    );
+  }
+
+  void addUser(String name) {
+    final nextNum = users.length + 1;
+    final newId = 'user$nextNum';
+    users.add(CampsiteUser(id: newId, name: name));
+  }
+
+  void removeUser(String id) {
+    if (users.length <= 1) return;
+    users.removeWhere((u) => u.id == id);
+  }
 
   static CampsiteConfig parse(String yamlStr) {
-    final lines = yamlStr.split('\n');
-    final config = CampsiteConfig();
+    final config = CampsiteConfig(users: []);
+    try {
+      final doc = loadYaml(yamlStr);
+      if (doc is! Map) return CampsiteConfig();
 
-    String currentSection = '';
-    CampsiteItem? currentCamp;
-
-    for (int i = 0; i < lines.length; i++) {
-      final line = lines[i].trim();
-      if (line.isEmpty || line.startsWith('#')) continue;
-
-      if (line.startsWith('campsites:')) {
-        currentSection = 'campsites';
-        continue;
-      } else if (line.startsWith('filters:')) {
-        currentSection = 'filters';
-        continue;
-      } else if (line.startsWith('notification:')) {
-        currentSection = 'notification';
-        continue;
+      if (doc['users'] is List) {
+        for (final uMap in doc['users']) {
+          if (uMap is! Map) continue;
+          config.users.add(_parseUser(uMap));
+        }
+      } else {
+        // 기존 단일 유저 설정 파일 호환
+        config.users.add(_parseLegacyUser(doc));
+        config.users.add(CampsiteUser(id: 'user2', name: 'User 2'));
       }
-
-      if (currentSection == 'campsites') {
-        if (line.startsWith('- park_name:') || line.startsWith('-')) {
-          currentCamp = CampsiteItem(parkName: '', campName: '', deptId: '');
-          config.campsites.add(currentCamp);
-        }
-
-        if (currentCamp != null) {
-          if (line.contains('park_name:')) {
-            currentCamp.parkName = _extractValue(line, 'park_name:');
-          } else if (line.contains('camp_name:')) {
-            currentCamp.campName = _extractValue(line, 'camp_name:');
-          } else if (line.contains('dept_id:')) {
-            currentCamp.deptId = _extractValue(line, 'dept_id:');
-          } else if (line.contains('types:')) {
-            currentCamp.types = _extractList(line, 'types:');
-          }
-        }
-      } else if (currentSection == 'filters') {
-        if (line.startsWith('start_date:')) {
-          config.filters.startDate = _extractValue(line, 'start_date:');
-        } else if (line.startsWith('end_date:')) {
-          config.filters.endDate = _extractValue(line, 'end_date:');
-        } else if (line.startsWith('target_weekdays:')) {
-          config.filters.targetWeekdays = _extractList(line, 'target_weekdays:');
-        } else if (line.startsWith('include_waiting:')) {
-          config.filters.includeWaiting = _extractBool(line);
-        } else if (line.startsWith('target_types:')) {
-          config.filters.targetTypes = _extractList(line, 'target_types:');
-        } else if (line.startsWith('target_dates:')) {
-          config.filters.targetDates = _extractList(line, 'target_dates:');
-        }
-      } else if (currentSection == 'notification') {
-        if (line.startsWith('only_new_slots:')) {
-          config.notification.onlyNewSlots = _extractBool(line);
-        } else if (line.startsWith('notify_closed_slots:')) {
-          config.notification.notifyClosedSlots = _extractBool(line);
-        } else if (line.startsWith('notify_status_changes:')) {
-          config.notification.notifyStatusChanges = _extractBool(line);
-        } else if (line.startsWith('notify_consecutive_weekend:')) {
-          config.notification.notifyConsecutiveWeekend = _extractBool(line);
-        } else if (line.startsWith('consecutive_include_waiting:')) {
-          config.notification.consecutiveIncludeWaiting = _extractBool(line);
-        }
-      }
+    } catch (e) {
+      // 파싱 실패 시 기본값
     }
 
+    if (config.users.isEmpty) {
+      config.users = [
+        CampsiteUser(id: 'user1', name: 'User 1'),
+        CampsiteUser(id: 'user2', name: 'User 2'),
+      ];
+    }
     return config;
   }
 
-  static String _extractValue(String line, String key) {
-    final idx = line.indexOf(key);
-    if (idx == -1) return '';
-    String val = line.substring(idx + key.length).trim();
-    // remove trailing comments
-    if (val.contains('#')) {
-      val = val.substring(0, val.indexOf('#')).trim();
-    }
-    return val.replaceAll('"', '').replaceAll("'", "").trim();
-  }
+  static CampsiteUser _parseUser(Map map) {
+    final id = map['id']?.toString() ?? 'user1';
+    final name = map['name']?.toString() ?? 'User';
+    final enabled = map['enabled'] == null ? true : (map['enabled'] as bool);
 
-  static bool _extractBool(String line) {
-    final lower = line.toLowerCase();
-    return lower.contains('true');
-  }
-
-  static List<String> _extractList(String line, String key) {
-    final idx = line.indexOf(key);
-    if (idx == -1) return [];
-    String val = line.substring(idx + key.length).trim();
-    if (val.contains('#')) {
-      val = val.substring(0, val.indexOf('#')).trim();
-    }
-    val = val.replaceAll('[', '').replaceAll(']', '').trim();
-    if (val.isEmpty) return [];
-    return val
-        .split(',')
-        .map((e) => e.replaceAll('"', '').replaceAll("'", "").trim())
-        .where((e) => e.isNotEmpty)
-        .toList();
-  }
-
-  String toYaml({String? originalYaml}) {
-    final sb = StringBuffer();
-    sb.writeln('# 국립공원 야영장 모니터링 설정 파일 (모바일 앱 생성)');
-    sb.writeln();
-    sb.writeln('# 1. 감시할 야영장 및 시설 타입 목록');
-    sb.writeln('campsites:');
-    if (campsites.isEmpty) {
-      sb.writeln('  []');
-    } else {
-      for (final c in campsites) {
-        sb.writeln('  - park_name: "${c.parkName}"');
-        sb.writeln('    camp_name: "${c.campName}"');
-        sb.writeln('    dept_id: "${c.deptId}"');
-        if (c.types.isNotEmpty) {
-          final typesStr = c.types.map((t) => '"$t"').join(', ');
-          sb.writeln('    types: [$typesStr]');
+    final campsites = <CampsiteItem>[];
+    if (map['campsites'] is List) {
+      for (final item in map['campsites']) {
+        if (item is Map) {
+          final typesList = <String>[];
+          if (item['types'] is List) {
+            typesList.addAll((item['types'] as List).map((e) => e.toString()));
+          }
+          campsites.add(CampsiteItem(
+            parkName: item['park_name']?.toString() ?? '',
+            campName: item['camp_name']?.toString() ?? '',
+            deptId: item['dept_id']?.toString() ?? '',
+            types: typesList,
+          ));
         }
-        sb.writeln();
       }
     }
 
-    sb.writeln('# 2. 필터링 조건');
-    sb.writeln('filters:');
-    if (filters.targetDates.isEmpty) {
-      sb.writeln('  target_dates: []');
-    } else {
-      final datesStr = filters.targetDates.map((d) => '"$d"').join(', ');
-      sb.writeln('  target_dates: [$datesStr]');
+    final filters = CampsiteFilters();
+    if (map['filters'] is Map) {
+      final fMap = map['filters'] as Map;
+      filters.startDate = fMap['start_date']?.toString() ?? '2026-10-01';
+      filters.endDate = fMap['end_date']?.toString() ?? '2026-10-31';
+      filters.includeWaiting = fMap['include_waiting'] == true;
+      if (fMap['target_weekdays'] is List) {
+        filters.targetWeekdays = (fMap['target_weekdays'] as List).map((e) => e.toString()).toList();
+      }
+      if (fMap['target_types'] is List) {
+        filters.targetTypes = (fMap['target_types'] as List).map((e) => e.toString()).toList();
+      }
     }
 
-    sb.writeln('  start_date: "${filters.startDate}"');
-    sb.writeln('  end_date: "${filters.endDate}"');
+    final notif = CampsiteNotification();
+    if (map['notification'] is Map) {
+      final nMap = map['notification'] as Map;
+      notif.onlyNewSlots = nMap['only_new_slots'] ?? true;
+      notif.notifyClosedSlots = nMap['notify_closed_slots'] ?? true;
+      notif.notifyStatusChanges = nMap['notify_status_changes'] ?? true;
+      notif.notifyConsecutiveWeekend = nMap['notify_consecutive_weekend'] ?? true;
+      notif.consecutiveIncludeWaiting = nMap['consecutive_include_waiting'] ?? false;
 
-    final dowsStr = filters.targetWeekdays.map((w) => '"$w"').join(', ');
-    sb.writeln('  target_weekdays: [$dowsStr]');
+      if (nMap['discord'] is Map) {
+        final dMap = nMap['discord'] as Map;
+        notif.discordEnabled = dMap['enabled'] ?? true;
+        notif.discordWebhookUrl = dMap['webhook_url']?.toString() ?? '';
+      }
+      if (nMap['telegram'] is Map) {
+        final tMap = nMap['telegram'] as Map;
+        notif.telegramEnabled = tMap['enabled'] ?? false;
+        notif.telegramBotToken = tMap['bot_token']?.toString() ?? '';
+        notif.telegramChatId = tMap['chat_id']?.toString() ?? '';
+      }
+    }
 
-    final typesStr = filters.targetTypes.map((t) => '"$t"').join(', ');
-    sb.writeln('  target_types: [$typesStr]');
+    return CampsiteUser(
+      id: id,
+      name: name,
+      enabled: enabled,
+      campsites: campsites,
+      filters: filters,
+      notification: notif,
+    );
+  }
 
-    final sitesStr = filters.targetSites.map((s) => '"$s"').join(', ');
-    sb.writeln('  target_sites: [$sitesStr]');
+  static CampsiteUser _parseLegacyUser(Map doc) {
+    final campsites = <CampsiteItem>[];
+    if (doc['campsites'] is List) {
+      for (final item in doc['campsites']) {
+        if (item is Map) {
+          final typesList = <String>[];
+          if (item['types'] is List) {
+            typesList.addAll((item['types'] as List).map((e) => e.toString()));
+          }
+          campsites.add(CampsiteItem(
+            parkName: item['park_name']?.toString() ?? '',
+            campName: item['camp_name']?.toString() ?? '',
+            deptId: item['dept_id']?.toString() ?? '',
+            types: typesList,
+          ));
+        }
+      }
+    }
 
-    sb.writeln('  include_waiting: ${filters.includeWaiting}');
-    sb.writeln();
+    final filters = CampsiteFilters();
+    if (doc['filters'] is Map) {
+      final fMap = doc['filters'] as Map;
+      filters.startDate = fMap['start_date']?.toString() ?? '2026-10-01';
+      filters.endDate = fMap['end_date']?.toString() ?? '2026-10-31';
+      filters.includeWaiting = fMap['include_waiting'] == true;
+      if (fMap['target_weekdays'] is List) {
+        filters.targetWeekdays = (fMap['target_weekdays'] as List).map((e) => e.toString()).toList();
+      }
+      if (fMap['target_types'] is List) {
+        filters.targetTypes = (fMap['target_types'] as List).map((e) => e.toString()).toList();
+      }
+    }
 
-    sb.writeln('# 3. 알림 설정');
-    sb.writeln('notification:');
-    sb.writeln('  only_new_slots: ${notification.onlyNewSlots}');
-    sb.writeln('  notify_closed_slots: ${notification.notifyClosedSlots}');
-    sb.writeln('  notify_status_changes: ${notification.notifyStatusChanges}');
-    sb.writeln('  notify_consecutive_weekend: ${notification.notifyConsecutiveWeekend}');
-    sb.writeln('  consecutive_include_waiting: ${notification.consecutiveIncludeWaiting}');
-    sb.writeln();
-    sb.writeln('  telegram:');
-    sb.writeln('    enabled: false');
-    sb.writeln('    bot_token: ""');
-    sb.writeln('    chat_id: ""');
-    sb.writeln();
-    sb.writeln('  discord:');
-    sb.writeln('    enabled: true');
-    sb.writeln('    webhook_url: ""');
-    sb.writeln();
-    sb.writeln('  email:');
-    sb.writeln('    enabled: false');
-    sb.writeln('    smtp_host: "smtp.gmail.com"');
-    sb.writeln('    smtp_port: 587');
-    sb.writeln('    smtp_user: ""');
-    sb.writeln('    smtp_pass: ""');
-    sb.writeln('    to_email: ""');
-    sb.writeln('    use_tls: true');
+    final notif = CampsiteNotification();
+    if (doc['notification'] is Map) {
+      final nMap = doc['notification'] as Map;
+      notif.onlyNewSlots = nMap['only_new_slots'] ?? true;
+      notif.notifyClosedSlots = nMap['notify_closed_slots'] ?? true;
+      notif.notifyStatusChanges = nMap['notify_status_changes'] ?? true;
+      notif.notifyConsecutiveWeekend = nMap['notify_consecutive_weekend'] ?? true;
+      notif.consecutiveIncludeWaiting = nMap['consecutive_include_waiting'] ?? false;
+      if (nMap['discord'] is Map) {
+        notif.discordEnabled = nMap['discord']['enabled'] ?? true;
+        notif.discordWebhookUrl = nMap['discord']['webhook_url']?.toString() ?? '';
+      }
+    }
 
-    return sb.toString();
+    return CampsiteUser(
+      id: 'user1',
+      name: 'User 1',
+      enabled: true,
+      campsites: campsites,
+      filters: filters,
+      notification: notif,
+    );
+  }
+
+  String toYaml() {
+    final buf = StringBuffer();
+    buf.writeln('# 국립공원 야영장 모니터링 설정 파일 (멀티 유저 지원)\n');
+    buf.writeln('users:');
+    for (final user in users) {
+      buf.writeln('  - id: "${user.id}"');
+      buf.writeln('    name: "${user.name}"');
+      buf.writeln('    enabled: ${user.enabled}');
+      buf.writeln('    notification:');
+      buf.writeln('      only_new_slots: ${user.notification.onlyNewSlots}');
+      buf.writeln('      notify_closed_slots: ${user.notification.notifyClosedSlots}');
+      buf.writeln('      notify_status_changes: ${user.notification.notifyStatusChanges}');
+      buf.writeln('      notify_consecutive_weekend: ${user.notification.notifyConsecutiveWeekend}');
+      buf.writeln('      consecutive_include_waiting: ${user.notification.consecutiveIncludeWaiting}');
+      buf.writeln('      discord:');
+      buf.writeln('        enabled: ${user.notification.discordEnabled}');
+      buf.writeln('        webhook_url: "${user.notification.discordWebhookUrl}"');
+      buf.writeln('      telegram:');
+      buf.writeln('        enabled: ${user.notification.telegramEnabled}');
+      buf.writeln('        bot_token: "${user.notification.telegramBotToken}"');
+      buf.writeln('        chat_id: "${user.notification.telegramChatId}"');
+
+      buf.writeln('    campsites:');
+      if (user.campsites.isEmpty) {
+        buf.writeln('      []');
+      } else {
+        for (final c in user.campsites) {
+          buf.writeln('      - park_name: "${c.parkName}"');
+          buf.writeln('        camp_name: "${c.campName}"');
+          buf.writeln('        dept_id: "${c.deptId}"');
+          if (c.types.isEmpty) {
+            buf.writeln('        types: []');
+          } else {
+            buf.writeln('        types: [${c.types.map((t) => '"$t"').join(', ')}]');
+          }
+        }
+      }
+
+      buf.writeln('    filters:');
+      buf.writeln('      target_dates: []');
+      buf.writeln('      start_date: "${user.filters.startDate}"');
+      buf.writeln('      end_date: "${user.filters.endDate}"');
+      buf.writeln('      target_weekdays: [${user.filters.targetWeekdays.map((w) => '"$w"').join(', ')}]');
+      buf.writeln('      target_types: [${user.filters.targetTypes.map((t) => '"$t"').join(', ')}]');
+      buf.writeln('      target_sites: [${user.filters.targetSites.map((s) => '"$s"').join(', ')}]');
+      buf.writeln('      include_waiting: ${user.filters.includeWaiting}');
+      buf.writeln();
+    }
+    return buf.toString();
   }
 }

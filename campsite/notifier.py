@@ -6,6 +6,7 @@
 순수 파이썬 표준 라이브러리(urllib, json, smtplib, email)로 구현되어 외부 패키지 설치 없이 동작합니다.
 """
 
+import os
 import json
 import urllib.request
 import urllib.parse
@@ -16,6 +17,43 @@ from email.mime.multipart import MIMEMultipart
 from typing import List, Dict, Any, Union
 
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
+
+
+def resolve_discord_webhook(notif_cfg: Dict[str, Any], user_id: str = "user1") -> str:
+    """
+    유저별 디스코드 웹훅 주소를 해석합니다.
+    1. config.yaml 의 user.notification.discord.webhook_url
+    2. 환경변수 DISCORD_WEBHOOK_URL_{USER_ID} (예: DISCORD_WEBHOOK_URL_USER2)
+    3. user1인 경우 기존 기본 DISCORD_WEBHOOK_URL 환경변수 fallback
+    """
+    dc = notif_cfg.get("discord", {}) if isinstance(notif_cfg, dict) else {}
+    url = (dc.get("webhook_url") or "").strip()
+    if url:
+        return url
+    env_user = os.getenv(f"DISCORD_WEBHOOK_URL_{user_id.upper()}", "").strip()
+    if env_user:
+        return env_user
+    if user_id.lower() == "user1":
+        return os.getenv("DISCORD_WEBHOOK_URL", "").strip()
+    return ""
+
+
+def resolve_telegram_config(notif_cfg: Dict[str, Any], user_id: str = "user1") -> tuple:
+    """
+    유저별 텔레그램 봇 토큰 및 채팅 ID를 해석합니다.
+    """
+    tg = notif_cfg.get("telegram", {}) if isinstance(notif_cfg, dict) else {}
+    token = (tg.get("bot_token") or "").strip()
+    chat_id = (tg.get("chat_id") or "").strip()
+    if not token:
+        token = os.getenv(f"TELEGRAM_BOT_TOKEN_{user_id.upper()}", "").strip()
+        if not token and user_id.lower() == "user1":
+            token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    if not chat_id:
+        chat_id = os.getenv(f"TELEGRAM_CHAT_ID_{user_id.upper()}", "").strip()
+        if not chat_id and user_id.lower() == "user1":
+            chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    return token, chat_id
 
 def format_notification_message(
     campsite_info: Dict[str, Any],
@@ -31,13 +69,18 @@ def format_notification_message(
     camp_types = campsite_info.get("types")
     types_label = f" [{', '.join(camp_types)}]" if camp_types else ""
 
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     lines = []
     if is_daily:
-        lines.append(f"📊 [국립공원 야영장 정기 빈자리 리포트 (06시/18시)]")
+        lines.append(f"📊 {user_prefix}[국립공원 야영장 정기 빈자리 리포트 (06시/18시)]")
         lines.append(f"📍 대상: {park_name} - {camp_name}{types_label}")
     else:
-        lines.append(f"🏕️ [국립공원 야영장 빈자리 실시간 알림]")
+        lines.append(f"🏕️ {user_prefix}[국립공원 야영장 빈자리 실시간 알림]")
         lines.append(f"📍 대상: {park_name} - {camp_name}{types_label} ({len(available_slots)}자리 발견)")
+    if user_name:
+        lines.append(f"👤 수신자: {user_name}")
     lines.append("-" * 30)
 
     if consecutive_pairs:
@@ -166,17 +209,20 @@ def send_discord(
                 "inline": True
             })
 
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     if is_daily:
         if slots:
-            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 정기 빈자리 종합 리포트 ({len(slots)}자리)**"
+            header_content = f"📊 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 정기 빈자리 종합 리포트 ({len(slots)}자리)**"
             embed_color = 3447003 # Blue
             embed_desc = f"[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
         else:
-            header_content = f"📊 **[{park_name} {camp_name}{type_suffix}] 정기 빈자리 리포트 (06시/18시)**"
+            header_content = f"📊 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 정기 빈자리 리포트 (06시/18시)**"
             embed_color = 8421504 # Gray
             embed_desc = f"현재 설정된 조건에 부합하는 빈자리가 없습니다.\n[👉 국립공원 예약시스템 확인하기]({RESERVATION_URL})"
     else:
-        header_content = f"🚨 **[{park_name} {camp_name}{type_suffix}] 실시간 빈자리 예약 가능!**"
+        header_content = f"🚨 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 실시간 빈자리 예약 가능!**"
         embed_color = 3066993 # Green
         embed_desc = f"[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
 
@@ -184,7 +230,7 @@ def send_discord(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🏕️ {park_name} - {camp_name}{type_suffix} ({len(slots)}자리)",
+                "title": f"🏕️ {user_prefix}{park_name} - {camp_name}{type_suffix} ({len(slots)}자리)",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
@@ -390,11 +436,16 @@ def format_diff_message(
     if isinstance(total_remaining_count, int) or rem_str.isdigit():
         rem_str = f"{rem_str}자리"
 
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     lines = [
-        f"🚨 [국립공원 야영장 빈자리 변동 알림 ({summary_str})]",
+        f"🚨 {user_prefix}[국립공원 야영장 빈자리 변동 알림 ({summary_str})]",
         f"📍 대상: {park_name} - {camp_name}{types_label} (현재 잔여: {rem_str})",
-        "-" * 30
     ]
+    if user_name:
+        lines.append(f"👤 수신자: {user_name}")
+    lines.append("-" * 30)
 
     if consecutive_pairs:
         lines.append(f"\n🔥 [주말 2박(금,토) 연박 가능 영지 ({len(consecutive_pairs)}개 발견!)]")
@@ -438,6 +489,8 @@ def send_discord_diff(
     camp_name = campsite_info.get("camp_name", "")
     camp_types = campsite_info.get("types")
     type_suffix = f" ({', '.join(camp_types)})" if camp_types else ""
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
 
     blue_slots = blue_slots or []
     yellow_slots = yellow_slots or []
@@ -488,13 +541,13 @@ def send_discord_diff(
     summary_str = " / ".join(parts) if parts else "변동 감지"
 
     if consecutive_pairs or blue_slots:
-        header_content = f"🚀 **[{park_name} {camp_name}{type_suffix}] 즉시 예약 가능한 빈자리 발견! ({summary_str})**"
+        header_content = f"🚀 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 즉시 예약 가능한 빈자리 발견! ({summary_str})**"
         embed_color = 3447003  # Blue
     elif yellow_slots:
-        header_content = f"🟡 **[{park_name} {camp_name}{type_suffix}] 대기 접수 가능한 빈자리 변동! ({summary_str})**"
+        header_content = f"🟡 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 대기 접수 가능한 빈자리 변동! ({summary_str})**"
         embed_color = 16766720  # Yellow / Gold
     else:
-        header_content = f"ℹ️ **[{park_name} {camp_name}{type_suffix}] 빈자리 예약 마감 ({summary_str})**"
+        header_content = f"ℹ️ **{user_prefix}[{park_name} {camp_name}{type_suffix}] 빈자리 예약 마감 ({summary_str})**"
         embed_color = 15158332 # Red
 
     rem_str = str(total_remaining_count)
@@ -507,7 +560,7 @@ def send_discord_diff(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🏕️ {park_name} - {camp_name}{type_suffix}",
+                "title": f"🏕️ {user_prefix}{park_name} - {camp_name}{type_suffix}",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
@@ -560,28 +613,35 @@ def dispatch_diff_notifications(
         total_remaining_count,
         consecutive_pairs=consecutive_pairs
     )
-    notif_cfg = config.get("notification", {})
+    user_id = campsite_info.get("user_id", "user1")
+    user_name = campsite_info.get("user_name", user_id)
+    notif_cfg = config.get("notification", {}) if "notification" in config else config
 
     # 1. 텔레그램
     tg_cfg = notif_cfg.get("telegram", {})
     if tg_cfg.get("enabled", False):
-        bot_token = tg_cfg.get("bot_token")
-        chat_id = tg_cfg.get("chat_id")
-        results["telegram"] = send_telegram(bot_token, chat_id, message)
+        bot_token, chat_id = resolve_telegram_config(notif_cfg, user_id)
+        if not bot_token or not chat_id:
+            print(f"ℹ️ [{user_name}] 텔레그램 봇 토큰/채팅ID가 설정되지 않아 알림 발송을 건너뜁니다.")
+        else:
+            results["telegram"] = send_telegram(bot_token, chat_id, message)
 
     # 2. 디스코드
     dc_cfg = notif_cfg.get("discord", {})
     if dc_cfg.get("enabled", False):
-        webhook_url = dc_cfg.get("webhook_url")
-        results["discord"] = send_discord_diff(
-            webhook_url,
-            campsite_info,
-            blue_slots,
-            yellow_slots,
-            red_slots,
-            total_remaining_count,
-            consecutive_pairs=consecutive_pairs
-        )
+        webhook_url = resolve_discord_webhook(notif_cfg, user_id)
+        if not webhook_url:
+            print(f"ℹ️ [{user_name}] 디스코드 웹훅 주소가 비어 있어 알림 발송을 건너뜁니다.")
+        else:
+            results["discord"] = send_discord_diff(
+                webhook_url,
+                campsite_info,
+                blue_slots,
+                yellow_slots,
+                red_slots,
+                total_remaining_count,
+                consecutive_pairs=consecutive_pairs
+            )
 
     # 3. 이메일
     em_cfg = notif_cfg.get("email", {})
@@ -628,27 +688,34 @@ def dispatch_notifications(
         is_daily=is_daily,
         consecutive_pairs=consecutive_pairs
     )
-    notif_cfg = config.get("notification", {})
+    user_id = campsite_info.get("user_id", "user1")
+    user_name = campsite_info.get("user_name", user_id)
+    notif_cfg = config.get("notification", {}) if "notification" in config else config
 
     # 1. 텔레그램
     tg_cfg = notif_cfg.get("telegram", {})
     if tg_cfg.get("enabled", False):
-        bot_token = tg_cfg.get("bot_token")
-        chat_id = tg_cfg.get("chat_id")
-        results["telegram"] = send_telegram(bot_token, chat_id, message)
+        bot_token, chat_id = resolve_telegram_config(notif_cfg, user_id)
+        if not bot_token or not chat_id:
+            print(f"ℹ️ [{user_name}] 텔레그램 봇 토큰/채팅ID가 설정되지 않아 알림 발송을 건너뜁니다.")
+        else:
+            results["telegram"] = send_telegram(bot_token, chat_id, message)
 
     # 2. 디스코드
     dc_cfg = notif_cfg.get("discord", {})
     if dc_cfg.get("enabled", False):
-        webhook_url = dc_cfg.get("webhook_url")
-        results["discord"] = send_discord(
-            webhook_url,
-            message,
-            campsite_info,
-            available_slots,
-            is_daily=is_daily,
-            consecutive_pairs=consecutive_pairs
-        )
+        webhook_url = resolve_discord_webhook(notif_cfg, user_id)
+        if not webhook_url:
+            print(f"ℹ️ [{user_name}] 디스코드 웹훅 주소가 비어 있어 알림 발송을 건너뜁니다.")
+        else:
+            results["discord"] = send_discord(
+                webhook_url,
+                message,
+                campsite_info,
+                available_slots,
+                is_daily=is_daily,
+                consecutive_pairs=consecutive_pairs
+            )
 
     # 3. 이메일
     em_cfg = notif_cfg.get("email", {})
@@ -688,11 +755,16 @@ def format_consecutive_message(
     camp_types = campsite_info.get("types")
     types_label = f" [{', '.join(camp_types)}]" if camp_types else ""
 
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     lines = [
-        f"🔥 [국립공원 주말 2박(금,토) 연박 예약 가능 알림!]",
+        f"🔥 {user_prefix}[국립공원 주말 2박(금,토) 연박 예약 가능 알림!]",
         f"📍 대상: {park_name} - {camp_name}{types_label} ({len(consecutive_pairs)}개 영지 발견)",
-        "-" * 30
     ]
+    if user_name:
+        lines.append(f"👤 수신자: {user_name}")
+    lines.append("-" * 30)
 
     for p in consecutive_pairs:
         f_s = p.get("fri_slot", {})
@@ -728,6 +800,8 @@ def send_discord_consecutive(
     camp_name = campsite_info.get("camp_name", "")
     camp_types = campsite_info.get("types")
     type_suffix = f" ({', '.join(camp_types)})" if camp_types else ""
+    user_name = campsite_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
 
     c3_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 3)
     c12_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") in (1, 2))
@@ -756,7 +830,7 @@ def send_discord_consecutive(
             "inline": True
         })
 
-    header_content = f"🔥 **[{park_name} {camp_name}{type_suffix}] 주말 2박(금,토) 연박 가능 자리 발견!{stat_summary}**"
+    header_content = f"🔥 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 주말 2박(금,토) 연박 가능 자리 발견!{stat_summary}**"
     embed_color = 16737792 if c3_cnt > 0 else (16753920 if c12_cnt > 0 else 16744448)
     embed_desc = (
         f"🎉 **금요일과 토요일 연속 2박 숙박이 가능한 자리가 나왔습니다!**\n"
@@ -768,7 +842,7 @@ def send_discord_consecutive(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🔥 2박 3일(금+토) 연속 숙박 가능한 영지!",
+                "title": f"🔥 {user_prefix}2박 3일(금+토) 연속 숙박 가능한 영지!",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
@@ -810,20 +884,27 @@ def dispatch_consecutive_notifications(
 
     results = {}
     message = format_consecutive_message(campsite_info, consecutive_pairs)
-    notif_cfg = config.get("notification", {})
+    user_id = campsite_info.get("user_id", "user1")
+    user_name = campsite_info.get("user_name", user_id)
+    notif_cfg = config.get("notification", {}) if "notification" in config else config
 
     # 1. 텔레그램
     tg_cfg = notif_cfg.get("telegram", {})
     if tg_cfg.get("enabled", False):
-        bot_token = tg_cfg.get("bot_token")
-        chat_id = tg_cfg.get("chat_id")
-        results["telegram"] = send_telegram(bot_token, chat_id, message)
+        bot_token, chat_id = resolve_telegram_config(notif_cfg, user_id)
+        if not bot_token or not chat_id:
+            print(f"ℹ️ [{user_name}] 텔레그램 봇 토큰/채팅ID가 설정되지 않아 알림 발송을 건너뜁니다.")
+        else:
+            results["telegram"] = send_telegram(bot_token, chat_id, message)
 
     # 2. 디스코드
     dc_cfg = notif_cfg.get("discord", {})
     if dc_cfg.get("enabled", False):
-        webhook_url = dc_cfg.get("webhook_url")
-        results["discord"] = send_discord_consecutive(webhook_url, campsite_info, consecutive_pairs)
+        webhook_url = resolve_discord_webhook(notif_cfg, user_id)
+        if not webhook_url:
+            print(f"ℹ️ [{user_name}] 디스코드 웹훅 주소가 비어 있어 알림 발송을 건너뜁니다.")
+        else:
+            results["discord"] = send_discord_consecutive(webhook_url, campsite_info, consecutive_pairs)
 
     # 3. 이메일
     em_cfg = notif_cfg.get("email", {})

@@ -32,6 +32,16 @@ def _create_ssl_context() -> ssl.SSLContext:
     return ctx
 
 
+_ROOMS_CACHE: Dict[tuple, List[Dict[str, Any]]] = {}
+
+
+def clear_rooms_cache():
+    """
+    인메모리 객실 캐시를 초기화합니다.
+    """
+    _ROOMS_CACHE.clear()
+
+
 def fetch_eco_living_rooms(
     dept_id: str,
     checkin_date: str,
@@ -45,6 +55,10 @@ def fetch_eco_living_rooms(
     :param checkin_date: 입실일 (YYYY-MM-DD)
     :return: 해당 날짜의 전체 객실 상태 목록
     """
+    cache_key = (dept_id, checkin_date)
+    if cache_key in _ROOMS_CACHE:
+        return _ROOMS_CACHE[cache_key]
+
     try:
         checkin_dt = datetime.strptime(checkin_date, "%Y-%m-%d")
     except ValueError:
@@ -115,6 +129,7 @@ def fetch_eco_living_rooms(
                         "is_available": is_available,
                     })
 
+                _ROOMS_CACHE[cache_key] = rooms
                 return rooms
         except Exception as e:
             if attempt < max_retries:

@@ -39,24 +39,46 @@ def generate_status_markdown(
     현재 state와 config를 바탕으로 표(Table) 형태의 STATUS.md 마크다운 문서를 생성합니다.
     """
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    campsites_cfg = config.get("campsites", [])
-    filters_cfg = config.get("filters", {})
-    notif_cfg = config.get("notification", {})
+
+    if "users" in config and isinstance(config["users"], list):
+        campsites_cfg = []
+        dows_set = set()
+        user_names = []
+        for u in config["users"]:
+            if u.get("enabled", True):
+                user_names.append(u.get("name", u.get("id", "")))
+                campsites_cfg.extend(u.get("campsites", []))
+                for d in u.get("filters", {}).get("target_weekdays", []):
+                    dows_set.add(d)
+        dows_str = ", ".join(sorted(list(dows_set))) or "전체 요일"
+        user_line = f"> 👤 **활성 사용자**: {', '.join(user_names)}  \n" if user_names else ""
+        waiting_str = "유저별 설정"
+        consec_str = "활성화"
+    else:
+        campsites_cfg = config.get("campsites", [])
+        filters_cfg = config.get("filters", {})
+        notif_cfg = config.get("notification", {})
+        dows_str = ", ".join(filters_cfg.get("target_weekdays", [])) or "전체 요일"
+        user_line = ""
+        waiting_str = "포함 (R+W)" if filters_cfg.get("include_waiting", True) else "미포함 (R만)"
+        consec_str = "활성화 (금+토 2박 단독 알림)" if notif_cfg.get("notify_consecutive_weekend", True) else "비활성화"
 
     camp_names_list = []
+    seen_camps = set()
     for c in campsites_cfg:
+        key = (c.get("park_name"), c.get("camp_name"))
+        if key in seen_camps:
+            continue
+        seen_camps.add(key)
         t_str = f"[{', '.join(c.get('types', []))}]" if c.get("types") else ""
         camp_names_list.append(f"**{c.get('park_name')} {c.get('camp_name')}**{t_str}")
     camps_display = ", ".join(camp_names_list) if camp_names_list else "설정된 야영장 없음"
-
-    dows_str = ", ".join(filters_cfg.get("target_weekdays", [])) or "전체 요일"
-    waiting_str = "포함 (R+W)" if filters_cfg.get("include_waiting", True) else "미포함 (R만)"
-    consec_str = "활성화 (금+토 2박 단독 알림)" if notif_cfg.get("notify_consecutive_weekend", True) else "비활성화"
 
     lines = [
         "# 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황",
         "",
         f"> 🕒 **마지막 모니터링 시각**: `{now_str}` (KST)  ",
+        user_line,
         f"> 🎯 **감시 야영장**: {camps_display}  ",
         f"> ⚙️ **필터 조건**: 요일: `{dows_str}` | 대기예약: `{waiting_str}` | 2박 연박 감지: `{consec_str}`",
         "",
@@ -68,6 +90,10 @@ def generate_status_markdown(
 
     # 1. 2박 연박 목록 취합
     camp_states = state.get("campsites", {})
+    if not camp_states and "users" in state:
+        camp_states = {}
+        for u_id, u_st in state["users"].items():
+            camp_states.update(u_st.get("campsites", {}))
     all_consecutive = []
     for s_key, c_data in camp_states.items():
         pairs = c_data.get("consecutive_pairs_data", [])

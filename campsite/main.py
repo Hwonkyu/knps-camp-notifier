@@ -67,6 +67,7 @@ def load_config() -> Dict[str, Any]:
         }
 
     # 3. 환경 변수 오버라이드 (GitHub Actions Secrets 지원)
+    # 단일/글로벌 설정 오버라이드
     notif = config.setdefault("notification", {})
 
     tg_token = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -93,7 +94,62 @@ def load_config() -> Dict[str, Any]:
         em["smtp_pass"] = email_pass
         em["to_email"] = email_to
 
+    # 멀티 유저별 환경 변수 오버라이드
+    if "users" in config and isinstance(config["users"], list):
+        for u in config["users"]:
+            if not isinstance(u, dict):
+                continue
+            u_id = str(u.get("id", "user1")).strip()
+            u_notif = u.setdefault("notification", {})
+            u_dc = u_notif.setdefault("discord", {})
+            u_tg = u_notif.setdefault("telegram", {})
+
+            # Discord per-user secret
+            u_wh = os.getenv(f"DISCORD_WEBHOOK_URL_{u_id.upper()}")
+            if u_wh:
+                u_dc["enabled"] = True
+                u_dc["webhook_url"] = u_wh
+            elif u_id.lower() == "user1" and discord_webhook and not u_dc.get("webhook_url"):
+                u_dc["enabled"] = True
+                u_dc["webhook_url"] = discord_webhook
+
+            # Telegram per-user secret
+            u_token = os.getenv(f"TELEGRAM_BOT_TOKEN_{u_id.upper()}")
+            u_cid = os.getenv(f"TELEGRAM_CHAT_ID_{u_id.upper()}")
+            if u_token and u_cid:
+                u_tg["enabled"] = True
+                u_tg["bot_token"] = u_token
+                u_tg["chat_id"] = u_cid
+            elif u_id.lower() == "user1" and tg_token and tg_chat and not u_tg.get("bot_token"):
+                u_tg["enabled"] = True
+                u_tg["bot_token"] = tg_token
+                u_tg["chat_id"] = tg_chat
+
     return config
+
+
+def get_users(config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    config에서 활성화된 사용자 목록을 반환합니다.
+    단일 사용자 레거시 설정인 경우 단일 유저 리스트로 변환하여 호환성을 유지합니다.
+    """
+    raw_users = config.get("users")
+    if isinstance(raw_users, list) and raw_users:
+        users = []
+        for u in raw_users:
+            if isinstance(u, dict):
+                users.append(u)
+        return users
+
+    # 레거시 단일 사용자 fallback
+    return [{
+        "id": "user1",
+        "name": "User 1",
+        "enabled": True,
+        "notification": config.get("notification", {}),
+        "campsites": config.get("campsites", []),
+        "filters": config.get("filters", {})
+    }]
 
 
 def load_state() -> Dict[str, Any]:
@@ -305,238 +361,243 @@ def cmd_test_alert(config: Dict[str, Any]):
         }
     ]
 
-    print("\n[테스트 1/2] 일반 빈자리 변동 알림 발송 중...")
-    results = notifier.dispatch_diff_notifications(
-        config=config,
-        campsite_info=dummy_camp,
-        blue_slots=dummy_blue,
-        yellow_slots=dummy_yellow,
-        red_slots=dummy_red,
-        total_remaining_count=3,
-        consecutive_pairs=dummy_consecutive
-    )
-    if not results:
-        print("[경고] 활성화된 알림 채널이 없습니다! (config.yaml 에서 enabled: true 로 변경하거나 환경변수를 설정하세요)")
+    users = get_users(config)
+    active_users = [u for u in users if u.get("enabled", True)]
+    if not active_users:
+        print("[경고] 활성화된 사용자(enabled: true)가 없습니다.")
         return
 
-    for ch, success in results.items():
-        status = "성공 ✅" if success else "실패 ❌"
-        print(f"• {ch.capitalize()}: {status}")
+    for u in active_users:
+        u_id = u.get("id", "user1")
+        u_name = u.get("name", u_id)
+        u_notif = u.get("notification", {})
+        dummy_camp["user_id"] = u_id
+        dummy_camp["user_name"] = u_name
 
-    print("\n[테스트 2/2] 🔥 주말 2박(금,토) 연박 전용 긴급 알림 발송 중...")
-    con_results = notifier.dispatch_consecutive_notifications(
-        config=config,
-        campsite_info=dummy_camp,
-        consecutive_pairs=dummy_consecutive
-    )
-    for ch, success in con_results.items():
-        status = "성공 ✅" if success else "실패 ❌"
-        print(f"• {ch.capitalize()}: {status}")
+        print(f"\n==========================================")
+        print(f"👤 [{u_name}] 테스트 알림 발송 중...")
+        print(f"==========================================")
+
+        print("[테스트 1/2] 일반 빈자리 변동 알림 발송 중...")
+        results = notifier.dispatch_diff_notifications(
+            config=u_notif,
+            campsite_info=dummy_camp,
+            blue_slots=dummy_blue,
+            yellow_slots=dummy_yellow,
+            red_slots=dummy_red,
+            total_remaining_count=3,
+            consecutive_pairs=dummy_consecutive
+        )
+        if not results:
+            print(f"[경고] [{u_name}] 활성화된 알림 채널이 없습니다!")
+        else:
+            for ch, success in results.items():
+                status = "성공 ✅" if success else "실패 ❌"
+                print(f"• {ch.capitalize()}: {status}")
+
+        print("\n[테스트 2/2] 🔥 주말 2박(금,토) 연박 전용 긴급 알림 발송 중...")
+        con_results = notifier.dispatch_consecutive_notifications(
+            config=u_notif,
+            campsite_info=dummy_camp,
+            consecutive_pairs=dummy_consecutive
+        )
+        for ch, success in con_results.items():
+            status = "성공 ✅" if success else "실패 ❌"
+            print(f"• {ch.capitalize()}: {status}")
 
 
 def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool = False):
     """
-    설정된 야영장들의 빈자리를 조회하고 조건에 맞으면 알림을 발송합니다.
+    설정된 사용자별 야영장들의 빈자리를 조회하고 조건에 맞으면 알림을 발송합니다.
     - is_daily=True: 매일 06시/18시 전체 잔여석 종합 리포트 발송 및 정기 기준선(baseline) 저장.
     - is_daily=False: 이전 상태 대비 6대 변동(🔵 파란 불: 즉시예약 / 🟡 노란 불: 대기접수 / 🔴 빨간 불: 완전마감) 감지 및 알림 발송.
     """
-    campsites = config.get("campsites", [])
-    if not campsites:
-        print("[오류] 감시할 야영장(campsites)이 설정되지 않았습니다.")
+    users = get_users(config)
+    active_users = [u for u in users if u.get("enabled", True)]
+    if not active_users:
+        print("[오류] 활성화된 감시 사용자(users)가 없습니다.")
         return
 
-    filters = config.get("filters", {})
-    notif_cfg = config.get("notification", {})
-    only_new_slots = notif_cfg.get("only_new_slots", True)
-    notify_closed_slots = notif_cfg.get("notify_closed_slots", True)
-    notify_status_changes = notif_cfg.get("notify_status_changes", True)
-    notify_consecutive = notif_cfg.get("notify_consecutive_weekend", filters.get("notify_consecutive_weekend", True))
-    consecutive_waiting = notif_cfg.get("consecutive_include_waiting", filters.get("consecutive_include_waiting", True))
-
     state = load_state()
-    camp_states = state.setdefault("campsites", {})
+    state_users = state.setdefault("users", {})
+    # 레거시 state 호환성: 만약 state에 legacy 'campsites'가 있고 users에 user1이 없으면 이관
+    if "campsites" in state and "user1" not in state_users and state["campsites"]:
+        state_users["user1"] = {"campsites": dict(state["campsites"])}
 
     report_title = "정기 빈자리 종합 리포트 (06시/18시 기준선 확립)" if is_daily else "실시간 빈자리 변동 모니터링"
-    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 국립공원 야영장 {report_title} 시작")
+    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 국립공원 야영장 {report_title} 시작 (총 {len(active_users)}명 유저)")
+
+    # 5분 실행 내 중복 HTTP 크롤링 방지를 위한 인메모리 캐시 (야영장 단위)
+    slots_cache: Dict[str, List[Dict[str, Any]]] = {}
 
     total_changes_notified = 0
 
-    for c_item in campsites:
-        camp = campsites_data.resolve_campsite(
-            c_item.get("park_name", ""),
-            c_item.get("camp_name", ""),
-            c_item.get("dept_id", "")
-        )
-        if not camp:
-            print(f"[경고] 야영장 정보를 찾을 수 없습니다: {c_item}")
+    for u in active_users:
+        u_id = u.get("id", "user1")
+        u_name = u.get("name", u_id)
+        u_campsites = u.get("campsites", [])
+        u_filters = u.get("filters", {})
+        u_notif = u.get("notification", {})
+
+        only_new_slots = u_notif.get("only_new_slots", True)
+        notify_closed_slots = u_notif.get("notify_closed_slots", True)
+        notify_status_changes = u_notif.get("notify_status_changes", True)
+        notify_consecutive = u_notif.get("notify_consecutive_weekend", u_filters.get("notify_consecutive_weekend", True))
+        consecutive_waiting = u_notif.get("consecutive_include_waiting", u_filters.get("consecutive_include_waiting", True))
+
+        u_state = state_users.setdefault(u_id, {"campsites": {}})
+        camp_states = u_state.setdefault("campsites", {})
+
+        print(f"\n👤 [{u_name}] 야영장 모니터링 시작 ({len(u_campsites)}개소)")
+        if not u_campsites:
+            print(f"   ℹ️ 감시 대상 야영장이 없습니다.")
             continue
 
-        camp = dict(camp)
-        p_name = camp["park_name"]
-        c_name = camp["camp_name"]
-        d_id = camp["dept_id"]
-
-        # 야영장별 개별 시설 타입(types) 및 사이트(sites) 추출 (미설정 시 전역 filters 값 사용)
-        camp_types_raw = c_item.get("types") or c_item.get("target_types") or c_item.get("type")
-        if camp_types_raw is not None:
-            if isinstance(camp_types_raw, str):
-                camp_types = [camp_types_raw.strip()] if camp_types_raw.strip() else []
-            elif isinstance(camp_types_raw, (list, tuple, set)):
-                camp_types = [str(t).strip() for t in camp_types_raw if str(t).strip()]
-            else:
-                camp_types = []
-        else:
-            camp_types = filters.get("target_types")
-
-        camp_sites_raw = c_item.get("sites") or c_item.get("target_sites") or c_item.get("site")
-        if camp_sites_raw is not None:
-            if isinstance(camp_sites_raw, str):
-                camp_sites = [camp_sites_raw.strip()] if camp_sites_raw.strip() else []
-            elif isinstance(camp_sites_raw, (list, tuple, set)):
-                camp_sites = [str(s).strip() for s in camp_sites_raw if str(s).strip()]
-            else:
-                camp_sites = []
-        else:
-            camp_sites = filters.get("target_sites")
-
-        camp["types"] = camp_types
-        camp["sites"] = camp_sites
-
-        types_label = f" [{', '.join(camp_types)}]" if camp_types else ""
-        print(f"🔎 [{p_name} - {c_name}{types_label}] 현황 조회 중...")
-        try:
-            html = knps_crawler.fetch_campsite_html(p_name, c_name, d_id)
-            all_slots = knps_crawler.parse_available_slots(html)
-            
-            # 사용자 필터 적용 (야영장별 지정된 타입/사이트 우선 적용)
-            matched_slots = knps_crawler.filter_slots(
-                slots=all_slots,
-                target_dates=filters.get("target_dates"),
-                start_date=filters.get("start_date"),
-                end_date=filters.get("end_date"),
-                target_dows=filters.get("target_weekdays"),
-                target_types=camp_types,
-                target_sites=camp_sites,
-                include_waiting=filters.get("include_waiting", False)
+        for c_item in u_campsites:
+            camp = campsites_data.resolve_campsite(
+                c_item.get("park_name", ""),
+                c_item.get("camp_name", ""),
+                c_item.get("dept_id", "")
             )
+            if not camp:
+                print(f"   [경고] 야영장 정보를 찾을 수 없습니다: {c_item}")
+                continue
 
-            # 사이트 고유 식별자(site_key)를 기준으로 매핑
-            curr_slots_map = {s.get("site_key", s["slot_id"]): s for s in matched_slots}
-            print(f"   -> 전체 잔여/대기 {len(all_slots)}개 중 필터 조건 부합: {len(matched_slots)}개")
+            camp = dict(camp)
+            camp["user_id"] = u_id
+            camp["user_name"] = u_name
+            p_name = camp["park_name"]
+            c_name = camp["camp_name"]
+            d_id = camp["dept_id"]
 
-            # 주말 2박(금,토) 연박 가능 슬롯 탐색 (1.대기+예약, 2.예약+대기, 3.예약+예약, 4.대기+대기 4종 지원)
-            if consecutive_waiting:
-                consecutive_cand_slots = knps_crawler.filter_slots(
+            camp_types_raw = c_item.get("types") or c_item.get("target_types") or c_item.get("type")
+            if camp_types_raw is not None:
+                if isinstance(camp_types_raw, str):
+                    camp_types = [camp_types_raw.strip()] if camp_types_raw.strip() else []
+                elif isinstance(camp_types_raw, (list, tuple, set)):
+                    camp_types = [str(t).strip() for t in camp_types_raw if str(t).strip()]
+                else:
+                    camp_types = []
+            else:
+                camp_types = u_filters.get("target_types")
+
+            camp_sites_raw = c_item.get("sites") or c_item.get("target_sites") or c_item.get("site")
+            if camp_sites_raw is not None:
+                if isinstance(camp_sites_raw, str):
+                    camp_sites = [camp_sites_raw.strip()] if camp_sites_raw.strip() else []
+                elif isinstance(camp_sites_raw, (list, tuple, set)):
+                    camp_sites = [str(s).strip() for s in camp_sites_raw if str(s).strip()]
+                else:
+                    camp_sites = []
+            else:
+                camp_sites = u_filters.get("target_sites")
+
+            camp["types"] = camp_types
+            camp["sites"] = camp_sites
+
+            types_label = f" [{', '.join(camp_types)}]" if camp_types else ""
+            print(f"   🔎 [{p_name} - {c_name}{types_label}] 현황 조회 중...")
+
+            try:
+                # 인메모리 캐시 확인 (동일 야영장 중복 호출 방지)
+                if d_id not in slots_cache:
+                    html = knps_crawler.fetch_campsite_html(p_name, c_name, d_id)
+                    all_slots = knps_crawler.parse_available_slots(html)
+                    slots_cache[d_id] = all_slots
+                    time.sleep(0.5)
+                else:
+                    all_slots = slots_cache[d_id]
+
+                # 사용자별 필터 적용
+                matched_slots = knps_crawler.filter_slots(
                     slots=all_slots,
-                    target_dates=filters.get("target_dates"),
-                    start_date=filters.get("start_date"),
-                    end_date=filters.get("end_date"),
-                    target_dows=filters.get("target_weekdays"),
+                    target_dates=u_filters.get("target_dates"),
+                    start_date=u_filters.get("start_date"),
+                    end_date=u_filters.get("end_date"),
+                    target_dows=u_filters.get("target_weekdays"),
                     target_types=camp_types,
                     target_sites=camp_sites,
-                    include_waiting=True
+                    include_waiting=u_filters.get("include_waiting", False)
                 )
-            else:
-                consecutive_cand_slots = matched_slots
 
-            consecutive_pairs = knps_crawler.find_consecutive_weekend_slots(
-                slots=consecutive_cand_slots,
-                include_waiting=consecutive_waiting
-            )
-            if consecutive_pairs:
-                c3_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 3)
-                c12_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") in (1, 2))
-                c4_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 4)
-                print(f"   🔥 [주말 2박 연박] {len(consecutive_pairs)}개 영지 탐색됨 (즉시2박: {c3_cnt}개, 예약+대기: {c12_cnt}개, 대기2박: {c4_cnt}개)")
+                curr_slots_map = {s.get("site_key", s["slot_id"]): s for s in matched_slots}
+                print(f"      -> 전체 {len(all_slots)}개 중 [{u_name}] 조건 부합: {len(matched_slots)}개")
 
-            # 상태 추적 키 (야영장별, 또는 야영장+타입별 고유 식별)
-            state_key = f"{d_id}_{'_'.join(sorted(camp_types))}" if camp_types else d_id
-
-            if is_daily:
-                # [일일 종합 리포트 모드]
-                # 1. 전체 잔여석 브리핑 전송 (0개여도 현황 알림)
-                if send_alert:
-                    res = notifier.dispatch_notifications(
-                        config=config,
-                        campsite_info=camp,
-                        available_slots=matched_slots,
-                        is_daily=True,
-                        consecutive_pairs=consecutive_pairs
+                if consecutive_waiting:
+                    consecutive_cand_slots = knps_crawler.filter_slots(
+                        slots=all_slots,
+                        target_dates=u_filters.get("target_dates"),
+                        start_date=u_filters.get("start_date"),
+                        end_date=u_filters.get("end_date"),
+                        target_dows=u_filters.get("target_weekdays"),
+                        target_types=camp_types,
+                        target_sites=camp_sites,
+                        include_waiting=True
                     )
-                    for ch, ok in res.items():
-                        print(f"      [정기 리포트(06시/18시) 전송] {ch}: {'성공' if ok else '실패'}")
-                
-                # 2. 정기 기준선(baseline) 저장
-                camp_states[state_key] = {
-                    "park_name": p_name,
-                    "camp_name": c_name,
-                    "types": camp_types,
-                    "slots": curr_slots_map,
-                    "consecutive_pairs": [p["pair_id"] for p in consecutive_pairs],
-                    "consecutive_pairs_data": consecutive_pairs,
-                    "last_checked": datetime.now().isoformat()
-                }
-                total_changes_notified += len(matched_slots)
-
-                # 정기 종합 현황을 히스토리에 기록
-                daily_summary = f"📋 정기 종합(06시/18시): 잔여석 {len(matched_slots)}개 (2박 연박 {len(consecutive_pairs)}건)"
-                daily_details = [
-                    f"{s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({'🔵 예약가능' if s['status'] == 'R' else '🟡 대기예약'})"
-                    for s in matched_slots[:10]
-                ]
-                status_reporter.add_history_entry(
-                    state=state,
-                    camp_name_str=f"{p_name} {c_name}",
-                    summary=daily_summary,
-                    details=daily_details
-                )
-
-            else:
-                # [실시간 5분 모니터링 모드: 6-State 신호등 변동 감지]
-                prev_camp_data = camp_states.get(state_key) or camp_states.get(d_id)
-                prev_consecutive_set = set()
-                if prev_camp_data:
-                    prev_consecutive_set = set(prev_camp_data.get("consecutive_pairs", []))
-
-                # 새롭게 2박(금,토) 연박이 가능해진 영지 (직전 스캔에 없던 2박 조합)
-                new_consecutive_pairs = [p for p in consecutive_pairs if p["pair_id"] not in prev_consecutive_set]
-
-                blue_slots = []   # 🔵 즉시 예약 가능 (마감 ➔ 예약가능, 대기예약 ➔ 예약가능)
-                yellow_slots = [] # 🟡 대기 접수 가능 (예약가능 ➔ 대기예약, 마감 ➔ 대기예약)
-                red_slots = []    # 🔴 예약 완전 마감 (예약가능 ➔ 마감, 대기예약 ➔ 마감)
-
-                if prev_camp_data is None:
-                    # 첫 실행이거나 새로운 야영장이 추가된 경우
-                    for curr_s in matched_slots:
-                        if curr_s.get("status") == "R":
-                            blue_slots.append({
-                                "slot": curr_s,
-                                "prev_status": "NONE",
-                                "curr_status": "R",
-                                "prev_status_text": "마감",
-                                "curr_status_text": "예약가능"
-                            })
-                        else:
-                            yellow_slots.append({
-                                "slot": curr_s,
-                                "prev_status": "NONE",
-                                "curr_status": "W",
-                                "prev_status_text": "마감",
-                                "curr_status_text": "대기예약"
-                            })
                 else:
-                    raw_prev_slots = prev_camp_data.get("slots", {})
-                    prev_slots_map = {}
-                    for k, s in raw_prev_slots.items():
-                        s_key = s.get("site_key") or ("_".join(k.rsplit("_", 1)[:-1]) if ("_R" in k or "_W" in k) else k)
-                        prev_slots_map[s_key] = s
+                    consecutive_cand_slots = matched_slots
 
-                    # 1. 현재 슬롯 검사 (파란 불 or 노란 불)
-                    for k, curr_s in curr_slots_map.items():
-                        curr_stat = curr_s.get("status")
-                        if k not in prev_slots_map:
-                            # 이전 스캔에는 없던 자리가 나타남 (마감 ➔ 예약가능 or 마감 ➔ 대기예약)
-                            if curr_stat == "R":
+                consecutive_pairs = knps_crawler.find_consecutive_weekend_slots(
+                    slots=consecutive_cand_slots,
+                    include_waiting=consecutive_waiting
+                )
+                if consecutive_pairs:
+                    c3_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 3)
+                    c12_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") in (1, 2))
+                    c4_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 4)
+                    print(f"      🔥 [주말 2박 연박] {len(consecutive_pairs)}개 영지 탐색됨 (즉시2박: {c3_cnt}개, 예약+대기: {c12_cnt}개, 대기2박: {c4_cnt}개)")
+
+                state_key = f"{d_id}_{'_'.join(sorted(camp_types))}" if camp_types else d_id
+
+                if is_daily:
+                    if send_alert:
+                        res = notifier.dispatch_notifications(
+                            config=u_notif,
+                            campsite_info=camp,
+                            available_slots=matched_slots,
+                            is_daily=True,
+                            consecutive_pairs=consecutive_pairs
+                        )
+                        for ch, ok in res.items():
+                            print(f"         [정기 리포트(06시/18시) 전송] {ch}: {'성공' if ok else '실패'}")
+
+                    camp_states[state_key] = {
+                        "park_name": p_name,
+                        "camp_name": c_name,
+                        "types": camp_types,
+                        "slots": curr_slots_map,
+                        "consecutive_pairs": [p["pair_id"] for p in consecutive_pairs],
+                        "consecutive_pairs_data": consecutive_pairs,
+                        "last_checked": datetime.now().isoformat()
+                    }
+                    total_changes_notified += len(matched_slots)
+
+                    daily_summary = f"📋 [{u_name}] 정기 종합(06시/18시): 잔여석 {len(matched_slots)}개 (2박 연박 {len(consecutive_pairs)}건)"
+                    daily_details = [
+                        f"{s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({'🔵 예약가능' if s['status'] == 'R' else '🟡 대기예약'})"
+                        for s in matched_slots[:10]
+                    ]
+                    status_reporter.add_history_entry(
+                        state=state,
+                        camp_name_str=f"{p_name} {c_name} ({u_name})",
+                        summary=daily_summary,
+                        details=daily_details
+                    )
+                else:
+                    prev_camp_data = camp_states.get(state_key) or camp_states.get(d_id)
+                    prev_consecutive_set = set()
+                    if prev_camp_data:
+                        prev_consecutive_set = set(prev_camp_data.get("consecutive_pairs", []))
+
+                    new_consecutive_pairs = [p for p in consecutive_pairs if p["pair_id"] not in prev_consecutive_set]
+
+                    blue_slots = []
+                    yellow_slots = []
+                    red_slots = []
+
+                    if prev_camp_data is None:
+                        for curr_s in matched_slots:
+                            if curr_s.get("status") == "R":
                                 blue_slots.append({
                                     "slot": curr_s,
                                     "prev_status": "NONE",
@@ -552,189 +613,202 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                                     "prev_status_text": "마감",
                                     "curr_status_text": "대기예약"
                                 })
-                        else:
-                            prev_s = prev_slots_map[k]
-                            prev_stat = prev_s.get("status")
-                            if prev_stat != curr_stat:
+                    else:
+                        raw_prev_slots = prev_camp_data.get("slots", {})
+                        prev_slots_map = {}
+                        for k, s in raw_prev_slots.items():
+                            s_key = s.get("site_key") or ("_".join(k.rsplit("_", 1)[:-1]) if ("_R" in k or "_W" in k) else k)
+                            prev_slots_map[s_key] = s
+
+                        for k, curr_s in curr_slots_map.items():
+                            curr_stat = curr_s.get("status")
+                            if k not in prev_slots_map:
                                 if curr_stat == "R":
-                                    # 대기예약 ➔ 예약가능 (🔵 파란 불)
                                     blue_slots.append({
                                         "slot": curr_s,
-                                        "prev_status": prev_stat,
+                                        "prev_status": "NONE",
                                         "curr_status": "R",
-                                        "prev_status_text": "대기예약",
+                                        "prev_status_text": "마감",
                                         "curr_status_text": "예약가능"
                                     })
                                 else:
-                                    # 예약가능 ➔ 대기예약 (🟡 노란 불)
                                     yellow_slots.append({
                                         "slot": curr_s,
-                                        "prev_status": prev_stat,
+                                        "prev_status": "NONE",
                                         "curr_status": "W",
-                                        "prev_status_text": "예약가능",
+                                        "prev_status_text": "마감",
                                         "curr_status_text": "대기예약"
                                     })
-
-                    # 2. 이전 슬롯 검사 (빨간 불: 마감 ➔ 예약완전마감)
-                    for k, prev_s in prev_slots_map.items():
-                        if k not in curr_slots_map:
-                            prev_stat = prev_s.get("status")
-                            p_txt = "예약가능" if prev_stat == "R" else "대기예약"
-                            red_slots.append({
-                                "slot": prev_s,
-                                "prev_status": prev_stat,
-                                "curr_status": "NONE",
-                                "prev_status_text": p_txt,
-                                "curr_status_text": "마감"
-                            })
-
-                # 주말 2박(금,토) 연박 신규 감지 시 단독 긴급 알림 발송
-                has_new_consecutive = bool(new_consecutive_pairs) and notify_consecutive
-                if has_new_consecutive:
-                    print(f"   🔥 [주말 2박 연박 긴급 감지!] {len(new_consecutive_pairs)}개 2박 영지 신규 오픈")
-                    consec_details = []
-                    for p in new_consecutive_pairs:
-                        f_s = p.get("fri_slot", {})
-                        s_s = p.get("sat_slot", {})
-                        f_txt = f_s.get("status_text", "예약가능" if f_s.get("status") == "R" else "대기예약")
-                        s_txt = s_s.get("status_text", "예약가능" if s_s.get("status") == "R" else "대기예약")
-                        badge = p.get("case_badge", "")
-                        print(f"      • [🔥 2박연박] {p['fri_date']}~{p['sat_date']} | {p['site_type']} {p['site_num']}번 {badge} ({f_txt} + {s_txt})")
-                        consec_details.append(f"{badge} {p['fri_date']}~{p['sat_date']} | {p['site_type']} {p['site_num']}번 ({p.get('status_summary', '')})")
-
-                    status_reporter.add_history_entry(
-                        state=state,
-                        camp_name_str=f"{p_name} {c_name}",
-                        summary=f"🔥 주말 2박(금,토) 연박 신규 {len(new_consecutive_pairs)}건 오픈",
-                        details=consec_details
-                    )
-
-                    if send_alert:
-                        c_res = notifier.dispatch_consecutive_notifications(
-                            config=config,
-                            campsite_info=camp,
-                            consecutive_pairs=new_consecutive_pairs
-                        )
-                        for ch, ok in c_res.items():
-                            print(f"      [2박 연박 긴급 알림 전송] {ch}: {'성공' if ok else '실패'}")
-
-                # 알림 발송 조건 판단
-                has_blue = bool(blue_slots)
-                has_yellow = bool(yellow_slots) and notify_status_changes
-                has_red = bool(red_slots) and notify_closed_slots
-
-                if has_blue or has_yellow or has_red:
-                    total_changes_notified += (len(blue_slots) + len(yellow_slots) + len(red_slots))
-                    print(f"   🚨 변동 감지! (🔵 즉시예약: {len(blue_slots)}개, 🟡 대기접수: {len(yellow_slots)}개, 🔴 완전마감: {len(red_slots)}개)")
-                    diff_details = []
-                    if blue_slots:
-                        for item in blue_slots:
-                            s = item["slot"]
-                            print(f"      • [🔵 즉시예약] {s['date']} ({s['dow']}) | {s['site_type']} {s['site_num']} | {item['prev_status_text']} ➔ {item['curr_status_text']}")
-                            diff_details.append(f"🔵 즉시예약: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
-                    if yellow_slots:
-                        for item in yellow_slots:
-                            s = item["slot"]
-                            print(f"      • [🟡 대기접수] {s['date']} ({s['dow']}) | {s['site_type']} {s['site_num']} | {item['prev_status_text']} ➔ {item['curr_status_text']}")
-                            diff_details.append(f"🟡 대기접수: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
-                    if red_slots:
-                        for item in red_slots:
-                            s = item["slot"]
-                            print(f"      • [🔴 완전마감] {s['date']} ({s['dow']}) | {s['site_type']} {s['site_num']} | {item['prev_status_text']} ➔ {item['curr_status_text']}")
-                            diff_details.append(f"🔴 완전마감: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
-
-                    summary_parts = []
-                    if blue_slots:
-                        summary_parts.append(f"🔵 즉시예약 {len(blue_slots)}건")
-                    if yellow_slots:
-                        summary_parts.append(f"🟡 대기접수 {len(yellow_slots)}건")
-                    if red_slots:
-                        summary_parts.append(f"🔴 완전마감 {len(red_slots)}건")
-
-                    status_reporter.add_history_entry(
-                        state=state,
-                        camp_name_str=f"{p_name} {c_name}",
-                        summary=", ".join(summary_parts) if summary_parts else "변동 발생",
-                        details=diff_details
-                    )
-
-                    if send_alert:
-                        # 변동이 발생한 해당 날짜에 한해서만 잔여석을 계산하여 전달
-                        active_changed_items = blue_slots + (yellow_slots if notify_status_changes else []) + (red_slots if notify_closed_slots else [])
-                        changed_dates = sorted(list(set(
-                            (item.get("slot") or item).get("date")
-                            for item in active_changed_items
-                            if (item.get("slot") or item).get("date")
-                        )))
-
-                        date_rem_list = []
-                        for d in changed_dates:
-                            r_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "R"]
-                            w_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "W"]
-
-                            dow = ""
-                            if r_slots_on_d:
-                                dow = r_slots_on_d[0].get("dow", "")
                             else:
-                                for it in active_changed_items:
-                                    s_temp = it.get("slot") or it
-                                    if s_temp.get("date") == d and s_temp.get("dow"):
-                                        dow = s_temp.get("dow")
-                                        break
-                            d_label = f"{d}({dow})" if dow else d
-                            r_cnt = len(r_slots_on_d)
-                            w_cnt = len(w_slots_on_d)
+                                prev_s = prev_slots_map[k]
+                                prev_stat = prev_s.get("status")
+                                if prev_stat != curr_stat:
+                                    if curr_stat == "R":
+                                        blue_slots.append({
+                                            "slot": curr_s,
+                                            "prev_status": prev_stat,
+                                            "curr_status": "R",
+                                            "prev_status_text": "대기예약",
+                                            "curr_status_text": "예약가능"
+                                        })
+                                    else:
+                                        yellow_slots.append({
+                                            "slot": curr_s,
+                                            "prev_status": prev_stat,
+                                            "curr_status": "W",
+                                            "prev_status_text": "예약가능",
+                                            "curr_status_text": "대기예약"
+                                        })
 
-                            if r_cnt > 0:
-                                if w_cnt > 0:
-                                    date_rem_list.append(f"{d_label} {r_cnt}자리(대기 {w_cnt})")
-                                else:
-                                    date_rem_list.append(f"{d_label} {r_cnt}자리")
-                            else:
-                                if w_cnt > 0:
-                                    date_rem_list.append(f"{d_label} 0자리(대기 {w_cnt})")
-                                else:
-                                    date_rem_list.append(f"{d_label} 0자리")
+                        for k, prev_s in prev_slots_map.items():
+                            if k not in curr_slots_map:
+                                prev_stat = prev_s.get("status")
+                                p_txt = "예약가능" if prev_stat == "R" else "대기예약"
+                                red_slots.append({
+                                    "slot": prev_s,
+                                    "prev_status": prev_stat,
+                                    "curr_status": "NONE",
+                                    "prev_status_text": p_txt,
+                                    "curr_status_text": "마감"
+                                })
 
-                        date_remaining_str = ", ".join(date_rem_list) if date_rem_list else f"{len(matched_slots)}자리"
+                    has_new_consecutive = bool(new_consecutive_pairs) and notify_consecutive
+                    if has_new_consecutive:
+                        print(f"      🔥 [{u_name}] 주말 2박 연박 긴급 감지! {len(new_consecutive_pairs)}개 2박 영지 신규 오픈")
+                        consec_details = []
+                        for p in new_consecutive_pairs:
+                            f_s = p.get("fri_slot", {})
+                            s_s = p.get("sat_slot", {})
+                            f_txt = f_s.get("status_text", "예약가능" if f_s.get("status") == "R" else "대기예약")
+                            s_txt = s_s.get("status_text", "예약가능" if s_s.get("status") == "R" else "대기예약")
+                            badge = p.get("case_badge", "")
+                            print(f"         • [🔥 2박연박] {p['fri_date']}~{p['sat_date']} | {p['site_type']} {p['site_num']}번 {badge} ({f_txt} + {s_txt})")
+                            consec_details.append(f"{badge} {p['fri_date']}~{p['sat_date']} | {p['site_type']} {p['site_num']}번 ({p.get('status_summary', '')})")
 
-                        res = notifier.dispatch_diff_notifications(
-                            config=config,
-                            campsite_info=camp,
-                            blue_slots=blue_slots,
-                            yellow_slots=yellow_slots if notify_status_changes else [],
-                            red_slots=red_slots if notify_closed_slots else [],
-                            total_remaining_count=date_remaining_str,
-                            consecutive_pairs=consecutive_pairs
+                        status_reporter.add_history_entry(
+                            state=state,
+                            camp_name_str=f"{p_name} {c_name} ({u_name})",
+                            summary=f"🔥 [{u_name}] 주말 2박(금,토) 연박 신규 {len(new_consecutive_pairs)}건 오픈",
+                            details=consec_details
                         )
-                        for ch, ok in res.items():
-                            print(f"      [변동 알림 전송] {ch}: {'성공' if ok else '실패'}")
-                else:
-                    if (red_slots and not notify_closed_slots) or (yellow_slots and not notify_status_changes):
-                        print(f"   ℹ️ 변동 감지되었으나 설정에 의해 알림 생략 (마감 {len(red_slots)}개, 대기접수 {len(yellow_slots)}개)")
-                    elif matched_slots:
-                        print(f"   ℹ️ 기존 {len(matched_slots)}개 잔여석 변동 없음")
+
+                        if send_alert:
+                            c_res = notifier.dispatch_consecutive_notifications(
+                                config=u_notif,
+                                campsite_info=camp,
+                                consecutive_pairs=new_consecutive_pairs
+                            )
+                            for ch, ok in c_res.items():
+                                print(f"         [2박 연박 긴급 알림 전송] {ch}: {'성공' if ok else '실패'}")
+
+                    has_blue = bool(blue_slots)
+                    has_yellow = bool(yellow_slots) and notify_status_changes
+                    has_red = bool(red_slots) and notify_closed_slots
+
+                    if has_blue or has_yellow or has_red:
+                        total_changes_notified += (len(blue_slots) + len(yellow_slots) + len(red_slots))
+                        print(f"      🚨 [{u_name}] 변동 감지! (🔵 즉시예약: {len(blue_slots)}개, 🟡 대기접수: {len(yellow_slots)}개, 🔴 완전마감: {len(red_slots)}개)")
+                        diff_details = []
+                        if blue_slots:
+                            for item in blue_slots:
+                                s = item["slot"]
+                                diff_details.append(f"🔵 즉시예약: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
+                        if yellow_slots:
+                            for item in yellow_slots:
+                                s = item["slot"]
+                                diff_details.append(f"🟡 대기접수: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
+                        if red_slots:
+                            for item in red_slots:
+                                s = item["slot"]
+                                diff_details.append(f"🔴 완전마감: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")
+
+                        summary_parts = []
+                        if blue_slots: summary_parts.append(f"🔵 즉시예약 {len(blue_slots)}건")
+                        if yellow_slots: summary_parts.append(f"🟡 대기접수 {len(yellow_slots)}건")
+                        if red_slots: summary_parts.append(f"🔴 완전마감 {len(red_slots)}건")
+
+                        status_reporter.add_history_entry(
+                            state=state,
+                            camp_name_str=f"{p_name} {c_name} ({u_name})",
+                            summary=f"[{u_name}] " + (", ".join(summary_parts) if summary_parts else "변동 발생"),
+                            details=diff_details
+                        )
+
+                        if send_alert:
+                            active_changed_items = blue_slots + (yellow_slots if notify_status_changes else []) + (red_slots if notify_closed_slots else [])
+                            changed_dates = sorted(list(set(
+                                (item.get("slot") or item).get("date")
+                                for item in active_changed_items
+                                if (item.get("slot") or item).get("date")
+                            )))
+
+                            date_rem_list = []
+                            for d in changed_dates:
+                                r_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "R"]
+                                w_slots_on_d = [s for s in matched_slots if s.get("date") == d and s.get("status") == "W"]
+                                dow = ""
+                                if r_slots_on_d:
+                                    dow = r_slots_on_d[0].get("dow", "")
+                                else:
+                                    for it in active_changed_items:
+                                        s_temp = it.get("slot") or it
+                                        if s_temp.get("date") == d and s_temp.get("dow"):
+                                            dow = s_temp.get("dow")
+                                            break
+                                d_label = f"{d}({dow})" if dow else d
+                                r_cnt = len(r_slots_on_d)
+                                w_cnt = len(w_slots_on_d)
+                                if r_cnt > 0:
+                                    if w_cnt > 0:
+                                        date_rem_list.append(f"{d_label} {r_cnt}자리(대기 {w_cnt})")
+                                    else:
+                                        date_rem_list.append(f"{d_label} {r_cnt}자리")
+                                else:
+                                    if w_cnt > 0:
+                                        date_rem_list.append(f"{d_label} 0자리(대기 {w_cnt})")
+                                    else:
+                                        date_rem_list.append(f"{d_label} 0자리")
+
+                            date_remaining_str = ", ".join(date_rem_list) if date_rem_list else f"{len(matched_slots)}자리"
+
+                            res = notifier.dispatch_diff_notifications(
+                                config=u_notif,
+                                campsite_info=camp,
+                                blue_slots=blue_slots,
+                                yellow_slots=yellow_slots if notify_status_changes else [],
+                                red_slots=red_slots if notify_closed_slots else [],
+                                total_remaining_count=date_remaining_str,
+                                consecutive_pairs=consecutive_pairs
+                            )
+                            for ch, ok in res.items():
+                                print(f"         [변동 알림 전송] {ch}: {'성공' if ok else '실패'}")
                     else:
-                        print(f"   ℹ️ 조건에 맞는 빈자리 없음 (변동 없음)")
+                        if (red_slots and not notify_closed_slots) or (yellow_slots and not notify_status_changes):
+                            print(f"      ℹ️ 변동 감지되었으나 설정에 의해 알림 생략 (마감 {len(red_slots)}개, 대기접수 {len(yellow_slots)}개)")
+                        elif matched_slots:
+                            print(f"      ℹ️ 기존 {len(matched_slots)}개 잔여석 변동 없음")
+                        else:
+                            print(f"      ℹ️ 조건에 맞는 빈자리 없음 (변동 없음)")
 
-                # 상태 업데이트 (성공적으로 조회된 경우만 업데이트)
-                camp_states[state_key] = {
-                    "park_name": p_name,
-                    "camp_name": c_name,
-                    "types": camp_types,
-                    "slots": curr_slots_map,
-                    "consecutive_pairs": [p["pair_id"] for p in consecutive_pairs],
-                    "consecutive_pairs_data": consecutive_pairs,
-                    "last_checked": datetime.now().isoformat()
-                }
+                    camp_states[state_key] = {
+                        "park_name": p_name,
+                        "camp_name": c_name,
+                        "types": camp_types,
+                        "slots": curr_slots_map,
+                        "consecutive_pairs": [p["pair_id"] for p in consecutive_pairs],
+                        "consecutive_pairs_data": consecutive_pairs,
+                        "last_checked": datetime.now().isoformat()
+                    }
 
-        except Exception as e:
-            print(f"   [오류] 조회 중 문제 발생: {e}")
-        
-        # 공단 서버 WAF(방화벽) 연타 차단 방지를 위한 미세 딜레이 (0.5초)
-        time.sleep(0.5)
+            except Exception as e:
+                print(f"   [오류] 조회 중 문제 발생: {e}")
 
-    # 전체 상태 파일 및 STATUS.md 표 저장
+    # 호환성을 위해 최상위 campsites에도 모든 유저의 camp_states 병합 반영
+    merged_camps = {}
+    for u_id, u_st in state_users.items():
+        merged_camps.update(u_st.get("campsites", {}))
+    state["campsites"] = merged_camps
+
     if is_daily:
         state["baseline_at"] = datetime.now().isoformat()
     state.pop("legacy_ids", None)

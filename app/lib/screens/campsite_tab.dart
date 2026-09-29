@@ -4,12 +4,12 @@ import '../data/campsites_data.dart';
 import '../models/campsite_config.dart';
 
 class CampsiteTab extends StatefulWidget {
-  final CampsiteConfig config;
+  final CampsiteUser user;
   final VoidCallback onConfigChanged;
 
   const CampsiteTab({
     super.key,
-    required this.config,
+    required this.user,
     required this.onConfigChanged,
   });
 
@@ -164,7 +164,7 @@ class _CampsiteTabState extends State<CampsiteTab> {
                           ? null
                           : () {
                               setState(() {
-                                widget.config.campsites.add(
+                                widget.user.campsites.add(
                                   CampsiteItem(
                                     parkName: selectedMeta!.parkName,
                                     campName: selectedMeta!.campName,
@@ -194,11 +194,11 @@ class _CampsiteTabState extends State<CampsiteTab> {
     DateTime initialEnd = DateTime.now().add(const Duration(days: 30));
 
     try {
-      if (widget.config.filters.startDate.isNotEmpty) {
-        initialStart = DateFormat('yyyy-MM-dd').parse(widget.config.filters.startDate);
+      if (widget.user.filters.startDate.isNotEmpty) {
+        initialStart = DateFormat('yyyy-MM-dd').parse(widget.user.filters.startDate);
       }
-      if (widget.config.filters.endDate.isNotEmpty) {
-        initialEnd = DateFormat('yyyy-MM-dd').parse(widget.config.filters.endDate);
+      if (widget.user.filters.endDate.isNotEmpty) {
+        initialEnd = DateFormat('yyyy-MM-dd').parse(widget.user.filters.endDate);
       }
     } catch (_) {}
 
@@ -223,8 +223,8 @@ class _CampsiteTabState extends State<CampsiteTab> {
 
     if (picked != null) {
       setState(() {
-        widget.config.filters.startDate = DateFormat('yyyy-MM-dd').format(picked.start);
-        widget.config.filters.endDate = DateFormat('yyyy-MM-dd').format(picked.end);
+        widget.user.filters.startDate = DateFormat('yyyy-MM-dd').format(picked.start);
+        widget.user.filters.endDate = DateFormat('yyyy-MM-dd').format(picked.end);
       });
       widget.onConfigChanged();
     }
@@ -232,9 +232,9 @@ class _CampsiteTabState extends State<CampsiteTab> {
 
   @override
   Widget build(BuildContext context) {
-    final campsites = widget.config.campsites;
-    final filters = widget.config.filters;
-    final notification = widget.config.notification;
+    final campsites = widget.user.campsites;
+    final filters = widget.user.filters;
+    final notification = widget.user.notification;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),

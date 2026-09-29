@@ -1,44 +1,70 @@
-# 국립공원 야영장 모니터링 설정 파일 (모바일 앱 생성)
+# 국립공원 야영장 모니터링 설정 파일 (멀티 유저 지원)
 
-# 1. 감시할 야영장 및 시설 타입 목록
-campsites:
-  - park_name: "변산반도"
-    camp_name: "고사포2"
-    dept_id: "B181004"
-    types: ["특화야영장"]
-
-# 2. 필터링 조건
-filters:
-  target_dates: []
-  start_date: "2026-10-01"
-  end_date: "2027-01-26"
-  target_weekdays: ["토", "금"]
-  target_types: []
-  target_sites: []
-  include_waiting: true
-
-# 3. 알림 설정
-notification:
-  only_new_slots: true
-  notify_closed_slots: false
-  notify_status_changes: true
-  notify_consecutive_weekend: true
-  consecutive_include_waiting: false
-
-  telegram:
-    enabled: false
-    bot_token: ""
-    chat_id: ""
-
-  discord:
+users:
+  - id: "user1"
+    name: "User 1"
     enabled: true
-    webhook_url: ""
+    notification:
+      only_new_slots: true
+      notify_closed_slots: true
+      notify_status_changes: true
+      notify_consecutive_weekend: true
+      consecutive_include_waiting: false
+      discord:
+        enabled: true
+        webhook_url: ""
+      telegram:
+        enabled: false
+        bot_token: ""
+        chat_id: ""
+    campsites:
+      - park_name: "변산반도"
+        camp_name: "고사포2"
+        dept_id: "B181004"
+        types: ["특화야영장"]
+      - park_name: "오대산"
+        camp_name: "소금강산"
+        dept_id: "B061001"
+        types: ["카라반"]
+      - park_name: "설악산"
+        camp_name: "설악동"
+        dept_id: "B031005"
+        types: ["카라반"]
+      - park_name: "덕유산"
+        camp_name: "덕유대3"
+        dept_id: "B051006"
+        types: ["특화야영장"]
+    filters:
+      target_dates: []
+      start_date: "2026-10-01"
+      end_date: "2026-10-31"
+      target_weekdays: ["토", "금"]
+      target_types: []
+      target_sites: []
+      include_waiting: true
 
-  email:
-    enabled: false
-    smtp_host: "smtp.gmail.com"
-    smtp_port: 587
-    smtp_user: ""
-    smtp_pass: ""
-    to_email: ""
-    use_tls: true
+  - id: "user2"
+    name: "User 2"
+    enabled: true
+    notification:
+      only_new_slots: true
+      notify_closed_slots: true
+      notify_status_changes: true
+      notify_consecutive_weekend: true
+      consecutive_include_waiting: false
+      discord:
+        enabled: true
+        webhook_url: ""
+      telegram:
+        enabled: false
+        bot_token: ""
+        chat_id: ""
+    campsites: []
+    filters:
+      target_dates: []
+      start_date: "2026-10-01"
+      end_date: "2026-10-31"
+      target_weekdays: ["토", "금"]
+      target_types: []
+      target_sites: []
+      include_waiting: true

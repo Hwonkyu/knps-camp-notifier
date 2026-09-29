@@ -4,12 +4,12 @@ import '../data/eco_data.dart';
 import '../models/eco_config.dart';
 
 class EcoTab extends StatefulWidget {
-  final EcoConfig config;
+  final EcoUser user;
   final VoidCallback onConfigChanged;
 
   const EcoTab({
     super.key,
-    required this.config,
+    required this.user,
     required this.onConfigChanged,
   });
 
@@ -60,7 +60,7 @@ class _EcoTabState extends State<EcoTab> {
                   separatorBuilder: (_, __) => const Divider(height: 1),
                   itemBuilder: (context, idx) {
                     final item = allEcoCenters[idx];
-                    final isAlreadyAdded = widget.config.ecoCenters.any((c) => c.name == item.name);
+                    final isAlreadyAdded = widget.user.ecoCenters.any((c) => c.name == item.name);
 
                     return ListTile(
                       title: Text(
@@ -78,7 +78,7 @@ class _EcoTabState extends State<EcoTab> {
                           ? null
                           : () {
                               setState(() {
-                                widget.config.ecoCenters.add(
+                                widget.user.ecoCenters.add(
                                   EcoCenterItem(
                                     name: item.name,
                                     deptId: item.deptId,
@@ -105,11 +105,11 @@ class _EcoTabState extends State<EcoTab> {
     DateTime initialEnd = DateTime.now().add(const Duration(days: 30));
 
     try {
-      if (widget.config.filters.startDate.isNotEmpty) {
-        initialStart = DateFormat('yyyy-MM-dd').parse(widget.config.filters.startDate);
+      if (widget.user.filters.startDate.isNotEmpty) {
+        initialStart = DateFormat('yyyy-MM-dd').parse(widget.user.filters.startDate);
       }
-      if (widget.config.filters.endDate.isNotEmpty) {
-        initialEnd = DateFormat('yyyy-MM-dd').parse(widget.config.filters.endDate);
+      if (widget.user.filters.endDate.isNotEmpty) {
+        initialEnd = DateFormat('yyyy-MM-dd').parse(widget.user.filters.endDate);
       }
     } catch (_) {}
 
@@ -134,8 +134,8 @@ class _EcoTabState extends State<EcoTab> {
 
     if (picked != null) {
       setState(() {
-        widget.config.filters.startDate = DateFormat('yyyy-MM-dd').format(picked.start);
-        widget.config.filters.endDate = DateFormat('yyyy-MM-dd').format(picked.end);
+        widget.user.filters.startDate = DateFormat('yyyy-MM-dd').format(picked.start);
+        widget.user.filters.endDate = DateFormat('yyyy-MM-dd').format(picked.end);
       });
       widget.onConfigChanged();
     }
@@ -143,9 +143,9 @@ class _EcoTabState extends State<EcoTab> {
 
   @override
   Widget build(BuildContext context) {
-    final ecoCenters = widget.config.ecoCenters;
-    final filters = widget.config.filters;
-    final notification = widget.config.notification;
+    final ecoCenters = widget.user.ecoCenters;
+    final filters = widget.user.filters;
+    final notification = widget.user.notification;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),

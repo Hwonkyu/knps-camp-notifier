@@ -22,6 +22,43 @@ from common import notifier
 ECO_RESERVATION_URL = "https://res.knps.or.kr/eco/searchEcoReservation.do"
 
 
+def resolve_discord_webhook(notif_cfg: Dict[str, Any], user_id: str = "user1") -> str:
+    """
+    유저별 디스코드 웹훅 주소를 해석합니다.
+    1. config.yaml 의 user.notification.discord.webhook_url
+    2. 환경변수 DISCORD_WEBHOOK_URL_{USER_ID} (예: DISCORD_WEBHOOK_URL_USER2)
+    3. user1인 경우 기존 기본 DISCORD_WEBHOOK_URL 환경변수 fallback
+    """
+    dc = notif_cfg.get("discord", {}) if isinstance(notif_cfg, dict) else {}
+    url = (dc.get("webhook_url") or "").strip()
+    if url:
+        return url
+    env_user = os.getenv(f"DISCORD_WEBHOOK_URL_{user_id.upper()}", "").strip()
+    if env_user:
+        return env_user
+    if user_id.lower() == "user1":
+        return os.getenv("DISCORD_WEBHOOK_URL", "").strip()
+    return ""
+
+
+def resolve_telegram_config(notif_cfg: Dict[str, Any], user_id: str = "user1") -> tuple:
+    """
+    유저별 텔레그램 봇 토큰 및 채팅 ID를 해석합니다.
+    """
+    tg = notif_cfg.get("telegram", {}) if isinstance(notif_cfg, dict) else {}
+    token = (tg.get("bot_token") or "").strip()
+    chat_id = (tg.get("chat_id") or "").strip()
+    if not token:
+        token = os.getenv(f"TELEGRAM_BOT_TOKEN_{user_id.upper()}", "").strip()
+        if not token and user_id.lower() == "user1":
+            token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    if not chat_id:
+        chat_id = os.getenv(f"TELEGRAM_CHAT_ID_{user_id.upper()}", "").strip()
+        if not chat_id and user_id.lower() == "user1":
+            chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    return token, chat_id
+
+
 def format_eco_diff_text(
     center_info: Dict[str, Any],
     blue_slots: List[Dict[str, Any]],
@@ -33,6 +70,9 @@ def format_eco_diff_text(
     생태탐방원 빈자리 변동 텍스트 메시지 생성 (텔레그램, 콘솔, 이메일용)
     """
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    user_name = center_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     blue_slots = blue_slots or []
     red_slots = red_slots or []
     consecutive_pairs = consecutive_pairs or []
@@ -51,10 +91,12 @@ def format_eco_diff_text(
         rem_str = f"{rem_str}실"
 
     lines = [
-        f"🚨 [국립공원 생태탐방원 빈자리 변동 알림 ({summary_str})]",
+        f"🚨 {user_prefix}[국립공원 생태탐방원 빈자리 변동 알림 ({summary_str})]",
         f"📍 대상: {center_name} 생태탐방원 (현재 잔여: {rem_str})",
-        "-" * 30
     ]
+    if user_name:
+        lines.append(f"👤 수신자: {user_name}")
+    lines.append("-" * 30)
 
     # 주말 2박 연박
     if consecutive_pairs:
@@ -188,11 +230,14 @@ def send_discord_eco_diff(
     if red_slots: parts.append(f"🔴 -{len(red_slots)}")
     summary_str = " / ".join(parts) if parts else "변동 감지"
 
+    user_name = center_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
+
     if consecutive_pairs or blue_slots:
-        header_content = f"🚀 **[{center_name} 생태탐방원] 즉시 예약 가능한 빈자리 발견! ({summary_str})**"
+        header_content = f"🚀 **{user_prefix}[{center_name} 생태탐방원] 즉시 예약 가능한 빈자리 발견! ({summary_str})**"
         embed_color = 3066993  # Green / Teal
     else:
-        header_content = f"ℹ️ **[{center_name} 생태탐방원] 객실 예약 마감 ({summary_str})**"
+        header_content = f"ℹ️ **{user_prefix}[{center_name} 생태탐방원] 객실 예약 마감 ({summary_str})**"
         embed_color = 15158332 # Red
 
     rem_str = str(total_remaining)
@@ -205,7 +250,7 @@ def send_discord_eco_diff(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🏡 {center_name} 생태탐방원 빈자리 현황",
+                "title": f"🏡 {user_prefix}{center_name} 생태탐방원 빈자리 현황",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
@@ -246,34 +291,44 @@ def send_eco_change_notification(
     설정된 알림 채널(Discord, Telegram, Email)로 생태탐방원 변동 알림을 일괄 전송합니다.
     """
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    user_id = center_info.get("user_id", "user1")
+    user_name = center_info.get("user_name", user_id)
     text_msg = format_eco_diff_text(
         center_info, blue_slots, red_slots, total_remaining, consecutive_pairs
     )
 
     # 1. 디스코드 전송
-    dc_cfg = notification_cfg.get("discord", {})
-    if dc_cfg.get("enabled") and dc_cfg.get("webhook_url"):
-        success = send_discord_eco_diff(
-            dc_cfg["webhook_url"],
-            center_info,
-            blue_slots,
-            red_slots,
-            total_remaining,
-            consecutive_pairs
-        )
-        if success:
-            print(f"[알림 성공] 디스코드 전송 완료: {center_name} 생태탐방원")
+    dc_cfg = notification_cfg.get("discord", {}) if isinstance(notification_cfg, dict) else {}
+    if dc_cfg.get("enabled"):
+        webhook_url = resolve_discord_webhook(notification_cfg, user_id)
+        if not webhook_url:
+            print(f"ℹ️ [{user_name}] 디스코드 웹훅 주소가 비어 있어 알림 발송을 건너뜁니다.")
+        else:
+            success = send_discord_eco_diff(
+                webhook_url,
+                center_info,
+                blue_slots,
+                red_slots,
+                total_remaining,
+                consecutive_pairs
+            )
+            if success:
+                print(f"[알림 성공] 디스코드 전송 완료: {center_name} 생태탐방원")
 
     # 2. 텔레그램 전송
-    tg_cfg = notification_cfg.get("telegram", {})
-    if tg_cfg.get("enabled") and tg_cfg.get("bot_token") and tg_cfg.get("chat_id"):
-        success = notifier.send_telegram(
-            tg_cfg["bot_token"],
-            tg_cfg["chat_id"],
-            text_msg
-        )
-        if success:
-            print(f"[알림 성공] 텔레그램 전송 완료: {center_name} 생태탐방원")
+    tg_cfg = notification_cfg.get("telegram", {}) if isinstance(notification_cfg, dict) else {}
+    if tg_cfg.get("enabled"):
+        bot_token, chat_id = resolve_telegram_config(notification_cfg, user_id)
+        if not bot_token or not chat_id:
+            print(f"ℹ️ [{user_name}] 텔레그램 봇 토큰/채팅ID가 설정되지 않아 알림 발송을 건너뜁니다.")
+        else:
+            success = notifier.send_telegram(
+                bot_token,
+                chat_id,
+                text_msg
+            )
+            if success:
+                print(f"[알림 성공] 텔레그램 전송 완료: {center_name} 생태탐방원")
 
     # 3. 이메일 전송
     em_cfg = notification_cfg.get("email", {})
@@ -300,14 +355,18 @@ def format_eco_daily_text(
     생태탐방원 일일 종합 브리핑 텍스트 생성 (텔레그램, 콘솔, 이메일용)
     """
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    user_name = center_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
     available_rooms = available_rooms or []
     consecutive_pairs = consecutive_pairs or []
 
     lines = [
-        f"📊 [국립공원 생태탐방원 정기 빈자리 리포트 (06시/18시)]",
+        f"📊 {user_prefix}[국립공원 생태탐방원 정기 빈자리 리포트 (06시/18시)]",
         f"📍 대상: {center_name} 생태탐방원 (총 {len(available_rooms)}실 예약가능)",
-        "-" * 30
     ]
+    if user_name:
+        lines.append(f"👤 수신자: {user_name}")
+    lines.append("-" * 30)
 
     if consecutive_pairs:
         lines.append(f"\n🔥 [주말 2박(금,토) 연박 가능 객실 ({len(consecutive_pairs)}개)]")
@@ -352,6 +411,8 @@ def send_discord_eco_daily(
         return False
 
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    user_name = center_info.get("user_name")
+    user_prefix = f"[{user_name}] " if user_name else ""
     available_rooms = available_rooms or []
     consecutive_pairs = consecutive_pairs or []
 
@@ -393,11 +454,11 @@ def send_discord_eco_daily(
         })
 
     if available_rooms:
-        header_content = f"📊 **[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 ({len(available_rooms)}실)**"
+        header_content = f"📊 **{user_prefix}[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 ({len(available_rooms)}실)**"
         embed_color = 3447003  # Blue
         embed_desc = f"[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
     else:
-        header_content = f"📊 **[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 (06시/18시)**"
+        header_content = f"📊 **{user_prefix}[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 (06시/18시)**"
         embed_color = 8421504  # Gray
         embed_desc = f"현재 설정된 조건에 부합하는 빈자리 객실이 없습니다.\n[👉 국립공원 생태탐방원 예약시스템 확인하기]({ECO_RESERVATION_URL})"
 
@@ -405,7 +466,7 @@ def send_discord_eco_daily(
         "content": header_content,
         "embeds": [
             {
-                "title": f"🏡 {center_name} 생태탐방원 정기 브리핑 (06시/18시)",
+                "title": f"🏡 {user_prefix}{center_name} 생태탐방원 정기 브리핑 (06시/18시)",
                 "description": embed_desc,
                 "color": embed_color,
                 "fields": embed_fields,
@@ -442,30 +503,40 @@ def send_eco_daily_report(
     생태탐방원 일일 종합 브리핑을 설정된 모든 채널로 발송
     """
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    user_id = center_info.get("user_id", "user1")
+    user_name = center_info.get("user_name", user_id)
     text_msg = format_eco_daily_text(center_info, available_rooms, consecutive_pairs)
 
     # 1. 디스코드
-    dc_cfg = notification_cfg.get("discord", {})
-    if dc_cfg.get("enabled") and dc_cfg.get("webhook_url"):
-        success = send_discord_eco_daily(
-            dc_cfg["webhook_url"],
-            center_info,
-            available_rooms,
-            consecutive_pairs
-        )
-        if success:
-            print(f"[정기 리포트] 디스코드 전송 완료: {center_name} 생태탐방원")
+    dc_cfg = notification_cfg.get("discord", {}) if isinstance(notification_cfg, dict) else {}
+    if dc_cfg.get("enabled"):
+        webhook_url = resolve_discord_webhook(notification_cfg, user_id)
+        if not webhook_url:
+            print(f"ℹ️ [{user_name}] 디스코드 웹훅 주소가 비어 있어 알림 발송을 건너뜁니다.")
+        else:
+            success = send_discord_eco_daily(
+                webhook_url,
+                center_info,
+                available_rooms,
+                consecutive_pairs
+            )
+            if success:
+                print(f"[정기 리포트] 디스코드 전송 완료: {center_name} 생태탐방원")
 
     # 2. 텔레그램
-    tg_cfg = notification_cfg.get("telegram", {})
-    if tg_cfg.get("enabled") and tg_cfg.get("bot_token") and tg_cfg.get("chat_id"):
-        success = notifier.send_telegram(
-            tg_cfg["bot_token"],
-            tg_cfg["chat_id"],
-            text_msg
-        )
-        if success:
-            print(f"[정기 리포트] 텔레그램 전송 완료: {center_name} 생태탐방원")
+    tg_cfg = notification_cfg.get("telegram", {}) if isinstance(notification_cfg, dict) else {}
+    if tg_cfg.get("enabled"):
+        bot_token, chat_id = resolve_telegram_config(notification_cfg, user_id)
+        if not bot_token or not chat_id:
+            print(f"ℹ️ [{user_name}] 텔레그램 봇 토큰/채팅ID가 설정되지 않아 알림 발송을 건너뜁니다.")
+        else:
+            success = notifier.send_telegram(
+                bot_token,
+                chat_id,
+                text_msg
+            )
+            if success:
+                print(f"[정기 리포트] 텔레그램 전송 완료: {center_name} 생태탐방원")
 
     # 3. 이메일
     em_cfg = notification_cfg.get("email", {})
