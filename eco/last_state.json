@@ -31,30 +31,9 @@
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {
-        "B301002_2026-10-02_EB30100200036": {
-          "slot_id": "B301002_2026-10-02_EB30100200036",
-          "dept_id": "B301002",
-          "date": "2026-10-02",
-          "dow": "금",
-          "prd_id": "EB30100200036",
-          "prd_name": "[101호]6인실 침대(산전망)",
-          "category": "(6인실)C타입(적정 수용 6명)",
-          "capacity": 6,
-          "price": 120000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T04:12:25.958888"
+      "updated_at": "2026-09-29T04:17:24.291016"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -222,14 +201,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T04:12:31.549081"
+      "updated_at": "2026-09-29T04:17:31.835055"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T04:12:38.413806"
+      "updated_at": "2026-09-29T04:17:41.100040"
     }
   },
   "history": [
@@ -496,5 +475,5 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-09-29T04:12:38.714438"
+  "updated_at": "2026-09-29T04:17:41.400579"
 }
