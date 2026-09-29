@@ -5,14 +5,14 @@
       "center_name": "북한산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T09:47:24.198210"
+      "updated_at": "2026-09-29T09:52:34.013999"
     },
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T09:47:30.352731"
+      "updated_at": "2026-09-29T09:52:42.559929"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -180,14 +180,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T09:47:36.045235"
+      "updated_at": "2026-09-29T09:52:51.089758"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T09:47:43.052158"
+      "updated_at": "2026-09-29T09:53:00.693595"
     }
   },
   "history": [
@@ -454,7 +454,7 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-09-29T09:47:43.352803",
+  "updated_at": "2026-09-29T09:53:00.994252",
   "users": {
     "user1": {
       "centers": {
@@ -463,14 +463,14 @@
           "center_name": "북한산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-29T09:47:24.198210"
+          "updated_at": "2026-09-29T09:52:34.013999"
         },
         "B301002": {
           "dept_id": "B301002",
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-29T09:47:30.352731"
+          "updated_at": "2026-09-29T09:52:42.559929"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -638,14 +638,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-29T09:47:36.045235"
+          "updated_at": "2026-09-29T09:52:51.089758"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-29T09:47:43.052158"
+          "updated_at": "2026-09-29T09:53:00.693595"
         }
       },
       "baseline_at": "2026-09-29T09:01:06.054219"
