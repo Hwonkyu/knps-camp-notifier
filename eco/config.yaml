@@ -16,9 +16,6 @@ users:
         bot_token: ""
         chat_id: ""
     eco_centers:
-      - name: "북한산"
-        dept_id: "B971002"
-        capacities: []
       - name: "설악산"
         dept_id: "B301002"
         capacities: []
@@ -49,10 +46,12 @@ users:
         enabled: false
         bot_token: ""
         chat_id: ""
-    eco_centers: []
+    eco_centers:
+      []
     filters:
       target_dates: []
       start_date: "2026-10-01"
       end_date: "2026-10-31"
       target_weekdays: ["금", "토"]
       pet_only: false
+
