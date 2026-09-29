@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T10:55:18.769108"
+      "last_checked": "2026-09-29T11:00:34.754097"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -20,7 +20,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T10:55:22.486507"
+      "last_checked": "2026-09-29T11:00:38.895698"
     },
     "B031005_카라반": {
       "park_name": "설악산",
@@ -49,7 +49,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T10:55:26.048668"
+      "last_checked": "2026-09-29T11:00:44.313755"
     },
     "B051006_특화야영장": {
       "park_name": "덕유산",
@@ -259,6 +259,23 @@
           "dow": "금",
           "status": "R",
           "status_text": "예약가능",
+          "price": 70000,
+          "prod_id": "CB05100601966"
+        },
+        "20261017_CB05100601966": {
+          "slot_id": "20261017_CB05100601966_W",
+          "site_key": "20261017_CB05100601966",
+          "park_name": "덕유산",
+          "camp_name": "덕유대3",
+          "site_type": "특화야영장",
+          "site_num": "하우스-5(4인)",
+          "full_title": "덕유산-덕유대3-특화야영장-하우스-5(4인)",
+          "payment_title": "특화야영장 하우스-5(4인)",
+          "date": "2026-10-17",
+          "raw_date": "20261017",
+          "dow": "토",
+          "status": "W",
+          "status_text": "대기예약",
           "price": 70000,
           "prod_id": "CB05100601966"
         },
@@ -486,10 +503,18 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-29T10:55:29.350782"
+      "last_checked": "2026-09-29T11:00:48.084341"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-29 11:00:47",
+      "camp": "덕유산 덕유대3 (User 1)",
+      "summary": "[User 1] 🟡 대기접수 1건",
+      "details": [
+        "🟡 대기접수: 2026-10-17(토) 특화야영장 하우스-5(4인)번 (마감 ➔ 대기예약)"
+      ]
+    },
     {
       "timestamp": "2026-09-29 10:25:17",
       "camp": "변산반도 고사포2 (User 1)",
@@ -790,18 +815,10 @@
         "🔴 완전마감: 2026-10-02(금) 카라반 B3(4인)번 (대기예약 ➔ 마감)",
         "🔴 완전마감: 2026-10-02(금) 카라반 B11(4인)번 (대기예약 ➔ 마감)"
       ]
-    },
-    {
-      "timestamp": "2026-09-28 13:25:49",
-      "camp": "설악산 설악동",
-      "summary": "🔴 완전마감 1건",
-      "details": [
-        "🔴 완전마감: 2026-10-02(금) 카라반 카라반9번 (대기예약 ➔ 마감)"
-      ]
     }
   ],
   "baseline_at": "2026-09-29T09:01:05.928821",
-  "updated_at": "2026-09-29T10:55:29.351230",
+  "updated_at": "2026-09-29T11:00:48.084928",
   "users": {
     "user1": {
       "campsites": {
@@ -814,7 +831,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T10:55:18.769108"
+          "last_checked": "2026-09-29T11:00:34.754097"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -825,7 +842,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T10:55:22.486507"
+          "last_checked": "2026-09-29T11:00:38.895698"
         },
         "B031005_카라반": {
           "park_name": "설악산",
@@ -854,7 +871,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T10:55:26.048668"
+          "last_checked": "2026-09-29T11:00:44.313755"
         },
         "B051006_특화야영장": {
           "park_name": "덕유산",
@@ -1064,6 +1081,23 @@
               "dow": "금",
               "status": "R",
               "status_text": "예약가능",
+              "price": 70000,
+              "prod_id": "CB05100601966"
+            },
+            "20261017_CB05100601966": {
+              "slot_id": "20261017_CB05100601966_W",
+              "site_key": "20261017_CB05100601966",
+              "park_name": "덕유산",
+              "camp_name": "덕유대3",
+              "site_type": "특화야영장",
+              "site_num": "하우스-5(4인)",
+              "full_title": "덕유산-덕유대3-특화야영장-하우스-5(4인)",
+              "payment_title": "특화야영장 하우스-5(4인)",
+              "date": "2026-10-17",
+              "raw_date": "20261017",
+              "dow": "토",
+              "status": "W",
+              "status_text": "대기예약",
               "price": 70000,
               "prod_id": "CB05100601966"
             },
@@ -1291,7 +1325,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-29T10:55:29.350782"
+          "last_checked": "2026-09-29T11:00:48.084341"
         }
       }
     },
