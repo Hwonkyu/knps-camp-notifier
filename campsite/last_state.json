@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:15.636641"
+      "last_checked": "2026-09-30T12:09:16.144570"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -535,23 +535,6 @@
           "price": 110000,
           "prod_id": "CB05100601938"
         },
-        "20261003_CB05100601939": {
-          "slot_id": "20261003_CB05100601939_W",
-          "site_key": "20261003_CB05100601939",
-          "park_name": "덕유산",
-          "camp_name": "덕유대3",
-          "site_type": "특화야영장",
-          "site_num": "하우스-17(여우)(6인)",
-          "full_title": "덕유산-덕유대3-특화야영장-하우스-17(여우)(6인)",
-          "payment_title": "특화야영장 하우스-17(여우)(6인)",
-          "date": "2026-10-03",
-          "raw_date": "20261003",
-          "dow": "토",
-          "status": "W",
-          "status_text": "대기예약",
-          "price": 130000,
-          "prod_id": "CB05100601939"
-        },
         "20261016_CB05100601939": {
           "slot_id": "20261016_CB05100601939_W",
           "site_key": "20261016_CB05100601939",
@@ -606,7 +589,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:19.149171"
+      "last_checked": "2026-09-30T12:09:20.206683"
     },
     "B181004_카라반_특화야영장": {
       "park_name": "변산반도",
@@ -618,7 +601,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:19.149628"
+      "last_checked": "2026-09-30T12:09:20.207139"
     },
     "B051006": {
       "park_name": "덕유산",
@@ -1322,23 +1305,6 @@
           "price": 110000,
           "prod_id": "CB05100601938"
         },
-        "20261003_CB05100601939": {
-          "slot_id": "20261003_CB05100601939_W",
-          "site_key": "20261003_CB05100601939",
-          "park_name": "덕유산",
-          "camp_name": "덕유대3",
-          "site_type": "특화야영장",
-          "site_num": "하우스-17(여우)(6인)",
-          "full_title": "덕유산-덕유대3-특화야영장-하우스-17(여우)(6인)",
-          "payment_title": "특화야영장 하우스-17(여우)(6인)",
-          "date": "2026-10-03",
-          "raw_date": "20261003",
-          "dow": "토",
-          "status": "W",
-          "status_text": "대기예약",
-          "price": 130000,
-          "prod_id": "CB05100601939"
-        },
         "20261016_CB05100601939": {
           "slot_id": "20261016_CB05100601939_W",
           "site_key": "20261016_CB05100601939",
@@ -1393,7 +1359,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:19.795987"
+      "last_checked": "2026-09-30T12:09:20.207804"
     },
     "B031005": {
       "park_name": "설악산",
@@ -2474,7 +2440,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:23.937064"
+      "last_checked": "2026-09-30T12:09:24.533307"
     },
     "B122001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -3677,7 +3643,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:26.907919"
+      "last_checked": "2026-09-30T12:09:28.539571"
     },
     "B121001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -4690,6 +4656,23 @@
           "price": 70000,
           "prod_id": "CB12100101111"
         },
+        "20261010_CB12100101111": {
+          "slot_id": "20261010_CB12100101111_W",
+          "site_key": "20261010_CB12100101111",
+          "park_name": "소백산",
+          "camp_name": "삼가",
+          "site_type": "특화야영장",
+          "site_num": "하우스-A11(4인)",
+          "full_title": "소백산-삼가-특화야영장-하우스-A11(4인)",
+          "payment_title": "특화야영장 하우스-A11(4인)",
+          "date": "2026-10-10",
+          "raw_date": "20261010",
+          "dow": "토",
+          "status": "W",
+          "status_text": "대기예약",
+          "price": 70000,
+          "prod_id": "CB12100101111"
+        },
         "20261016_CB12100101111": {
           "slot_id": "20261016_CB12100101111_R",
           "site_key": "20261016_CB12100101111",
@@ -5458,7 +5441,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:30.664665"
+      "last_checked": "2026-09-30T12:09:32.848941"
     },
     "B061001": {
       "park_name": "오대산",
@@ -5938,23 +5921,6 @@
           "dow": "금",
           "status": "R",
           "status_text": "예약가능",
-          "price": 30000,
-          "prod_id": "CB06100101150"
-        },
-        "20261010_CB06100101150": {
-          "slot_id": "20261010_CB06100101150_W",
-          "site_key": "20261010_CB06100101150",
-          "park_name": "오대산",
-          "camp_name": "소금강산",
-          "site_type": "자동차야영장",
-          "site_num": "A27",
-          "full_title": "오대산-소금강산-자동차야영장-A27",
-          "payment_title": "자동차야영장 A27",
-          "date": "2026-10-10",
-          "raw_date": "20261010",
-          "dow": "토",
-          "status": "W",
-          "status_text": "대기예약",
           "price": 30000,
           "prod_id": "CB06100101150"
         },
@@ -7355,7 +7321,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:34.678512"
+      "last_checked": "2026-09-30T12:09:36.557867"
     },
     "B111001": {
       "park_name": "월악산",
@@ -7739,7 +7705,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:38.205208"
+      "last_checked": "2026-09-30T12:09:40.638473"
     },
     "B101001": {
       "park_name": "치악산",
@@ -18443,10 +18409,26 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T12:06:42.189010"
+      "last_checked": "2026-09-30T12:09:45.318733"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-30 12:09:32",
+      "camp": "소백산 삼가 (User 2)",
+      "summary": "[User 2] 🟡 대기접수 1건",
+      "details": [
+        "🟡 대기접수: 2026-10-10(토) 특화야영장 하우스-A11(4인)번 (마감 ➔ 대기예약)"
+      ]
+    },
+    {
+      "timestamp": "2026-09-30 12:09:19",
+      "camp": "덕유산 덕유대3 (User 1)",
+      "summary": "[User 1] 🔴 완전마감 1건",
+      "details": [
+        "🔴 완전마감: 2026-10-03(토) 특화야영장 하우스-17(여우)(6인)번 (대기예약 ➔ 마감)"
+      ]
+    },
     {
       "timestamp": "2026-09-30 12:06:34",
       "camp": "오대산 소금강산 (User 2)",
@@ -18685,26 +18667,10 @@
       "details": [
         "🔵 [즉시 2박 예약] 2026-10-02~2026-10-03 | 자동차야영장 A72번 (금:예약 / 토:예약 (즉시2박))"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 11:09:24",
-      "camp": "설악산 설악동 (User 2)",
-      "summary": "[User 2] 🟡 대기접수 1건",
-      "details": [
-        "🟡 대기접수: 2026-10-02(금) 캠핑용자동차 전용야영지 C5번 (예약가능 ➔ 대기예약)"
-      ]
-    },
-    {
-      "timestamp": "2026-09-30 10:57:27",
-      "camp": "소백산 삼가 (User 2)",
-      "summary": "[User 2] 🔵 즉시예약 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-02(금) 특화야영장 산막텐트-C9번 (마감 ➔ 예약가능)"
-      ]
     }
   ],
   "baseline_at": "2026-09-30T09:01:23.378377",
-  "updated_at": "2026-09-30T12:06:42.193893",
+  "updated_at": "2026-09-30T12:09:45.321962",
   "users": {
     "user1": {
       "campsites": {
@@ -18717,7 +18683,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:15.636641"
+          "last_checked": "2026-09-30T12:09:16.144570"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -19243,23 +19209,6 @@
               "price": 110000,
               "prod_id": "CB05100601938"
             },
-            "20261003_CB05100601939": {
-              "slot_id": "20261003_CB05100601939_W",
-              "site_key": "20261003_CB05100601939",
-              "park_name": "덕유산",
-              "camp_name": "덕유대3",
-              "site_type": "특화야영장",
-              "site_num": "하우스-17(여우)(6인)",
-              "full_title": "덕유산-덕유대3-특화야영장-하우스-17(여우)(6인)",
-              "payment_title": "특화야영장 하우스-17(여우)(6인)",
-              "date": "2026-10-03",
-              "raw_date": "20261003",
-              "dow": "토",
-              "status": "W",
-              "status_text": "대기예약",
-              "price": 130000,
-              "prod_id": "CB05100601939"
-            },
             "20261016_CB05100601939": {
               "slot_id": "20261016_CB05100601939_W",
               "site_key": "20261016_CB05100601939",
@@ -19314,7 +19263,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:19.149171"
+          "last_checked": "2026-09-30T12:09:20.206683"
         }
       }
     },
@@ -19330,7 +19279,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:19.149628"
+          "last_checked": "2026-09-30T12:09:20.207139"
         },
         "B051006": {
           "park_name": "덕유산",
@@ -20034,23 +19983,6 @@
               "price": 110000,
               "prod_id": "CB05100601938"
             },
-            "20261003_CB05100601939": {
-              "slot_id": "20261003_CB05100601939_W",
-              "site_key": "20261003_CB05100601939",
-              "park_name": "덕유산",
-              "camp_name": "덕유대3",
-              "site_type": "특화야영장",
-              "site_num": "하우스-17(여우)(6인)",
-              "full_title": "덕유산-덕유대3-특화야영장-하우스-17(여우)(6인)",
-              "payment_title": "특화야영장 하우스-17(여우)(6인)",
-              "date": "2026-10-03",
-              "raw_date": "20261003",
-              "dow": "토",
-              "status": "W",
-              "status_text": "대기예약",
-              "price": 130000,
-              "prod_id": "CB05100601939"
-            },
             "20261016_CB05100601939": {
               "slot_id": "20261016_CB05100601939_W",
               "site_key": "20261016_CB05100601939",
@@ -20105,7 +20037,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:19.795987"
+          "last_checked": "2026-09-30T12:09:20.207804"
         },
         "B031005": {
           "park_name": "설악산",
@@ -21186,7 +21118,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:23.937064"
+          "last_checked": "2026-09-30T12:09:24.533307"
         },
         "B122001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -22389,7 +22321,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:26.907919"
+          "last_checked": "2026-09-30T12:09:28.539571"
         },
         "B121001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -23402,6 +23334,23 @@
               "price": 70000,
               "prod_id": "CB12100101111"
             },
+            "20261010_CB12100101111": {
+              "slot_id": "20261010_CB12100101111_W",
+              "site_key": "20261010_CB12100101111",
+              "park_name": "소백산",
+              "camp_name": "삼가",
+              "site_type": "특화야영장",
+              "site_num": "하우스-A11(4인)",
+              "full_title": "소백산-삼가-특화야영장-하우스-A11(4인)",
+              "payment_title": "특화야영장 하우스-A11(4인)",
+              "date": "2026-10-10",
+              "raw_date": "20261010",
+              "dow": "토",
+              "status": "W",
+              "status_text": "대기예약",
+              "price": 70000,
+              "prod_id": "CB12100101111"
+            },
             "20261016_CB12100101111": {
               "slot_id": "20261016_CB12100101111_R",
               "site_key": "20261016_CB12100101111",
@@ -24170,7 +24119,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:30.664665"
+          "last_checked": "2026-09-30T12:09:32.848941"
         },
         "B061001": {
           "park_name": "오대산",
@@ -24650,23 +24599,6 @@
               "dow": "금",
               "status": "R",
               "status_text": "예약가능",
-              "price": 30000,
-              "prod_id": "CB06100101150"
-            },
-            "20261010_CB06100101150": {
-              "slot_id": "20261010_CB06100101150_W",
-              "site_key": "20261010_CB06100101150",
-              "park_name": "오대산",
-              "camp_name": "소금강산",
-              "site_type": "자동차야영장",
-              "site_num": "A27",
-              "full_title": "오대산-소금강산-자동차야영장-A27",
-              "payment_title": "자동차야영장 A27",
-              "date": "2026-10-10",
-              "raw_date": "20261010",
-              "dow": "토",
-              "status": "W",
-              "status_text": "대기예약",
               "price": 30000,
               "prod_id": "CB06100101150"
             },
@@ -26067,7 +25999,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:34.678512"
+          "last_checked": "2026-09-30T12:09:36.557867"
         },
         "B111001": {
           "park_name": "월악산",
@@ -26451,7 +26383,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:38.205208"
+          "last_checked": "2026-09-30T12:09:40.638473"
         },
         "B101001": {
           "park_name": "치악산",
@@ -37155,7 +37087,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T12:06:42.189010"
+          "last_checked": "2026-09-30T12:09:45.318733"
         }
       }
     }
