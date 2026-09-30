@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 12:39:47` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 12:42:47` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -234,7 +234,6 @@
 | 오대산 | 소금강산 | 2026-10-02 (금) | 특화야영장 | **하우스-E7(4인)** | 🟡 대기예약 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-02 (금) | 특화야영장 | **하우스-E8(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-02 (금) | 특화야영장 | **하우스-E9(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 월악산 | 닷돈재2 | 2026-10-02 (금) | 특화야영장 | **하우스-22(4인)** | 🟡 대기예약 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 치악산 | 구룡 | 2026-10-02 (금) | 자동차야영장 | **10** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 치악산 | 구룡 | 2026-10-02 (금) | 자동차야영장 | **12** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 치악산 | 구룡 | 2026-10-02 (금) | 자동차야영장 | **13** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -358,7 +357,7 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B7** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B9** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-03 (토) | 자동차야영장 | **A69** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 소백산 | 남천 | 2026-10-03 (토) | 특화야영장 | **B7** | 🟡 대기예약 | 90,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **B8** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-09 (금) | 캠핑용자동차 전용야영지 | **B7** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-10 (토) | 자동차야영장 | **A27** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -994,6 +993,7 @@
 
 | 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
 |:---:|:---:|:---:|:---|
+| 2026-09-30 12:42:30 | 소백산 남천 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 특화야영장 B7번 (마감 ➔ 대기예약) |
 | 2026-09-30 12:39:27 | 설악산 설악동 (User 2) | **[User 2] 🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-03(토) 자동차야영장 A69번 (마감 ➔ 예약가능) |
 | 2026-09-30 12:33:25 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 자동차야영장 A15번 (마감 ➔ 대기예약) |
 | 2026-09-30 12:24:42 | 월악산 닷돈재2 (User 2) | **[User 2] 🟡 대기접수 1건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-22(4인)번 (예약가능 ➔ 대기예약)<br>🔴 완전마감: 2026-10-30(금) 특화야영장 하우스-23(4인)번 (예약가능 ➔ 마감) |
@@ -1013,7 +1013,6 @@
 | 2026-09-30 12:03:35 | 오대산 소금강산 (User 2) | **[User 2] 🟡 대기접수 2건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-03(토) 자동차야영장 A14번 (마감 ➔ 대기예약)<br>🟡 대기접수: 2026-10-02(금) 카라반 B2(4인)번 (예약가능 ➔ 대기예약)<br>🔴 완전마감: 2026-10-03(토) 카라반 B4(4인)번 (대기예약 ➔ 마감) |
 | 2026-09-30 12:03:26 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 자동차야영장 A101번 (마감 ➔ 대기예약) |
 | 2026-09-30 12:03:21 | 덕유산 덕유대3 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-2(4인)번 (예약가능 ➔ 대기예약) |
-| 2026-09-30 12:03:21 | 덕유산 덕유대3 (User 1) | **[User 1] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-2(4인)번 (예약가능 ➔ 대기예약) |
 
 ---
 *이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*
