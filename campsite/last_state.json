@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:20.887724"
+      "last_checked": "2026-09-30T14:51:19.364815"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -572,7 +572,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:24.103047"
+      "last_checked": "2026-09-30T14:51:22.184224"
     },
     "B181004_카라반_특화야영장": {
       "park_name": "변산반도",
@@ -584,7 +584,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:24.103539"
+      "last_checked": "2026-09-30T14:51:22.184706"
     },
     "B051006": {
       "park_name": "덕유산",
@@ -1325,7 +1325,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:24.104378"
+      "last_checked": "2026-09-30T14:51:22.185186"
     },
     "B031005": {
       "park_name": "설악산",
@@ -1469,7 +1469,7 @@
           "prod_id": "CB03100501669"
         },
         "20261002_CB03100501670": {
-          "slot_id": "20261002_CB03100501670_R",
+          "slot_id": "20261002_CB03100501670_W",
           "site_key": "20261002_CB03100501670",
           "park_name": "설악산",
           "camp_name": "설악동",
@@ -1480,8 +1480,8 @@
           "date": "2026-10-02",
           "raw_date": "20261002",
           "dow": "금",
-          "status": "R",
-          "status_text": "예약가능",
+          "status": "W",
+          "status_text": "대기예약",
           "price": 30000,
           "prod_id": "CB03100501670"
         },
@@ -1911,7 +1911,7 @@
           "prod_id": "CB03100501720"
         },
         "20261016_CB03100501720": {
-          "slot_id": "20261016_CB03100501720_R",
+          "slot_id": "20261016_CB03100501720_W",
           "site_key": "20261016_CB03100501720",
           "park_name": "설악산",
           "camp_name": "설악동",
@@ -1922,8 +1922,8 @@
           "date": "2026-10-16",
           "raw_date": "20261016",
           "dow": "금",
-          "status": "R",
-          "status_text": "예약가능",
+          "status": "W",
+          "status_text": "대기예약",
           "price": 30000,
           "prod_id": "CB03100501720"
         },
@@ -2493,7 +2493,7 @@
           "price_total": 70000
         }
       ],
-      "last_checked": "2026-09-30T14:48:27.418472"
+      "last_checked": "2026-09-30T14:51:26.449523"
     },
     "B122001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -3679,7 +3679,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:29.805200"
+      "last_checked": "2026-09-30T14:51:28.974803"
     },
     "B121001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -5530,7 +5530,7 @@
           "price_total": 120000
         }
       ],
-      "last_checked": "2026-09-30T14:48:32.446374"
+      "last_checked": "2026-09-30T14:51:32.068302"
     },
     "B061001": {
       "park_name": "오대산",
@@ -7342,7 +7342,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:36.217225"
+      "last_checked": "2026-09-30T14:51:35.750424"
     },
     "B111001": {
       "park_name": "월악산",
@@ -7709,7 +7709,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:39.112674"
+      "last_checked": "2026-09-30T14:51:38.343643"
     },
     "B101001": {
       "park_name": "치악산",
@@ -18413,10 +18413,19 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T14:48:42.067467"
+      "last_checked": "2026-09-30T14:51:41.683686"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-30 14:51:25",
+      "camp": "설악산 설악동 (User 2)",
+      "summary": "[User 2] 🟡 대기접수 2건",
+      "details": [
+        "🟡 대기접수: 2026-10-02(금) 자동차야영장 A70번 (예약가능 ➔ 대기예약)",
+        "🟡 대기접수: 2026-10-16(금) 자동차야영장 A120번 (예약가능 ➔ 대기예약)"
+      ]
+    },
     {
       "timestamp": "2026-09-30 14:31:01",
       "camp": "소백산 삼가 (User 2)",
@@ -18656,18 +18665,10 @@
       "details": [
         "🟡 대기접수: 2026-10-03(토) 자동차야영장 A131번 (마감 ➔ 대기예약)"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 13:06:50",
-      "camp": "오대산 소금강산 (User 2)",
-      "summary": "[User 2] 🔵 즉시예약 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-03(토) 자동차야영장 A44번 (마감 ➔ 예약가능)"
-      ]
     }
   ],
   "baseline_at": "2026-09-30T09:01:23.378377",
-  "updated_at": "2026-09-30T14:48:42.070701",
+  "updated_at": "2026-09-30T14:51:41.686820",
   "users": {
     "user1": {
       "campsites": {
@@ -18680,7 +18681,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:20.887724"
+          "last_checked": "2026-09-30T14:51:19.364815"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -19243,7 +19244,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:24.103047"
+          "last_checked": "2026-09-30T14:51:22.184224"
         }
       }
     },
@@ -19259,7 +19260,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:24.103539"
+          "last_checked": "2026-09-30T14:51:22.184706"
         },
         "B051006": {
           "park_name": "덕유산",
@@ -20000,7 +20001,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:24.104378"
+          "last_checked": "2026-09-30T14:51:22.185186"
         },
         "B031005": {
           "park_name": "설악산",
@@ -20144,7 +20145,7 @@
               "prod_id": "CB03100501669"
             },
             "20261002_CB03100501670": {
-              "slot_id": "20261002_CB03100501670_R",
+              "slot_id": "20261002_CB03100501670_W",
               "site_key": "20261002_CB03100501670",
               "park_name": "설악산",
               "camp_name": "설악동",
@@ -20155,8 +20156,8 @@
               "date": "2026-10-02",
               "raw_date": "20261002",
               "dow": "금",
-              "status": "R",
-              "status_text": "예약가능",
+              "status": "W",
+              "status_text": "대기예약",
               "price": 30000,
               "prod_id": "CB03100501670"
             },
@@ -20586,7 +20587,7 @@
               "prod_id": "CB03100501720"
             },
             "20261016_CB03100501720": {
-              "slot_id": "20261016_CB03100501720_R",
+              "slot_id": "20261016_CB03100501720_W",
               "site_key": "20261016_CB03100501720",
               "park_name": "설악산",
               "camp_name": "설악동",
@@ -20597,8 +20598,8 @@
               "date": "2026-10-16",
               "raw_date": "20261016",
               "dow": "금",
-              "status": "R",
-              "status_text": "예약가능",
+              "status": "W",
+              "status_text": "대기예약",
               "price": 30000,
               "prod_id": "CB03100501720"
             },
@@ -21168,7 +21169,7 @@
               "price_total": 70000
             }
           ],
-          "last_checked": "2026-09-30T14:48:27.418472"
+          "last_checked": "2026-09-30T14:51:26.449523"
         },
         "B122001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -22354,7 +22355,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:29.805200"
+          "last_checked": "2026-09-30T14:51:28.974803"
         },
         "B121001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -24205,7 +24206,7 @@
               "price_total": 120000
             }
           ],
-          "last_checked": "2026-09-30T14:48:32.446374"
+          "last_checked": "2026-09-30T14:51:32.068302"
         },
         "B061001": {
           "park_name": "오대산",
@@ -26017,7 +26018,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:36.217225"
+          "last_checked": "2026-09-30T14:51:35.750424"
         },
         "B111001": {
           "park_name": "월악산",
@@ -26384,7 +26385,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:39.112674"
+          "last_checked": "2026-09-30T14:51:38.343643"
         },
         "B101001": {
           "park_name": "치악산",
@@ -37088,7 +37089,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T14:48:42.067467"
+          "last_checked": "2026-09-30T14:51:41.683686"
         }
       }
     }
