@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 04:54:39` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 04:57:40` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -111,7 +111,7 @@
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A132** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A133** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A134** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A32** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A32** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A42** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A60** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A61** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -348,7 +348,7 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 카라반 | **A3** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 카라반 | **A3** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 카라반 | **A9** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 태백산 | 소도 | 2026-10-02 (금) | 카라반 | **A9** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 태백산 | 소도 | 2026-10-02 (금) | 카라반 | **A9** | 🟡 대기예약 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B1** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B10** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B11** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -998,6 +998,8 @@
 
 | 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
 |:---:|:---:|:---:|:---|
+| 2026-09-30 04:57:39 | 태백산 소도 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 카라반 A9번 (예약가능 ➔ 대기예약) |
+| 2026-09-30 04:57:22 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 A32번 (예약가능 ➔ 대기예약) |
 | 2026-09-30 04:45:45 | 월악산 닷돈재2 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-09(금) 특화야영장 하우스-20(4인)번 (예약가능 ➔ 대기예약) |
 | 2026-09-30 04:42:37 | 월악산 닷돈재2 (User 2) | **[User 2] 🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-09(금) 특화야영장 하우스-20(4인)번 (마감 ➔ 예약가능) |
 | 2026-09-30 04:33:22 | 설악산 설악동 (User 2) | **[User 2] 🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-30(금) 자동차야영장 A121번 (마감 ➔ 예약가능) |
@@ -1016,8 +1018,6 @@
 | 2026-09-30 03:48:25 | 변산반도 고사포2 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 특화야영장 하우스-25번 (마감 ➔ 대기예약) |
 | 2026-09-30 03:48:21 | 변산반도 고사포2 (User 1) | **[User 1] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 특화야영장 하우스-25번 (마감 ➔ 대기예약) |
 | 2026-09-30 03:45:53 | 치악산 금대 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 22번 (예약가능 ➔ 대기예약) |
-| 2026-09-30 03:45:31 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 2건** | 🟡 대기접수: 2026-10-30(금) 자동차야영장 A134번 (예약가능 ➔ 대기예약)<br>🟡 대기접수: 2026-10-31(토) 자동차야영장 A135번 (예약가능 ➔ 대기예약) |
-| 2026-09-30 03:42:41 | 치악산 금대 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 16번 (예약가능 ➔ 대기예약) |
 
 ---
 *이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*
