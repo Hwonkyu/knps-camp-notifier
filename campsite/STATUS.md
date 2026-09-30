@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 10:51:41` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 10:54:43` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -107,7 +107,6 @@
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A128** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A129** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A130** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A131** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A132** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A133** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A134** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -360,11 +359,11 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B7** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B9** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **C9** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 소백산 | 삼가 | 2026-10-03 (토) | 특화야영장 | **하우스-A24(4인)** | 🟡 대기예약 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-03 (토) | 자동차야영장 | **A14** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-03 (토) | 자동차야영장 | **A45** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-03 (토) | 자동차야영장 | **A51** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 오대산 | 소금강산 | 2026-10-03 (토) | 카라반 | **B1(4인)** | 🟡 대기예약 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **B8** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-09 (금) | 캠핑용자동차 전용야영지 | **C9** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 소백산 | 삼가 | 2026-10-09 (금) | 특화야영장 | **산막텐트-C2** | 🟡 대기예약 | 60,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -801,7 +800,7 @@
 | 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-18(주목)(6인)** | 🔵 예약가능 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-9(4인, 무공해영지)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-30 (금) | 특화야영장 | **하우스-9(4인, 무공해영지)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-30 (금) | 자동차야영장 | **A121** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-30 (금) | 자동차야영장 | **A121** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-30 (금) | 자동차야영장 | **A125** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-30 (금) | 자동차야영장 | **A131** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-30 (금) | 자동차야영장 | **A134** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -1004,6 +1003,7 @@
 
 | 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
 |:---:|:---:|:---:|:---|
+| 2026-09-30 10:54:23 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 2건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-30(금) 자동차야영장 A121번 (예약가능 ➔ 대기예약)<br>🟡 대기접수: 2026-10-03(토) 캠핑용자동차 전용야영지 C9번 (마감 ➔ 대기예약)<br>🔴 완전마감: 2026-10-02(금) 자동차야영장 A131번 (대기예약 ➔ 마감) |
 | 2026-09-30 10:51:33 | 오대산 소금강산 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 카라반 B1(4인)번 (마감 ➔ 대기예약) |
 | 2026-09-30 10:51:23 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 A131번 (예약가능 ➔ 대기예약)<br>🔴 완전마감: 2026-10-03(토) 자동차야영장 A131번 (대기예약 ➔ 마감) |
 | 2026-09-30 10:48:25 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 자동차야영장 A131번 (마감 ➔ 대기예약) |
@@ -1023,7 +1023,6 @@
 | 2026-09-30 09:39:33 | 오대산 소금강산 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 특화야영장 하우스-E6(4인)번 (마감 ➔ 대기예약) |
 | 2026-09-30 09:36:40 | 태백산 소도 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-10(토) 카라반 A11번 (마감 ➔ 대기예약) |
 | 2026-09-30 09:36:24 | 설악산 설악동 (User 2) | **[User 2] 🔵 즉시예약 1건, 🟡 대기접수 1건** | 🔵 즉시예약: 2026-10-02(금) 자동차야영장 A75번 (대기예약 ➔ 예약가능)<br>🟡 대기접수: 2026-10-02(금) 자동차야영장 A74번 (예약가능 ➔ 대기예약) |
-| 2026-09-30 09:33:38 | 오대산 소금강산 (User 2) | **[User 2] 🔵 즉시예약 2건** | 🔵 즉시예약: 2026-10-02(금) 자동차야영장 A45번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-03(토) 자동차야영장 A45번 (마감 ➔ 예약가능) |
 
 ---
 *이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*
