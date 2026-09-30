@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 12:54:57` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 12:57:40` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -12,7 +12,6 @@
 
 | 공원명 | 야영장 | 시설타입 | 사이트 번호 | 연박 일정 | 유형 배지 | 금요일 상태 | 토요일 상태 | 요금 합계 | 바로가기 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 태백산 | 소도 | 카라반 | **A11번** | 2026-10-02(금) ~ 2026-10-03(토) | 🔵 [즉시 2박 예약] | 예약가능 | 예약가능 | 200,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 자동차야영장 | **C2번** | 2026-10-16(금) ~ 2026-10-17(토) | 🔵 [즉시 2박 예약] | 예약가능 | 예약가능 | 60,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 자동차야영장 | **C35(무공해 영지)번** | 2026-10-16(금) ~ 2026-10-17(토) | 🔵 [즉시 2박 예약] | 예약가능 | 예약가능 | 60,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 자동차야영장 | **C36(무공해 영지)번** | 2026-10-16(금) ~ 2026-10-17(토) | 🔵 [즉시 2박 예약] | 예약가능 | 예약가능 | 60,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -79,8 +78,6 @@
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-13(원추리)(4인)** | 🟡 대기예약 | 90,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-15(머루)(4인)** | 🔵 예약가능 | 110,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-15(머루)(4인)** | 🔵 예약가능 | 110,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-17(여우)(6인)** | 🟡 대기예약 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-17(여우)(6인)** | 🟡 대기예약 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-18(주목)(6인)** | 🟡 대기예약 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-18(주목)(6인)** | 🟡 대기예약 | 130,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 덕유산 | 덕유대3 | 2026-10-02 (금) | 특화야영장 | **하우스-2(4인)** | 🔵 예약가능 | 70,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -361,7 +358,7 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B9** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 소백산 | 남천 | 2026-10-03 (토) | 특화야영장 | **B7** | 🟡 대기예약 | 90,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 태백산 | 소도 | 2026-10-03 (토) | 카라반 | **A11** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 태백산 | 소도 | 2026-10-03 (토) | 카라반 | **A11** | 🟡 대기예약 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **B8** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 오대산 | 소금강산 | 2026-10-09 (금) | 자동차야영장 | **A29** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-09 (금) | 캠핑용자동차 전용야영지 | **B7** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -614,7 +611,6 @@
 | 태백산 | 소도 | 2026-10-16 (금) | 캠핑용자동차 전용야영지 | **B6** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-16 (금) | 캠핑용자동차 전용야영지 | **B7** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-16 (금) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-17 (토) | 자동차야영장 | **A111** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-17 (토) | 자동차야영장 | **C2** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-17 (토) | 자동차야영장 | **C35(무공해 영지)** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-17 (토) | 자동차야영장 | **C36(무공해 영지)** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -999,6 +995,8 @@
 
 | 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
 |:---:|:---:|:---:|:---|
+| 2026-09-30 12:57:40 | 태백산 소도 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 카라반 A11번 (예약가능 ➔ 대기예약) |
+| 2026-09-30 12:57:17 | 덕유산 덕유대3 (User 1) | **[User 1] 🔴 완전마감 1건** | 🔴 완전마감: 2026-10-02(금) 특화야영장 하우스-17(여우)(6인)번 (대기예약 ➔ 마감) |
 | 2026-09-30 12:54:56 | 태백산 소도 (User 2) | **[User 2] 🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-03(토) 카라반 A11번 (마감 ➔ 예약가능) |
 | 2026-09-30 12:54:56 | 태백산 소도 (User 2) | **🔥 [User 2] 주말 2박(금,토) 연박 신규 1건 오픈** | 🔵 [즉시 2박 예약] 2026-10-02~2026-10-03 | 카라반 A11번 (금:예약 / 토:예약 (즉시2박)) |
 | 2026-09-30 12:54:48 | 오대산 소금강산 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-30(금) 자동차야영장 A40번 (예약가능 ➔ 대기예약) |
@@ -1017,8 +1015,6 @@
 | 2026-09-30 12:19:49 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 자동차야영장 A91번 (예약가능 ➔ 대기예약) |
 | 2026-09-30 12:19:44 | 덕유산 덕유대3 (User 2) | **[User 2] 🟡 대기접수 1건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-8(4인)번 (예약가능 ➔ 대기예약)<br>🔴 완전마감: 2026-10-03(토) 특화야영장 하우스-4(4인)번 (대기예약 ➔ 마감) |
 | 2026-09-30 12:19:44 | 덕유산 덕유대3 (User 1) | **[User 1] 🟡 대기접수 1건, 🔴 완전마감 1건** | 🟡 대기접수: 2026-10-02(금) 특화야영장 하우스-8(4인)번 (예약가능 ➔ 대기예약)<br>🔴 완전마감: 2026-10-03(토) 특화야영장 하우스-4(4인)번 (대기예약 ➔ 마감) |
-| 2026-09-30 12:12:38 | 월악산 닷돈재2 (User 2) | **[User 2] 🔵 즉시예약 1건** | 🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-22(4인)번 (마감 ➔ 예약가능) |
-| 2026-09-30 12:12:27 | 소백산 남천 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-03(토) 특화야영장 C3번 (마감 ➔ 대기예약) |
 
 ---
 *이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*
