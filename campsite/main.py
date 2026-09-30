@@ -502,7 +502,7 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                 # 인메모리 캐시 확인 (동일 야영장 중복 호출 방지)
                 if d_id not in slots_cache:
                     html = knps_crawler.fetch_campsite_html(p_name, c_name, d_id)
-                    all_slots = knps_crawler.parse_available_slots(html)
+                    all_slots = knps_crawler.parse_available_slots(html, dept_id=d_id)
                     slots_cache[d_id] = all_slots
                     time.sleep(0.5)
                 else:

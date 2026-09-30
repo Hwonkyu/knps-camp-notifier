@@ -118,7 +118,7 @@ def parse_campsite_types(html: str) -> List[Dict[str, str]]:
         results.append({"code": val.strip(), "name": clean_lbl})
     return results
 
-def parse_available_slots(html: str) -> List[Dict[str, Any]]:
+def parse_available_slots(html: str, dept_id: str = "") -> List[Dict[str, Any]]:
     """
     HTML 내에서 예약 가능('R') 또는 대기 예약('W') 상태의 모든 슬롯을 파싱합니다.
     """
@@ -180,6 +180,7 @@ def parse_available_slots(html: str) -> List[Dict[str, Any]]:
         slots.append({
             "slot_id": slot_id,
             "site_key": site_key,
+            "dept_id": dept_id,
             "park_name": park_name,
             "camp_name": camp_name,
             "site_type": site_type,
@@ -311,6 +312,7 @@ def find_consecutive_weekend_slots(
                             pairs.append({
                                 "pair_id": pair_id,
                                 "spot_id": spot_id,
+                                "dept_id": fri_slot.get("dept_id") or sat_slot.get("dept_id", ""),
                                 "case_num": case_num,
                                 "case_name": case_name,
                                 "case_badge": case_badge,

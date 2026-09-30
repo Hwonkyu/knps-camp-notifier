@@ -17,6 +17,18 @@ from email.mime.multipart import MIMEMultipart
 from typing import List, Dict, Any, Union
 
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
+LOGIN_URL = "https://reservation.knps.or.kr/member/login.do"
+
+
+def get_campsite_direct_url(campsite_info: Dict[str, Any]) -> str:
+    """
+    국립공원 야영장 원클릭 다이렉트 딥링크(Deep Link)를 생성합니다.
+    deptId 파라미터가 포함되어 있어, 접속 시 해당 야영장이 즉시 선택되고 잔여석 표가 바로 로드됩니다.
+    """
+    dept_id = (campsite_info or {}).get("dept_id")
+    if dept_id:
+        return f"https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId={dept_id}"
+    return RESERVATION_URL
 
 
 def resolve_discord_webhook(notif_cfg: Dict[str, Any], user_id: str = "user1") -> str:
@@ -115,8 +127,9 @@ def format_notification_message(
             for stype, sites in by_type.items():
                 lines.append(f"  • {stype}: {', '.join(sites[:10])}{' 외' if len(sites) > 10 else ''}")
 
+    direct_url = get_campsite_direct_url(campsite_info)
     lines.append("\n" + "=" * 30)
-    lines.append(f"👉 예약 바로가기:\n{RESERVATION_URL}")
+    lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{LOGIN_URL}")
 
     return "\n".join(lines)
 
@@ -212,19 +225,21 @@ def send_discord(
     user_name = campsite_info.get("user_name")
     user_prefix = f"[{user_name}] " if user_name else ""
 
+    direct_url = get_campsite_direct_url(campsite_info)
+
     if is_daily:
         if slots:
             header_content = f"📊 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 정기 빈자리 종합 리포트 ({len(slots)}자리)**"
             embed_color = 3447003 # Blue
-            embed_desc = f"[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
+            embed_desc = f"⚡ **[👉 {camp_name} 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n🔑 [로그인 유지 확인하기]({LOGIN_URL})"
         else:
             header_content = f"📊 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 정기 빈자리 리포트 (06시/18시)**"
             embed_color = 8421504 # Gray
-            embed_desc = f"현재 설정된 조건에 부합하는 빈자리가 없습니다.\n[👉 국립공원 예약시스템 확인하기]({RESERVATION_URL})"
+            embed_desc = f"현재 설정된 조건에 부합하는 빈자리가 없습니다.\n⚡ **[👉 {camp_name} 예약시스템 확인하기]({direct_url})**"
     else:
         header_content = f"🚨 **{user_prefix}[{park_name} {camp_name}{type_suffix}] 실시간 빈자리 예약 가능!**"
         embed_color = 3066993 # Green
-        embed_desc = f"[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
+        embed_desc = f"⚡ **[👉 {camp_name} 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n🔑 [로그인 유지 확인하기]({LOGIN_URL})"
 
     payload = {
         "content": header_content,
@@ -376,13 +391,14 @@ def _format_transition_items_text(items: List[Dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def _format_transition_items_discord(items: List[Dict[str, Any]]) -> str:
+def _format_transition_items_discord(items: List[Dict[str, Any]], direct_url: str = None) -> str:
     by_date: Dict[str, List[Dict[str, Any]]] = {}
     for item in items:
         s = item.get("slot") or item
         d_key = f"{s['date']} ({s['dow']})"
         by_date.setdefault(d_key, []).append(item)
 
+    link_tag = f" [⚡예약]({direct_url})" if direct_url else ""
     lines = []
     for d_key, d_items in sorted(by_date.items())[:10]:
         type_strs = []
@@ -393,11 +409,11 @@ def _format_transition_items_discord(items: List[Dict[str, Any]]) -> str:
             p_txt = it.get("prev_status_text", "")
             c_txt = it.get("curr_status_text", "")
             if p_txt and c_txt:
-                type_strs.append(f"• {stype} {snum}: **{p_txt} ➔ {c_txt}**")
+                type_strs.append(f"• {stype} {snum}: **{p_txt} ➔ {c_txt}**{link_tag}")
             elif c_txt:
-                type_strs.append(f"• {stype} {snum}: **{c_txt}**")
+                type_strs.append(f"• {stype} {snum}: **{c_txt}**{link_tag}")
             else:
-                type_strs.append(f"• {stype} {snum}")
+                type_strs.append(f"• {stype} {snum}{link_tag}")
         if len(d_items) > 6:
             type_strs.append(f"... 외 {len(d_items)-6}개")
         lines.append(f"📅 **{d_key}**\n" + "\n".join(type_strs))
@@ -465,8 +481,9 @@ def format_diff_message(
         lines.append(f"\n🔴 예약 완전 마감 (-{len(red_slots)}자리)")
         lines.append(_format_transition_items_text(red_slots))
 
+    direct_url = get_campsite_direct_url(campsite_info)
     lines.append("\n" + "=" * 30)
-    lines.append(f"👉 예약 바로가기:\n{RESERVATION_URL}")
+    lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{LOGIN_URL}")
     return "\n".join(lines)
 
 
@@ -491,6 +508,7 @@ def send_discord_diff(
     type_suffix = f" ({', '.join(camp_types)})" if camp_types else ""
     user_name = campsite_info.get("user_name")
     user_prefix = f"[{user_name}] " if user_name else ""
+    direct_url = get_campsite_direct_url(campsite_info)
 
     blue_slots = blue_slots or []
     yellow_slots = yellow_slots or []
@@ -502,7 +520,7 @@ def send_discord_diff(
         pair_desc = []
         for p in consecutive_pairs[:8]:
             badge = p.get("case_badge", "")
-            pair_desc.append(f"• **{p['site_type']} {p['site_num']}**: {p['fri_date']}(금) ~ {p['sat_date']}(토) {badge}")
+            pair_desc.append(f"• **{p['site_type']} {p['site_num']}**: {p['fri_date']}(금) ~ {p['sat_date']}(토) {badge} [⚡예약]({direct_url})")
         embed_fields.append({
             "name": f"🔥 주말 2박(금,토) 연박 가능! ({len(consecutive_pairs)}자리)",
             "value": "\n".join(pair_desc)[:1020],
@@ -510,7 +528,7 @@ def send_discord_diff(
         })
 
     if blue_slots:
-        desc = _format_transition_items_discord(blue_slots)
+        desc = _format_transition_items_discord(blue_slots, direct_url)
         embed_fields.append({
             "name": f"🔵 즉시 예약 가능 (+{len(blue_slots)}자리)",
             "value": desc[:1020],
@@ -554,7 +572,11 @@ def send_discord_diff(
     if isinstance(total_remaining_count, int) or rem_str.isdigit():
         rem_str = f"{rem_str}자리"
 
-    embed_desc = f"현재 잔여석: **{rem_str}**\n[👉 국립공원 예약시스템으로 바로가기]({RESERVATION_URL})"
+    embed_desc = (
+        f"현재 잔여석: **{rem_str}**\n"
+        f"⚡ **[👉 {camp_name} 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n"
+        f"🔑 [로그인 유지 확인하기]({LOGIN_URL})"
+    )
 
     payload = {
         "content": header_content,
@@ -778,9 +800,10 @@ def format_consecutive_message(
         lines.append(f"• 금요일: {f_txt} ({f_s.get('price', 0):,}원)")
         lines.append(f"• 토요일: {s_txt} ({s_s.get('price', 0):,}원)")
 
+    direct_url = get_campsite_direct_url(campsite_info)
     lines.append("\n" + "=" * 30)
     lines.append("⚡ 2박 연박 자리는 경쟁이 매우 치열하므로 빠른 예약을 권장합니다!")
-    lines.append(f"👉 즉시 예약하기:\n{RESERVATION_URL}")
+    lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{LOGIN_URL}")
     return "\n".join(lines)
 
 
@@ -802,6 +825,7 @@ def send_discord_consecutive(
     type_suffix = f" ({', '.join(camp_types)})" if camp_types else ""
     user_name = campsite_info.get("user_name")
     user_prefix = f"[{user_name}] " if user_name else ""
+    direct_url = get_campsite_direct_url(campsite_info)
 
     c3_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") == 3)
     c12_cnt = sum(1 for p in consecutive_pairs if p.get("case_num") in (1, 2))
@@ -825,7 +849,8 @@ def send_discord_consecutive(
             "value": (
                 f"📅 **{p['fri_date']} (금) ~ {p['sat_date']} (토)**\n"
                 f"• 금: **{f_txt}** | 토: **{s_txt}**\n"
-                f"• 요금 합계: **{p.get('price_total', 0):,}원**"
+                f"• 요금 합계: **{p.get('price_total', 0):,}원**\n"
+                f"[⚡ 즉시 예약창 열기]({direct_url})"
             ),
             "inline": True
         })
@@ -835,7 +860,8 @@ def send_discord_consecutive(
     embed_desc = (
         f"🎉 **금요일과 토요일 연속 2박 숙박이 가능한 자리가 나왔습니다!**\n"
         f"2박 연박은 가장 먼저 마감되므로 지금 바로 예약하세요.\n\n"
-        f"[👉 국립공원 예약시스템 바로가기]({RESERVATION_URL})"
+        f"⚡ **[👉 {camp_name} 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n"
+        f"🔑 [로그인 유지 확인하기]({LOGIN_URL})"
     )
 
     payload = {

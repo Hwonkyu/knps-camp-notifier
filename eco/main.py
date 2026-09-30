@@ -531,7 +531,7 @@ def main():
         return
 
     if args.check:
-        run_eco_monitoring(config, dry_run=True, is_daily=args.daily, send_alert=False)
+        run_eco_monitoring(config, dry_run=False, is_daily=args.daily, send_alert=False)
         return
 
     run_eco_monitoring(config, dry_run=args.dry_run, is_daily=args.daily, send_alert=True)

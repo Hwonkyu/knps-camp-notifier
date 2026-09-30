@@ -20,6 +20,18 @@ from typing import Dict, Any, List, Optional, Union
 from common import notifier
 
 ECO_RESERVATION_URL = "https://res.knps.or.kr/eco/searchEcoReservation.do"
+ECO_LOGIN_URL = "https://res.knps.or.kr/member/login.do"
+
+
+def get_eco_direct_url(center_info: Dict[str, Any]) -> str:
+    """
+    국립공원 생태탐방원 원클릭 다이렉트 딥링크(Deep Link)를 생성합니다.
+    deptId 파라미터가 포함되어 있어, 접속 시 해당 생태탐방원이 즉시 선택되고 객실 목록이 바로 로드됩니다.
+    """
+    dept_id = (center_info or {}).get("dept_id")
+    if dept_id:
+        return f"https://res.knps.or.kr/eco/searchEcoReservation.do?deptId={dept_id}"
+    return ECO_RESERVATION_URL
 
 
 def resolve_discord_webhook(notif_cfg: Dict[str, Any], user_id: str = "user1") -> str:
@@ -139,8 +151,9 @@ def format_eco_diff_text(
             if len(slots) > 10:
                 lines.append(f"    ... 외 {len(slots) - 10}개")
 
+    direct_url = get_eco_direct_url(center_info)
     lines.append("\n" + "=" * 30)
-    lines.append(f"👉 예약 바로가기:\n{ECO_RESERVATION_URL}")
+    lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{ECO_LOGIN_URL}")
     return "\n".join(lines)
 
 
@@ -159,6 +172,7 @@ def send_discord_eco_diff(
         return False
 
     center_name = center_info.get("name") or center_info.get("center_name", "")
+    direct_url = get_eco_direct_url(center_info)
     blue_slots = blue_slots or []
     red_slots = red_slots or []
     consecutive_pairs = consecutive_pairs or []
@@ -172,7 +186,7 @@ def send_discord_eco_diff(
             pet_tag = " `[🐕반려동물]`" if p.get("pet_allowed") else ""
             pair_lines.append(
                 f"• **{p['room_name']}** ({p['capacity']}인실): {p['fri_date']}(금)~{p['sat_date']}(토) "
-                f"**2박 {p['price_total']:,}원**{pet_tag}"
+                f"**2박 {p['price_total']:,}원**{pet_tag} [⚡예약]({direct_url})"
             )
         embed_fields.append({
             "name": f"🔥 주말 2박(금,토) 연박 가능! ({len(consecutive_pairs)}개 객실)",
@@ -192,7 +206,7 @@ def send_discord_eco_diff(
             room_strs = []
             for r in slots[:6]:
                 pet_tag = " [🐕]" if r.get("pet_allowed") else ""
-                room_strs.append(f"• {r['prd_name']} ({r['capacity']}인실, {r['price']:,}원){pet_tag}")
+                room_strs.append(f"• {r['prd_name']} ({r['capacity']}인실, {r['price']:,}원){pet_tag} [⚡예약]({direct_url})")
             if len(slots) > 6:
                 room_strs.append(f"... 외 {len(slots)-6}개")
             date_blocks.append(f"📅 **{d_key}**\n" + "\n".join(room_strs))
@@ -244,7 +258,11 @@ def send_discord_eco_diff(
     if isinstance(total_remaining, int) or rem_str.isdigit():
         rem_str = f"{rem_str}실"
 
-    embed_desc = f"현재 예약 가능 객실: **{rem_str}**\n[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
+    embed_desc = (
+        f"현재 예약 가능 객실: **{rem_str}**\n"
+        f"⚡ **[👉 {center_name} 생태탐방원 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n"
+        f"🔑 [로그인 유지 확인하기]({ECO_LOGIN_URL})"
+    )
 
     payload = {
         "content": header_content,
@@ -393,8 +411,9 @@ def format_eco_daily_text(
             if len(slots) > 10:
                 lines.append(f"  ... 외 {len(slots) - 10}개")
 
+    direct_url = get_eco_direct_url(center_info)
     lines.append("\n" + "=" * 30)
-    lines.append(f"👉 예약 바로가기:\n{ECO_RESERVATION_URL}")
+    lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{ECO_LOGIN_URL}")
     return "\n".join(lines)
 
 
@@ -413,6 +432,7 @@ def send_discord_eco_daily(
     center_name = center_info.get("name") or center_info.get("center_name", "")
     user_name = center_info.get("user_name")
     user_prefix = f"[{user_name}] " if user_name else ""
+    direct_url = get_eco_direct_url(center_info)
     available_rooms = available_rooms or []
     consecutive_pairs = consecutive_pairs or []
 
@@ -423,7 +443,7 @@ def send_discord_eco_daily(
             pet_tag = " `[🐕반려동물]`" if p.get("pet_allowed") else ""
             pair_lines.append(
                 f"• **{p['room_name']}** ({p['capacity']}인실): {p['fri_date']}(금)~{p['sat_date']}(토) "
-                f"**2박 {p['price_total']:,}원**{pet_tag}"
+                f"**2박 {p['price_total']:,}원**{pet_tag} [⚡예약]({direct_url})"
             )
         embed_fields.append({
             "name": f"🔥 주말 2박(금,토) 연박 가능! ({len(consecutive_pairs)}개 객실)",
@@ -442,7 +462,7 @@ def send_discord_eco_daily(
             room_strs = []
             for r in slots[:6]:
                 pet_tag = " [🐕]" if r.get("pet_allowed") else ""
-                room_strs.append(f"• {r['prd_name']} ({r['capacity']}인실, {r['price']:,}원){pet_tag}")
+                room_strs.append(f"• {r['prd_name']} ({r['capacity']}인실, {r['price']:,}원){pet_tag} [⚡예약]({direct_url})")
             if len(slots) > 6:
                 room_strs.append(f"... 외 {len(slots)-6}개")
             date_blocks.append(f"📅 **{d_key}**\n" + "\n".join(room_strs))
@@ -456,11 +476,18 @@ def send_discord_eco_daily(
     if available_rooms:
         header_content = f"📊 **{user_prefix}[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 ({len(available_rooms)}실)**"
         embed_color = 3447003  # Blue
-        embed_desc = f"[👉 국립공원 생태탐방원 예약시스템 바로가기]({ECO_RESERVATION_URL})"
+        embed_desc = (
+            f"⚡ **[👉 {center_name} 생태탐방원 즉시 예약창 바로가기 (원클릭)]({direct_url})**\n"
+            f"🔑 [로그인 유지 확인하기]({ECO_LOGIN_URL})"
+        )
     else:
         header_content = f"📊 **{user_prefix}[{center_name} 생태탐방원] 정기 빈자리 종합 리포트 (06시/18시)**"
         embed_color = 8421504  # Gray
-        embed_desc = f"현재 설정된 조건에 부합하는 빈자리 객실이 없습니다.\n[👉 국립공원 생태탐방원 예약시스템 확인하기]({ECO_RESERVATION_URL})"
+        embed_desc = (
+            f"현재 설정된 조건에 부합하는 빈자리 객실이 없습니다.\n"
+            f"⚡ **[👉 {center_name} 생태탐방원 예약시스템 확인하기]({direct_url})**\n"
+            f"🔑 [로그인 유지 확인하기]({ECO_LOGIN_URL})"
+        )
 
     payload = {
         "content": header_content,

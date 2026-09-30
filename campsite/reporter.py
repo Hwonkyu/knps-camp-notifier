@@ -10,6 +10,8 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATUS_MD_FILE = os.path.join(CURRENT_DIR, "STATUS.md")
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
 
+LOGIN_URL = "https://reservation.knps.or.kr/member/login.do"
+
 
 def add_history_entry(
     state: Dict[str, Any],
@@ -63,15 +65,22 @@ def generate_status_markdown(
         waiting_str = "포함 (R+W)" if filters_cfg.get("include_waiting", True) else "미포함 (R만)"
         consec_str = "활성화 (금+토 2박 단독 알림)" if notif_cfg.get("notify_consecutive_weekend", True) else "비활성화"
 
+    camp_dept_map = {}
     camp_names_list = []
     seen_camps = set()
     for c in campsites_cfg:
-        key = (c.get("park_name"), c.get("camp_name"))
+        p_name = c.get("park_name")
+        c_name = c.get("camp_name")
+        d_id = c.get("dept_id")
+        if d_id and p_name and c_name:
+            camp_dept_map[(p_name, c_name)] = d_id
+
+        key = (p_name, c_name)
         if key in seen_camps:
             continue
         seen_camps.add(key)
         t_str = f"[{', '.join(c.get('types', []))}]" if c.get("types") else ""
-        camp_names_list.append(f"**{c.get('park_name')} {c.get('camp_name')}**{t_str}")
+        camp_names_list.append(f"**{p_name} {c_name}**{t_str}")
     camps_display = ", ".join(camp_names_list) if camp_names_list else "설정된 야영장 없음"
 
     lines = [
@@ -80,7 +89,8 @@ def generate_status_markdown(
         f"> 🕒 **마지막 모니터링 시각**: `{now_str}` (KST)  ",
         user_line,
         f"> 🎯 **감시 야영장**: {camps_display}  ",
-        f"> ⚙️ **필터 조건**: 요일: `{dows_str}` | 대기예약: `{waiting_str}` | 2박 연박 감지: `{consec_str}`",
+        f"> ⚙️ **필터 조건**: 요일: `{dows_str}` | 대기예약: `{waiting_str}` | 2박 연박 감지: `{consec_str}`  ",
+        f"> ⚡ **원클릭 링크**: [🔑 로그인 상태 확인/유지]({LOGIN_URL}) | [🏕️ 국립공원 통합예약시스템]({RESERVATION_URL})",
         "",
         "---",
         "",
@@ -110,16 +120,18 @@ def generate_status_markdown(
             x.get("site_num", "")
         ))
 
-        lines.append("| 공원명 | 야영장 | 시설타입 | 사이트 번호 | 연박 일정 | 유형 배지 | 금요일 상태 | 토요일 상태 | 요금 합계 | 바로가기 |")
+        lines.append("| 공원명 | 야영장 | 시설타입 | 사이트 번호 | 연박 일정 | 유형 배지 | 금요일 상태 | 토요일 상태 | 요금 합계 | 원클릭 예약 |")
         lines.append("|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|")
         for p in all_consecutive:
             f_stat = p.get("fri_status", "예약가능")
             s_stat = p.get("sat_status", "예약가능")
+            d_id = p.get("dept_id") or p.get("fri_slot", {}).get("dept_id") or camp_dept_map.get((p.get("park_name"), p.get("camp_name")), "")
+            direct_url = f"https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId={d_id}" if d_id else RESERVATION_URL
             lines.append(
                 f"| {p.get('park_name')} | {p.get('camp_name')} | {p.get('site_type')} | "
                 f"**{p.get('site_num')}번** | {p.get('fri_date')}(금) ~ {p.get('sat_date')}(토) | "
                 f"{p.get('case_badge', '')} | {f_stat} | {s_stat} | "
-                f"{p.get('price_total', 0):,}원 | [👉 예약하기]({RESERVATION_URL}) |"
+                f"{p.get('price_total', 0):,}원 | [⚡ 즉시예약]({direct_url}) |"
             )
         lines.append("")
     else:
@@ -147,14 +159,16 @@ def generate_status_markdown(
             x.get("site_num", "")
         ))
 
-        lines.append("| 공원명 | 야영장 | 날짜 (요일) | 시설타입 | 사이트 번호 | 예약 상태 | 1박 요금 | 바로가기 |")
+        lines.append("| 공원명 | 야영장 | 날짜 (요일) | 시설타입 | 사이트 번호 | 예약 상태 | 1박 요금 | 원클릭 예약 |")
         lines.append("|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|")
         for s in all_slots:
             stat_icon = "🔵 예약가능" if s.get("status") == "R" else "🟡 대기예약"
+            d_id = s.get("dept_id") or camp_dept_map.get((s.get("park_name"), s.get("camp_name")), "")
+            direct_url = f"https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId={d_id}" if d_id else RESERVATION_URL
             lines.append(
                 f"| {s.get('park_name')} | {s.get('camp_name')} | {s.get('date')} ({s.get('dow')}) | "
                 f"{s.get('site_type')} | **{s.get('site_num')}** | {stat_icon} | "
-                f"{s.get('price', 0):,}원 | [👉 예약하기]({RESERVATION_URL}) |"
+                f"{s.get('price', 0):,}원 | [⚡ 즉시예약]({direct_url}) |"
             )
         lines.append("")
     else:

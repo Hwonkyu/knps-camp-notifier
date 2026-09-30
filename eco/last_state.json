@@ -3,9 +3,50 @@
     "B971002": {
       "dept_id": "B971002",
       "center_name": "북한산",
-      "rooms": {},
+      "rooms": {
+        "B971002_2026-10-02_EB97100200018": {
+          "slot_id": "B971002_2026-10-02_EB97100200018",
+          "dept_id": "B971002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB97100200018",
+          "prd_name": "[209호]4인실 침대",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "북한산"
+        },
+        "B971002_2026-10-02_EB97100200024": {
+          "slot_id": "B971002_2026-10-02_EB97100200024",
+          "dept_id": "B971002",
+          "date": "2026-10-02",
+          "dow": "금",
+          "prd_id": "EB97100200024",
+          "prd_name": "[장애인편의객실][201호]4인실 침대",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "북한산"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-29T14:30:47.211296"
+      "updated_at": "2026-10-01T00:48:26.985770"
     },
     "B301002": {
       "dept_id": "B301002",
@@ -53,7 +94,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T15:46:50.689735"
+      "updated_at": "2026-10-01T00:48:28.150550"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -181,21 +222,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T15:46:56.998013"
+      "updated_at": "2026-10-01T00:48:29.337885"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T15:47:04.743761"
-    },
-    "B163001": {
-      "dept_id": "B163001",
-      "center_name": "계룡산",
-      "rooms": {},
-      "consecutive_pairs": [],
-      "updated_at": "2026-09-30T15:47:17.984800"
+      "updated_at": "2026-10-01T00:48:30.530552"
     }
   },
   "history": [
@@ -452,204 +486,9 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-09-30T15:47:18.285564",
+  "updated_at": "2026-10-01T00:48:30.831942",
   "users": {
     "user1": {
-      "centers": {
-        "B971002": {
-          "dept_id": "B971002",
-          "center_name": "북한산",
-          "rooms": {},
-          "consecutive_pairs": [],
-          "updated_at": "2026-09-29T14:30:47.211296"
-        },
-        "B301002": {
-          "dept_id": "B301002",
-          "center_name": "설악산",
-          "rooms": {
-            "B301002_2026-10-02_EB30100200031": {
-              "slot_id": "B301002_2026-10-02_EB30100200031",
-              "dept_id": "B301002",
-              "date": "2026-10-02",
-              "dow": "금",
-              "prd_id": "EB30100200031",
-              "prd_name": "[203호]4인실 온돌(산전망)",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "설악산"
-            },
-            "B301002_2026-10-02_EB30100200032": {
-              "slot_id": "B301002_2026-10-02_EB30100200032",
-              "dept_id": "B301002",
-              "date": "2026-10-02",
-              "dow": "금",
-              "prd_id": "EB30100200032",
-              "prd_name": "[204호]4인실 온돌(산전망)",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "설악산"
-            }
-          },
-          "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:46:50.689735"
-        },
-        "B123002": {
-          "dept_id": "B123002",
-          "center_name": "소백산",
-          "rooms": {
-            "B123002_2026-10-02_EB12300200030": {
-              "slot_id": "B123002_2026-10-02_EB12300200030",
-              "dept_id": "B123002",
-              "date": "2026-10-02",
-              "dow": "금",
-              "prd_id": "EB12300200030",
-              "prd_name": "[206호]6인실 침대+온돌(복층)",
-              "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200015": {
-              "slot_id": "B123002_2026-10-16_EB12300200015",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200015",
-              "prd_name": "[102호]4인실 침대",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200022": {
-              "slot_id": "B123002_2026-10-16_EB12300200022",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200022",
-              "prd_name": "[109호]6인실 온돌",
-              "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200024": {
-              "slot_id": "B123002_2026-10-16_EB12300200024",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200024",
-              "prd_name": "[111호]6인실 온돌",
-              "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200025": {
-              "slot_id": "B123002_2026-10-16_EB12300200025",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200025",
-              "prd_name": "[201호]6인실 침대+온돌(복층)",
-              "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200026": {
-              "slot_id": "B123002_2026-10-16_EB12300200026",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200026",
-              "prd_name": "[202호]6인실 침대+온돌(복층)",
-              "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            }
-          },
-          "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:46:56.998013"
-        },
-        "B183001": {
-          "dept_id": "B183001",
-          "center_name": "변산반도",
-          "rooms": {},
-          "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:47:04.743761"
-        }
-      },
-      "baseline_at": "2026-09-30T09:01:23.509772"
-    },
-    "user2": {
       "centers": {
         "B971002": {
           "dept_id": "B971002",
@@ -697,7 +536,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:47:11.121668"
+          "updated_at": "2026-10-01T00:48:26.985770"
         },
         "B301002": {
           "dept_id": "B301002",
@@ -745,7 +584,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:47:11.422155"
+          "updated_at": "2026-10-01T00:48:28.150550"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -873,14 +712,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:47:11.722685"
+          "updated_at": "2026-10-01T00:48:29.337885"
         },
         "B163001": {
           "dept_id": "B163001",
           "center_name": "계룡산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T15:47:17.984800"
+          "updated_at": "2026-10-01T00:48:30.530552"
         }
       },
       "baseline_at": "2026-09-30T09:01:48.986356"
