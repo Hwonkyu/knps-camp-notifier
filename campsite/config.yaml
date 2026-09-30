@@ -80,14 +80,6 @@ users:
         camp_name: "닷돈재2"
         dept_id: "B111001"
         types: []
-      - park_name: "치악산"
-        camp_name: "구룡"
-        dept_id: "B101001"
-        types: []
-      - park_name: "치악산"
-        camp_name: "금대"
-        dept_id: "B101002"
-        types: []
       - park_name: "태백산"
         camp_name: "소도"
         dept_id: "B221004"
