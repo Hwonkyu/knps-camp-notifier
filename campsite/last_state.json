@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:19.236625"
+      "last_checked": "2026-09-30T19:48:19.768723"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -533,7 +533,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:19.237048"
+      "last_checked": "2026-09-30T19:48:19.769192"
     },
     "B051006": {
       "park_name": "덕유산",
@@ -1281,7 +1281,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:22.409839"
+      "last_checked": "2026-09-30T19:48:22.799975"
     },
     "B031005": {
       "park_name": "설악산",
@@ -2281,7 +2281,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:27.729977"
+      "last_checked": "2026-09-30T19:48:26.544635"
     },
     "B122001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -2664,6 +2664,24 @@
           "date": "2026-10-02",
           "raw_date": "20261002",
           "dow": "금",
+          "status": "R",
+          "status_text": "예약가능",
+          "price": 90000,
+          "prod_id": "CB12200102119"
+        },
+        "20261003_CB12200102119": {
+          "slot_id": "20261003_CB12200102119_R",
+          "site_key": "20261003_CB12200102119",
+          "dept_id": "B122001",
+          "park_name": "소백산",
+          "camp_name": "남천",
+          "site_type": "특화야영장",
+          "site_num": "B7",
+          "full_title": "소백산-남천-특화야영장-B7",
+          "payment_title": "특화야영장 B7",
+          "date": "2026-10-03",
+          "raw_date": "20261003",
+          "dow": "토",
           "status": "R",
           "status_text": "예약가능",
           "price": 90000,
@@ -3642,9 +3660,65 @@
           "prod_id": "CB12200102112"
         }
       },
-      "consecutive_pairs": [],
-      "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:31.098068"
+      "consecutive_pairs": [
+        "2026-10-02_2026-10-03_특화야영장_B7_R_R"
+      ],
+      "consecutive_pairs_data": [
+        {
+          "pair_id": "2026-10-02_2026-10-03_특화야영장_B7_R_R",
+          "spot_id": "특화야영장_B7",
+          "dept_id": "B122001",
+          "case_num": 3,
+          "case_name": "예약가능 + 예약가능",
+          "case_badge": "🔵 [즉시 2박 예약]",
+          "park_name": "소백산",
+          "camp_name": "남천",
+          "site_type": "특화야영장",
+          "site_num": "B7",
+          "fri_date": "2026-10-02",
+          "sat_date": "2026-10-03",
+          "fri_slot": {
+            "slot_id": "20261002_CB12200102119_R",
+            "site_key": "20261002_CB12200102119",
+            "dept_id": "B122001",
+            "park_name": "소백산",
+            "camp_name": "남천",
+            "site_type": "특화야영장",
+            "site_num": "B7",
+            "full_title": "소백산-남천-특화야영장-B7",
+            "payment_title": "특화야영장 B7",
+            "date": "2026-10-02",
+            "raw_date": "20261002",
+            "dow": "금",
+            "status": "R",
+            "status_text": "예약가능",
+            "price": 90000,
+            "prod_id": "CB12200102119"
+          },
+          "sat_slot": {
+            "slot_id": "20261003_CB12200102119_R",
+            "site_key": "20261003_CB12200102119",
+            "dept_id": "B122001",
+            "park_name": "소백산",
+            "camp_name": "남천",
+            "site_type": "특화야영장",
+            "site_num": "B7",
+            "full_title": "소백산-남천-특화야영장-B7",
+            "payment_title": "특화야영장 B7",
+            "date": "2026-10-03",
+            "raw_date": "20261003",
+            "dow": "토",
+            "status": "R",
+            "status_text": "예약가능",
+            "price": 90000,
+            "prod_id": "CB12200102119"
+          },
+          "both_direct": true,
+          "status_summary": "금:예약 / 토:예약 (즉시2박)",
+          "price_total": 180000
+        }
+      ],
+      "last_checked": "2026-09-30T19:48:29.862457"
     },
     "B121001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -5585,7 +5659,7 @@
           "price_total": 120000
         }
       ],
-      "last_checked": "2026-09-30T19:46:34.525136"
+      "last_checked": "2026-09-30T19:48:33.702026"
     },
     "B061001": {
       "park_name": "오대산",
@@ -7413,7 +7487,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:39.169134"
+      "last_checked": "2026-09-30T19:48:36.507881"
     },
     "B111001": {
       "park_name": "월악산",
@@ -7819,7 +7893,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:42.572754"
+      "last_checked": "2026-09-30T19:48:39.666134"
     },
     "B101001": {
       "park_name": "치악산",
@@ -18541,10 +18615,26 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-09-30T19:46:46.403443"
+      "last_checked": "2026-09-30T19:48:43.199382"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-30 19:48:29",
+      "camp": "소백산 남천 (User 2)",
+      "summary": "[User 2] 🔵 즉시예약 1건",
+      "details": [
+        "🔵 즉시예약: 2026-10-03(토) 특화야영장 B7번 (마감 ➔ 예약가능)"
+      ]
+    },
+    {
+      "timestamp": "2026-09-30 19:48:29",
+      "camp": "소백산 남천 (User 2)",
+      "summary": "🔥 [User 2] 주말 2박(금,토) 연박 신규 1건 오픈",
+      "details": [
+        "🔵 [즉시 2박 예약] 2026-10-02~2026-10-03 | 특화야영장 B7번 (금:예약 / 토:예약 (즉시2박))"
+      ]
+    },
     {
       "timestamp": "2026-09-30 19:40:45",
       "camp": "월악산 닷돈재2 (User 2)",
@@ -18783,28 +18873,10 @@
       "details": [
         "🔴 완전마감: 2026-10-09(금) 특화야영장 하우스-3(4인)번 (대기예약 ➔ 마감)"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 15:06:18",
-      "camp": "변산반도 고사포2 (User 1)",
-      "summary": "[User 1] 🔵 즉시예약 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-02(금) 특화야영장 하우스-28번 (마감 ➔ 예약가능)"
-      ]
-    },
-    {
-      "timestamp": "2026-09-30 15:03:51",
-      "camp": "월악산 닷돈재2 (User 2)",
-      "summary": "[User 2] 🔵 즉시예약 2건, 🟡 대기접수 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-16(4인)번 (대기예약 ➔ 예약가능)",
-        "🔵 즉시예약: 2026-10-16(금) 특화야영장 하우스-19(4인)번 (대기예약 ➔ 예약가능)",
-        "🟡 대기접수: 2026-10-23(금) 특화야영장 하우스-15(4인)번 (마감 ➔ 대기예약)"
-      ]
     }
   ],
   "baseline_at": "2026-09-30T09:01:23.378377",
-  "updated_at": "2026-09-30T19:46:46.407256",
+  "updated_at": "2026-09-30T19:48:43.202663",
   "users": {
     "user1": {
       "campsites": {
@@ -18817,7 +18889,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:19.236625"
+          "last_checked": "2026-09-30T19:48:19.768723"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -19345,7 +19417,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:19.237048"
+          "last_checked": "2026-09-30T19:48:19.769192"
         },
         "B051006": {
           "park_name": "덕유산",
@@ -20093,7 +20165,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:22.409839"
+          "last_checked": "2026-09-30T19:48:22.799975"
         },
         "B031005": {
           "park_name": "설악산",
@@ -21093,7 +21165,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:27.729977"
+          "last_checked": "2026-09-30T19:48:26.544635"
         },
         "B122001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -21476,6 +21548,24 @@
               "date": "2026-10-02",
               "raw_date": "20261002",
               "dow": "금",
+              "status": "R",
+              "status_text": "예약가능",
+              "price": 90000,
+              "prod_id": "CB12200102119"
+            },
+            "20261003_CB12200102119": {
+              "slot_id": "20261003_CB12200102119_R",
+              "site_key": "20261003_CB12200102119",
+              "dept_id": "B122001",
+              "park_name": "소백산",
+              "camp_name": "남천",
+              "site_type": "특화야영장",
+              "site_num": "B7",
+              "full_title": "소백산-남천-특화야영장-B7",
+              "payment_title": "특화야영장 B7",
+              "date": "2026-10-03",
+              "raw_date": "20261003",
+              "dow": "토",
               "status": "R",
               "status_text": "예약가능",
               "price": 90000,
@@ -22454,9 +22544,65 @@
               "prod_id": "CB12200102112"
             }
           },
-          "consecutive_pairs": [],
-          "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:31.098068"
+          "consecutive_pairs": [
+            "2026-10-02_2026-10-03_특화야영장_B7_R_R"
+          ],
+          "consecutive_pairs_data": [
+            {
+              "pair_id": "2026-10-02_2026-10-03_특화야영장_B7_R_R",
+              "spot_id": "특화야영장_B7",
+              "dept_id": "B122001",
+              "case_num": 3,
+              "case_name": "예약가능 + 예약가능",
+              "case_badge": "🔵 [즉시 2박 예약]",
+              "park_name": "소백산",
+              "camp_name": "남천",
+              "site_type": "특화야영장",
+              "site_num": "B7",
+              "fri_date": "2026-10-02",
+              "sat_date": "2026-10-03",
+              "fri_slot": {
+                "slot_id": "20261002_CB12200102119_R",
+                "site_key": "20261002_CB12200102119",
+                "dept_id": "B122001",
+                "park_name": "소백산",
+                "camp_name": "남천",
+                "site_type": "특화야영장",
+                "site_num": "B7",
+                "full_title": "소백산-남천-특화야영장-B7",
+                "payment_title": "특화야영장 B7",
+                "date": "2026-10-02",
+                "raw_date": "20261002",
+                "dow": "금",
+                "status": "R",
+                "status_text": "예약가능",
+                "price": 90000,
+                "prod_id": "CB12200102119"
+              },
+              "sat_slot": {
+                "slot_id": "20261003_CB12200102119_R",
+                "site_key": "20261003_CB12200102119",
+                "dept_id": "B122001",
+                "park_name": "소백산",
+                "camp_name": "남천",
+                "site_type": "특화야영장",
+                "site_num": "B7",
+                "full_title": "소백산-남천-특화야영장-B7",
+                "payment_title": "특화야영장 B7",
+                "date": "2026-10-03",
+                "raw_date": "20261003",
+                "dow": "토",
+                "status": "R",
+                "status_text": "예약가능",
+                "price": 90000,
+                "prod_id": "CB12200102119"
+              },
+              "both_direct": true,
+              "status_summary": "금:예약 / 토:예약 (즉시2박)",
+              "price_total": 180000
+            }
+          ],
+          "last_checked": "2026-09-30T19:48:29.862457"
         },
         "B121001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -24397,7 +24543,7 @@
               "price_total": 120000
             }
           ],
-          "last_checked": "2026-09-30T19:46:34.525136"
+          "last_checked": "2026-09-30T19:48:33.702026"
         },
         "B061001": {
           "park_name": "오대산",
@@ -26225,7 +26371,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:39.169134"
+          "last_checked": "2026-09-30T19:48:36.507881"
         },
         "B111001": {
           "park_name": "월악산",
@@ -26631,7 +26777,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:42.572754"
+          "last_checked": "2026-09-30T19:48:39.666134"
         },
         "B101001": {
           "park_name": "치악산",
@@ -37353,7 +37499,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-09-30T19:46:46.403443"
+          "last_checked": "2026-09-30T19:48:43.199382"
         }
       }
     }
