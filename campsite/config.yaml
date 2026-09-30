@@ -91,7 +91,7 @@ users:
       - park_name: "태백산"
         camp_name: "소도"
         dept_id: "B221004"
-        types: []
+        types: ["특화야영장", "카라반"]
     filters:
       target_dates: []
       start_date: "2026-10-01"
