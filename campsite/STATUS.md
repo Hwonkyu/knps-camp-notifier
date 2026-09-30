@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 04:57:40` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 05:00:58` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -363,6 +363,8 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B9** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **B8** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-09 (금) | 캠핑용자동차 전용야영지 | **B7** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-10 (토) | 카라반 | **카라반5** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-10 (토) | 카라반 | **카라반9** | 🔵 예약가능 | 100,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-10 (토) | 자동차야영장 | **C26** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-10 (토) | 자동차야영장 | **C5** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-10 (토) | 캠핑용자동차 전용야영지 | **B6** | 🟡 대기예약 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -400,6 +402,7 @@
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A131** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A132** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A135** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
+| 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A15** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A64** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A85** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-16 (금) | 자동차야영장 | **A91** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
@@ -998,6 +1001,7 @@
 
 | 발송 일시 (KST) | 대상 야영장 | 변동 요약 | 세부 변동 내역 |
 |:---:|:---:|:---:|:---|
+| 2026-09-30 05:00:42 | 설악산 설악동 (User 2) | **[User 2] 🔵 즉시예약 3건** | 🔵 즉시예약: 2026-10-16(금) 자동차야영장 A15번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-10(토) 카라반 카라반5번 (마감 ➔ 예약가능)<br>🔵 즉시예약: 2026-10-10(토) 카라반 카라반9번 (마감 ➔ 예약가능) |
 | 2026-09-30 04:57:39 | 태백산 소도 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 카라반 A9번 (예약가능 ➔ 대기예약) |
 | 2026-09-30 04:57:22 | 설악산 설악동 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 A32번 (예약가능 ➔ 대기예약) |
 | 2026-09-30 04:45:45 | 월악산 닷돈재2 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-09(금) 특화야영장 하우스-20(4인)번 (예약가능 ➔ 대기예약) |
@@ -1017,7 +1021,6 @@
 | 2026-09-30 03:48:29 | 설악산 설악동 (User 2) | **[User 2] 🔵 즉시예약 1건, 🔴 완전마감 3건** | 🔵 즉시예약: 2026-10-31(토) 자동차야영장 A47번 (마감 ➔ 예약가능)<br>🔴 완전마감: 2026-10-23(금) 자동차야영장 A66번 (대기예약 ➔ 마감)<br>🔴 완전마감: 2026-10-23(금) 자동차야영장 A111번 (대기예약 ➔ 마감)<br>🔴 완전마감: 2026-10-31(토) 자동차야영장 A135번 (대기예약 ➔ 마감) |
 | 2026-09-30 03:48:25 | 변산반도 고사포2 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 특화야영장 하우스-25번 (마감 ➔ 대기예약) |
 | 2026-09-30 03:48:21 | 변산반도 고사포2 (User 1) | **[User 1] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-16(금) 특화야영장 하우스-25번 (마감 ➔ 대기예약) |
-| 2026-09-30 03:45:53 | 치악산 금대 (User 2) | **[User 2] 🟡 대기접수 1건** | 🟡 대기접수: 2026-10-02(금) 자동차야영장 22번 (예약가능 ➔ 대기예약) |
 
 ---
 *이 문서는 국립공원 야영장 빈자리 자동 알림 봇에 의해 실시간 변동 발생 시 자동으로 업데이트됩니다.*
