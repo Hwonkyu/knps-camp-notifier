@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 23:44:44` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 23:46:41` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**, **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -108,7 +108,6 @@
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A134** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A135** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A61** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
-| 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A7** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A70** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A74** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A76** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B031005) |
@@ -336,7 +335,6 @@
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B7** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B221004) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B221004) |
 | 태백산 | 소도 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **B9** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B221004) |
-| 소백산 | 남천 | 2026-10-03 (토) | 특화야영장 | **B10** | 🟡 대기예약 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B122001) |
 | 소백산 | 남천 | 2026-10-03 (토) | 특화야영장 | **B15** | 🟡 대기예약 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B122001) |
 | 태백산 | 소도 | 2026-10-03 (토) | 캠핑용자동차 전용야영지 | **B8** | 🟡 대기예약 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B221004) |
 | 태백산 | 소도 | 2026-10-09 (금) | 캠핑용자동차 전용야영지 | **B7** | 🟡 대기예약 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B221004) |
