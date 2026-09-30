@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-09-30 08:36:49` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-09-30 08:39:47` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장], **덕유산 덕유대3**[특화야영장], **설악산 설악동**, **소백산 남천**[특화야영장, 카라반], **소백산 삼가**[특화야영장, 카라반], **오대산 소금강산**, **월악산 닷돈재2**, **태백산 소도**[특화야영장, 카라반]  
@@ -132,7 +132,6 @@
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A89** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **A90** | 🔵 예약가능 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **B2** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **B4** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 자동차야영장 | **B5** | 🟡 대기예약 | 30,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 설악산 | 설악동 | 2026-10-02 (금) | 캠핑용자동차 전용야영지 | **C5** | 🔵 예약가능 | 35,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 소백산 | 남천 | 2026-10-02 (금) | 특화야영장 | **B1** | 🔵 예약가능 | 90,000원 | [👉 예약하기](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
