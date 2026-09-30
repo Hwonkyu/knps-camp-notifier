@@ -40,7 +40,7 @@ users:
     enabled: true
     notification:
       only_new_slots: true
-      notify_closed_slots: true
+      notify_closed_slots: false
       notify_status_changes: true
       notify_consecutive_weekend: true
       consecutive_include_waiting: false
@@ -52,7 +52,46 @@ users:
         bot_token: ""
         chat_id: ""
     campsites:
-      []
+      - park_name: "변산반도"
+        camp_name: "고사포2"
+        dept_id: "B181004"
+        types: ["특화야영장", "카라반"]
+      - park_name: "덕유산"
+        camp_name: "덕유대3"
+        dept_id: "B051006"
+        types: []
+      - park_name: "설악산"
+        camp_name: "설악동"
+        dept_id: "B031005"
+        types: []
+      - park_name: "소백산"
+        camp_name: "남천"
+        dept_id: "B122001"
+        types: ["특화야영장", "카라반"]
+      - park_name: "소백산"
+        camp_name: "삼가"
+        dept_id: "B121001"
+        types: ["특화야영장", "카라반"]
+      - park_name: "오대산"
+        camp_name: "소금강산"
+        dept_id: "B061001"
+        types: []
+      - park_name: "월악산"
+        camp_name: "닷돈재2"
+        dept_id: "B111001"
+        types: []
+      - park_name: "치악산"
+        camp_name: "구룡"
+        dept_id: "B101001"
+        types: []
+      - park_name: "치악산"
+        camp_name: "금대"
+        dept_id: "B101002"
+        types: []
+      - park_name: "태백산"
+        camp_name: "소도"
+        dept_id: "B221004"
+        types: []
     filters:
       target_dates: []
       start_date: "2026-10-01"
