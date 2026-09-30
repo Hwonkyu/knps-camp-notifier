@@ -22,15 +22,11 @@ users:
         camp_name: "고사포2"
         dept_id: "B181004"
         types: ["특화야영장"]
-      - park_name: "덕유산"
-        camp_name: "덕유대3"
-        dept_id: "B051006"
-        types: ["특화야영장"]
     filters:
       target_dates: []
       start_date: "2026-10-01"
       end_date: "2026-10-31"
-      target_weekdays: ["토", "금"]
+      target_weekdays: ["토"]
       target_types: []
       target_sites: []
       include_waiting: true
