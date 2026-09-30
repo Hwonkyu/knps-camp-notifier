@@ -53,7 +53,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T16:06:57.118049"
+      "updated_at": "2026-09-30T16:08:53.508836"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -69,26 +69,6 @@
           "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
           "capacity": 6,
           "price": 120000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
-        },
-        "B123002_2026-10-16_EB12300200015": {
-          "slot_id": "B123002_2026-10-16_EB12300200015",
-          "dept_id": "B123002",
-          "date": "2026-10-16",
-          "dow": "금",
-          "prd_id": "EB12300200015",
-          "prd_name": "[102호]4인실 침대",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
           "pet_allowed": false,
           "barrier_free": false,
           "remaining": 1,
@@ -181,24 +161,32 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T16:07:05.911251"
+      "updated_at": "2026-09-30T16:09:01.491481"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T16:07:17.102037"
+      "updated_at": "2026-09-30T16:09:10.864649"
     },
     "B163001": {
       "dept_id": "B163001",
       "center_name": "계룡산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-09-30T16:07:34.362649"
+      "updated_at": "2026-09-30T16:09:27.298183"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-09-30 16:09:01",
+      "center": "[User 1] 소백산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-16(금) [102호]4인실 침대(4인)"
+      ]
+    },
     {
       "timestamp": "2026-09-30 15:42:48",
       "center": "[User 1] 설악산 생태탐방원",
@@ -443,16 +431,10 @@
       "details": [
         "🔵 [예약가능] 2026-10-16(금) [102호]4인실 침대(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 09:02:04",
-      "center": "[User 2] 계룡산 생태탐방원",
-      "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
-      "details": []
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-09-30T16:07:34.663354",
+  "updated_at": "2026-09-30T16:09:27.598863",
   "users": {
     "user1": {
       "centers": {
@@ -509,7 +491,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:06:57.118049"
+          "updated_at": "2026-09-30T16:08:53.508836"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -525,26 +507,6 @@
               "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
               "capacity": 6,
               "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200015": {
-              "slot_id": "B123002_2026-10-16_EB12300200015",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200015",
-              "prd_name": "[102호]4인실 침대",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
               "pet_allowed": false,
               "barrier_free": false,
               "remaining": 1,
@@ -637,14 +599,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:05.911251"
+          "updated_at": "2026-09-30T16:09:01.491481"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:17.102037"
+          "updated_at": "2026-09-30T16:09:10.864649"
         }
       },
       "baseline_at": "2026-09-30T09:01:23.509772"
@@ -697,7 +659,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:25.690595"
+          "updated_at": "2026-09-30T16:09:19.270567"
         },
         "B301002": {
           "dept_id": "B301002",
@@ -745,7 +707,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:25.991093"
+          "updated_at": "2026-09-30T16:09:19.571099"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -761,26 +723,6 @@
               "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
               "capacity": 6,
               "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
-            "B123002_2026-10-16_EB12300200015": {
-              "slot_id": "B123002_2026-10-16_EB12300200015",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200015",
-              "prd_name": "[102호]4인실 침대",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
               "pet_allowed": false,
               "barrier_free": false,
               "remaining": 1,
@@ -873,14 +815,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:26.291665"
+          "updated_at": "2026-09-30T16:09:19.871644"
         },
         "B163001": {
           "dept_id": "B163001",
           "center_name": "계룡산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-09-30T16:07:34.362649"
+          "updated_at": "2026-09-30T16:09:27.298183"
         }
       },
       "baseline_at": "2026-09-30T09:01:48.986356"
