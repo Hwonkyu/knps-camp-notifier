@@ -10,7 +10,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 ECO_STATUS_MD_FILE = os.path.join(CURRENT_DIR, "STATUS.md")
 ECO_RESERVATION_URL = "https://res.knps.or.kr/eco/searchEcoReservation.do"
 
-ECO_LOGIN_URL = "https://res.knps.or.kr/member/login.do"
+ECO_LOGIN_URL = "https://res.knps.or.kr/mmb/mmbLogin.do"
 
 
 def add_eco_history_entry(

@@ -10,7 +10,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATUS_MD_FILE = os.path.join(CURRENT_DIR, "STATUS.md")
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
 
-LOGIN_URL = "https://reservation.knps.or.kr/member/login.do"
+LOGIN_URL = "https://reservation.knps.or.kr/mmb/mmbLogin.do"
 
 
 def add_history_entry(

@@ -20,7 +20,7 @@ from typing import Dict, Any, List, Optional, Union
 from common import notifier
 
 ECO_RESERVATION_URL = "https://res.knps.or.kr/eco/searchEcoReservation.do"
-ECO_LOGIN_URL = "https://res.knps.or.kr/member/login.do"
+ECO_LOGIN_URL = "https://res.knps.or.kr/mmb/mmbLogin.do"
 
 
 def get_eco_direct_url(center_info: Dict[str, Any]) -> str:

@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from typing import List, Dict, Any, Union
 
 RESERVATION_URL = "https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do"
-LOGIN_URL = "https://reservation.knps.or.kr/member/login.do"
+LOGIN_URL = "https://reservation.knps.or.kr/mmb/mmbLogin.do"
 
 
 def get_campsite_direct_url(campsite_info: Dict[str, Any]) -> str:
