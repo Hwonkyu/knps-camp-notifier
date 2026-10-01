@@ -11,11 +11,12 @@ from collections import Counter
 from typing import Dict, Any, List, Optional
 
 WEEKDAYS_KO = ["월", "화", "수", "목", "금", "토", "일"]
+MAX_CANCELLATION_EVENTS = 10000  # 약 1년치 취소표 누적 표본 보관 (~1.5MB)
 
 
 def record_cancellation_events(state: Dict[str, Any], new_events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    새로 발생한 취소표 이벤트를 state['cancellation_events']에 누적 저장합니다 (최대 3,000건 보관).
+    새로 발생한 취소표 이벤트를 state['cancellation_events']에 누적 저장합니다 (최대 10,000건 보관).
     """
     if not new_events:
         return state.get("cancellation_events", [])
@@ -23,8 +24,8 @@ def record_cancellation_events(state: Dict[str, Any], new_events: List[Dict[str,
     events = state.setdefault("cancellation_events", [])
     events.extend(new_events)
 
-    if len(events) > 3000:
-        events = events[-3000:]
+    if len(events) > MAX_CANCELLATION_EVENTS:
+        events = events[-MAX_CANCELLATION_EVENTS:]
     state["cancellation_events"] = events
     return events
 
