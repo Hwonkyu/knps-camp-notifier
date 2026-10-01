@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T12:08:28.804096"
+      "updated_at": "2026-10-01T12:10:29.568854"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -97,30 +97,10 @@
           "status_text": "예약가능",
           "is_available": true,
           "center_name": "소백산"
-        },
-        "B123002_2026-10-31_EB12300200030": {
-          "slot_id": "B123002_2026-10-31_EB12300200030",
-          "dept_id": "B123002",
-          "date": "2026-10-31",
-          "dow": "토",
-          "prd_id": "EB12300200030",
-          "prd_name": "[206호]6인실 침대+온돌(복층)",
-          "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-          "capacity": 6,
-          "price": 120000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T12:08:36.905424"
+      "updated_at": "2026-10-01T12:10:35.783796"
     },
     "B183001": {
       "dept_id": "B183001",
@@ -148,7 +128,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T12:08:45.808770"
+      "updated_at": "2026-10-01T12:10:42.804355"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -159,6 +139,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-01 12:10:35",
+      "center": "[User 1] 소백산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-31(토) [206호]6인실 침대+온돌(복층)(6인)"
+      ]
+    },
     {
       "timestamp": "2026-10-01 12:04:31",
       "center": "[User 1] 소백산 생태탐방원",
@@ -393,18 +381,10 @@
       "details": [
         "🔴 [예약마감] 2026-10-17(토) [107호]4인실 침대+온돌(장애인편의객실)(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-01 00:07:07",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔴 -1실 마감",
-      "details": [
-        "🔴 [예약마감] 2026-10-02(금) [306호]4인실 침대+온돌(바다전망)(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-01T12:08:46.110437",
+  "updated_at": "2026-10-01T12:10:43.105841",
   "users": {
     "user1": {
       "centers": {
@@ -420,7 +400,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T12:08:28.804096"
+          "updated_at": "2026-10-01T12:10:29.568854"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -505,30 +485,10 @@
               "status_text": "예약가능",
               "is_available": true,
               "center_name": "소백산"
-            },
-            "B123002_2026-10-31_EB12300200030": {
-              "slot_id": "B123002_2026-10-31_EB12300200030",
-              "dept_id": "B123002",
-              "date": "2026-10-31",
-              "dow": "토",
-              "prd_id": "EB12300200030",
-              "prd_name": "[206호]6인실 침대+온돌(복층)",
-              "category": "(6인실)B_2타입(적정 수용 6명)(복층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T12:08:36.905424"
+          "updated_at": "2026-10-01T12:10:35.783796"
         },
         "B183001": {
           "dept_id": "B183001",
@@ -556,7 +516,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T12:08:45.808770"
+          "updated_at": "2026-10-01T12:10:42.804355"
         }
       },
       "baseline_at": "2026-10-01T09:00:53.165577"
