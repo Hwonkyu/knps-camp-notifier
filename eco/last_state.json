@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T00:50:51.113026"
+      "updated_at": "2026-10-01T09:51:40.153010"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -100,21 +100,21 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T00:50:57.041635"
-    },
-    "B183001": {
-      "dept_id": "B183001",
-      "center_name": "변산반도",
-      "rooms": {},
-      "consecutive_pairs": [],
-      "updated_at": "2026-10-01T00:51:04.221538"
+      "updated_at": "2026-10-01T09:51:41.349580"
     },
     "B163001": {
       "dept_id": "B163001",
       "center_name": "계룡산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T00:51:16.330664"
+      "updated_at": "2026-10-01T00:48:30.530552"
+    },
+    "B183001": {
+      "dept_id": "B183001",
+      "center_name": "변산반도",
+      "rooms": {},
+      "consecutive_pairs": [],
+      "updated_at": "2026-10-01T09:51:42.535646"
     }
   },
   "history": [
@@ -372,7 +372,7 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-01T00:51:16.631365",
+  "updated_at": "2026-10-01T09:51:45.881817",
   "users": {
     "user1": {
       "centers": {
@@ -388,7 +388,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:50:51.113026"
+          "updated_at": "2026-10-01T09:51:40.153010"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -476,14 +476,21 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:50:57.041635"
+          "updated_at": "2026-10-01T09:51:41.349580"
+        },
+        "B163001": {
+          "dept_id": "B163001",
+          "center_name": "계룡산",
+          "rooms": {},
+          "consecutive_pairs": [],
+          "updated_at": "2026-10-01T00:48:30.530552"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:51:04.221538"
+          "updated_at": "2026-10-01T09:51:42.535646"
         }
       },
       "baseline_at": "2026-09-30T09:01:23.509772"
@@ -495,14 +502,14 @@
           "center_name": "북한산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:51:09.988403"
+          "updated_at": "2026-10-01T09:51:43.787742"
         },
         "B301002": {
           "dept_id": "B301002",
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:51:10.288937"
+          "updated_at": "2026-10-01T09:51:44.088091"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -590,17 +597,243 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:51:10.589419"
+          "updated_at": "2026-10-01T09:51:44.388911"
         },
         "B163001": {
           "dept_id": "B163001",
           "center_name": "계룡산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T00:51:16.330664"
+          "updated_at": "2026-10-01T09:51:45.579170"
         }
       },
       "baseline_at": "2026-09-30T09:01:48.986356"
     }
-  }
+  },
+  "cancellation_events": [
+    {
+      "timestamp": "2026-10-01 00:19:05",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-17",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-10-01 00:18:49",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-17",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-10-01 00:05:17",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-17",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-10-01 00:05:08",
+      "camp": "변산반도 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 1
+    },
+    {
+      "timestamp": "2026-10-01 00:04:59",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-17",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-09-30 21:27:25",
+      "camp": "계룡산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 21,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 16:57:12",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 16,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 16:56:50",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 16,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 15:25:30",
+      "camp": "북한산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:16:11",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 15:16:11",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 15:15:53",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 15:15:53",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 15:13:17",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-23",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 23
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "북한산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "북한산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "북한산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:16",
+      "camp": "북한산 생태탐방원",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 15:13:09",
+      "camp": "변산반도 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:09",
+      "camp": "변산반도 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:13:00",
+      "camp": "소백산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:12:53",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:12:53",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 15:12:53",
+      "camp": "설악산 생태탐방원",
+      "target_date": "2026-10-23",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 23
+    },
+    {
+      "timestamp": "2026-09-30 15:10:09",
+      "camp": "변산반도 생태탐방원",
+      "target_date": "2026-10-23",
+      "cancel_dow": "수",
+      "cancel_hour": 15,
+      "lead_days": 23
+    }
+  ]
 }

@@ -29,6 +29,7 @@ import data as eco_data
 import crawler as eco_crawler
 import notifier as eco_notifier
 import reporter as eco_reporter
+from common import analytics
 
 ECO_STATE_FILE = os.path.join(BASE_DIR, "last_state.json")
 ECO_CONFIG_YAML_FILE = os.path.join(BASE_DIR, "config.yaml")
@@ -299,6 +300,7 @@ def run_eco_monitoring(
         return
 
     state = load_eco_state()
+    analytics.seed_from_history_if_needed(state)
     state_users = state.setdefault("users", {})
     # 레거시 state 호환성: 만약 state에 legacy 'centers'가 있고 users에 user1이 없으면 이관
     if "centers" in state and "user1" not in state_users and state["centers"]:
@@ -379,13 +381,15 @@ def run_eco_monitoring(
 
                 if is_daily:
                     # 1. 정기 종합 브리핑(06시/18시) 모드
+                    golden_tip = analytics.generate_golden_time_summary_text(state, c_name)
                     if send_alert and not dry_run:
                         print(f"📢 [{u_name}][{c_name}] 정기 종합 브리핑(06시/18시) 발송 (잔여: {len(curr_avail_rooms)}실, 연박: {len(curr_consec_pairs)}건)")
                         eco_notifier.send_eco_daily_report(
                             notif_cfg,
                             center_meta,
                             list(curr_avail_rooms.values()),
-                            curr_consec_pairs
+                            curr_consec_pairs,
+                            golden_time_text=golden_tip
                         )
 
                     daily_summary = f"📋 정기 종합(06시/18시): 잔여 {len(curr_avail_rooms)}실 (2박 연박 {len(curr_consec_pairs)}건)"
@@ -416,6 +420,31 @@ def run_eco_monitoring(
 
                     # 주말 2박 연박 감지
                     new_consec_pairs = [p for p in curr_consec_pairs if p["pair_id"] not in prev_consec]
+
+                    if not is_initial_run and blue_slots:
+                        cancel_evts = []
+                        for b in blue_slots:
+                            t_date = b.get("date", "")
+                            lead_days = None
+                            if t_date:
+                                try:
+                                    td = datetime.strptime(t_date, "%Y-%m-%d").date()
+                                    lead_days = (td - datetime.now().date()).days
+                                except Exception:
+                                    pass
+                            cancel_evts.append({
+                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "camp": c_name,
+                                "park_name": c_name,
+                                "camp_name": b.get("prd_name", c_name),
+                                "target_date": t_date,
+                                "target_dow": b.get("dow", ""),
+                                "cancel_dow": analytics.WEEKDAYS_KO[datetime.now().weekday()],
+                                "cancel_hour": datetime.now().hour,
+                                "lead_days": lead_days
+                            })
+                        if cancel_evts:
+                            analytics.record_cancellation_events(state, cancel_evts)
 
                     should_notify = False
                     if not is_initial_run:

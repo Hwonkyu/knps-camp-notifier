@@ -367,7 +367,8 @@ def send_eco_change_notification(
 def format_eco_daily_text(
     center_info: Dict[str, Any],
     available_rooms: List[Dict[str, Any]],
-    consecutive_pairs: Optional[List[Dict[str, Any]]] = None
+    consecutive_pairs: Optional[List[Dict[str, Any]]] = None,
+    golden_time_text: Optional[str] = None
 ) -> str:
     """
     생태탐방원 일일 종합 브리핑 텍스트 생성 (텔레그램, 콘솔, 이메일용)
@@ -411,6 +412,10 @@ def format_eco_daily_text(
             if len(slots) > 10:
                 lines.append(f"  ... 외 {len(slots) - 10}개")
 
+    if golden_time_text:
+        lines.append("\n" + "-" * 30)
+        lines.append(f"📈 [💡 취소표 골든타임 공략 팁]\n  • {golden_time_text}")
+
     direct_url = get_eco_direct_url(center_info)
     lines.append("\n" + "=" * 30)
     lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{ECO_LOGIN_URL}")
@@ -421,7 +426,8 @@ def send_discord_eco_daily(
     webhook_url: str,
     center_info: Dict[str, Any],
     available_rooms: List[Dict[str, Any]],
-    consecutive_pairs: Optional[List[Dict[str, Any]]] = None
+    consecutive_pairs: Optional[List[Dict[str, Any]]] = None,
+    golden_time_text: Optional[str] = None
 ) -> bool:
     """
     디스코드 웹훅으로 생태탐방원 일일 종합 브리핑 Embed 전송
@@ -470,6 +476,13 @@ def send_discord_eco_daily(
         embed_fields.append({
             "name": f"🔵 예약 가능 객실 현황 ({len(available_rooms)}실)",
             "value": "\n\n".join(date_blocks)[:1020],
+            "inline": False
+        })
+
+    if golden_time_text:
+        embed_fields.append({
+            "name": "📈 💡 취소표 골든타임 공략 팁",
+            "value": golden_time_text[:1020],
             "inline": False
         })
 
@@ -524,7 +537,8 @@ def send_eco_daily_report(
     notification_cfg: Dict[str, Any],
     center_info: Dict[str, Any],
     available_rooms: List[Dict[str, Any]],
-    consecutive_pairs: Optional[List[Dict[str, Any]]] = None
+    consecutive_pairs: Optional[List[Dict[str, Any]]] = None,
+    golden_time_text: Optional[str] = None
 ):
     """
     생태탐방원 일일 종합 브리핑을 설정된 모든 채널로 발송
@@ -532,7 +546,7 @@ def send_eco_daily_report(
     center_name = center_info.get("name") or center_info.get("center_name", "")
     user_id = center_info.get("user_id", "user1")
     user_name = center_info.get("user_name", user_id)
-    text_msg = format_eco_daily_text(center_info, available_rooms, consecutive_pairs)
+    text_msg = format_eco_daily_text(center_info, available_rooms, consecutive_pairs, golden_time_text=golden_time_text)
 
     # 1. 디스코드
     dc_cfg = notification_cfg.get("discord", {}) if isinstance(notification_cfg, dict) else {}
@@ -545,7 +559,8 @@ def send_eco_daily_report(
                 webhook_url,
                 center_info,
                 available_rooms,
-                consecutive_pairs
+                consecutive_pairs,
+                golden_time_text=golden_time_text
             )
             if success:
                 print(f"[정기 리포트] 디스코드 전송 완료: {center_name} 생태탐방원")

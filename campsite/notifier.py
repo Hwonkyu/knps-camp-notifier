@@ -71,7 +71,8 @@ def format_notification_message(
     campsite_info: Dict[str, Any],
     available_slots: List[Dict[str, Any]],
     is_daily: bool = False,
-    consecutive_pairs: List[Dict[str, Any]] = None
+    consecutive_pairs: List[Dict[str, Any]] = None,
+    golden_time_text: str = None
 ) -> str:
     """
     사용자가 한눈에 보기 편하도록 텍스트/마크다운 형태의 알림 메시지를 생성합니다.
@@ -127,6 +128,10 @@ def format_notification_message(
             for stype, sites in by_type.items():
                 lines.append(f"  • {stype}: {', '.join(sites[:10])}{' 외' if len(sites) > 10 else ''}")
 
+    if is_daily and golden_time_text:
+        lines.append("\n" + "-" * 30)
+        lines.append(f"📈 [💡 취소표 골든타임 공략 팁]\n  • {golden_time_text}")
+
     direct_url = get_campsite_direct_url(campsite_info)
     lines.append("\n" + "=" * 30)
     lines.append(f"⚡ 원클릭 예약 바로가기:\n{direct_url}\n🔑 로그인 유지 확인:\n{LOGIN_URL}")
@@ -174,7 +179,8 @@ def send_discord(
     campsite_info: Dict[str, Any],
     slots: List[Dict[str, Any]],
     is_daily: bool = False,
-    consecutive_pairs: List[Dict[str, Any]] = None
+    consecutive_pairs: List[Dict[str, Any]] = None,
+    golden_time_text: str = None
 ) -> bool:
     """
     디스코드 웹훅으로 깔끔한 Embed 메시지를 전송합니다.
@@ -221,6 +227,13 @@ def send_discord(
                 "value": "\n".join(desc_list) if desc_list else "자리 있음",
                 "inline": True
             })
+
+    if is_daily and golden_time_text:
+        embed_fields.append({
+            "name": "📈 💡 취소표 골든타임 공략 팁",
+            "value": golden_time_text[:1020],
+            "inline": False
+        })
 
     user_name = campsite_info.get("user_name")
     user_prefix = f"[{user_name}] " if user_name else ""
@@ -698,7 +711,8 @@ def dispatch_notifications(
     campsite_info: Dict[str, Any],
     available_slots: List[Dict[str, Any]],
     is_daily: bool = False,
-    consecutive_pairs: List[Dict[str, Any]] = None
+    consecutive_pairs: List[Dict[str, Any]] = None,
+    golden_time_text: str = None
 ) -> Dict[str, bool]:
     """
     설정에 활성화된 알림 채널(텔레그램, 디스코드, 이메일)로 일괄 알림을 전송합니다.
@@ -708,7 +722,8 @@ def dispatch_notifications(
         campsite_info,
         available_slots,
         is_daily=is_daily,
-        consecutive_pairs=consecutive_pairs
+        consecutive_pairs=consecutive_pairs,
+        golden_time_text=golden_time_text
     )
     user_id = campsite_info.get("user_id", "user1")
     user_name = campsite_info.get("user_name", user_id)
@@ -736,7 +751,8 @@ def dispatch_notifications(
                 campsite_info,
                 available_slots,
                 is_daily=is_daily,
-                consecutive_pairs=consecutive_pairs
+                consecutive_pairs=consecutive_pairs,
+                golden_time_text=golden_time_text
             )
 
     # 3. 이메일

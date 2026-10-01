@@ -29,6 +29,7 @@ import data as campsites_data
 import crawler as knps_crawler
 import notifier
 import reporter as status_reporter
+from common import analytics
 
 STATE_FILE = os.path.join(BASE_DIR, "last_state.json")
 CONFIG_JSON_FILE = os.path.join(BASE_DIR, "config.json")
@@ -419,6 +420,7 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
         return
 
     state = load_state()
+    analytics.seed_from_history_if_needed(state)
     state_users = state.setdefault("users", {})
     # 레거시 state 호환성: 만약 state에 legacy 'campsites'가 있고 users에 user1이 없으면 이관
     if "campsites" in state and "user1" not in state_users and state["campsites"]:
@@ -550,13 +552,15 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                 state_key = f"{d_id}_{'_'.join(sorted(camp_types))}" if camp_types else d_id
 
                 if is_daily:
+                    golden_tip = analytics.generate_golden_time_summary_text(state, f"{p_name} {c_name}")
                     if send_alert:
                         res = notifier.dispatch_notifications(
                             config=u_notif,
                             campsite_info=camp,
                             available_slots=matched_slots,
                             is_daily=True,
-                            consecutive_pairs=consecutive_pairs
+                            consecutive_pairs=consecutive_pairs,
+                            golden_time_text=golden_tip
                         )
                         for ch, ok in res.items():
                             print(f"         [정기 리포트(06시/18시) 전송] {ch}: {'성공' if ok else '실패'}")
@@ -710,6 +714,32 @@ def run_monitor(config: Dict[str, Any], send_alert: bool = True, is_daily: bool 
                         print(f"      🚨 [{u_name}] 변동 감지! (🔵 즉시예약: {len(blue_slots)}개, 🟡 대기접수: {len(yellow_slots)}개, 🔴 완전마감: {len(red_slots)}개)")
                         diff_details = []
                         if blue_slots:
+                            if prev_camp_data is not None:
+                                cancel_evts = []
+                                for item in blue_slots:
+                                    s = item["slot"]
+                                    t_date = s.get("date", "")
+                                    lead_days = None
+                                    if t_date:
+                                        try:
+                                            td = datetime.strptime(t_date, "%Y-%m-%d").date()
+                                            lead_days = (td - datetime.now().date()).days
+                                        except Exception:
+                                            pass
+                                    cancel_evts.append({
+                                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                        "camp": f"{p_name} {c_name}",
+                                        "park_name": p_name,
+                                        "camp_name": c_name,
+                                        "target_date": t_date,
+                                        "target_dow": s.get("dow", ""),
+                                        "cancel_dow": analytics.WEEKDAYS_KO[datetime.now().weekday()],
+                                        "cancel_hour": datetime.now().hour,
+                                        "lead_days": lead_days
+                                    })
+                                if cancel_evts:
+                                    analytics.record_cancellation_events(state, cancel_evts)
+
                             for item in blue_slots:
                                 s = item["slot"]
                                 diff_details.append(f"🔵 즉시예약: {s['date']}({s['dow']}) {s['site_type']} {s['site_num']}번 ({item['prev_status_text']} ➔ {item['curr_status_text']})")

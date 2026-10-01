@@ -3,8 +3,16 @@
 """
 
 import os
+import sys
 from datetime import datetime
 from typing import Dict, Any, List
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(BASE_DIR)
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+from common import analytics
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATUS_MD_FILE = os.path.join(CURRENT_DIR, "STATUS.md")
@@ -174,6 +182,15 @@ def generate_status_markdown(
     else:
         lines.append("*현재 감시 필터 조건에 부합하는 빈자리/대기자리가 없습니다.*")
         lines.append("")
+
+    lines.append("---")
+    lines.append("")
+
+    # 3. 취소표 골든타임 통계 분석 대시보드
+    watched_camps = [f"{p} {c}" for p, c in camp_dept_map.keys()]
+    golden_table = analytics.generate_golden_time_markdown_table(state, watched_camps)
+    lines.append(golden_table)
+    lines.append("")
 
     lines.append("---")
     lines.append("")
