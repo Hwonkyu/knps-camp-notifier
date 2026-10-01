@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:52:50.855365"
+      "last_checked": "2026-10-01T00:54:14.778035"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -533,7 +533,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:52:50.855894"
+      "last_checked": "2026-10-01T00:54:14.778540"
     },
     "B051006": {
       "park_name": "덕유산",
@@ -1245,7 +1245,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:52:54.243720"
+      "last_checked": "2026-10-01T00:54:18.442873"
     },
     "B031005": {
       "park_name": "설악산",
@@ -2209,7 +2209,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:52:58.762444"
+      "last_checked": "2026-10-01T00:54:23.741833"
     },
     "B122001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -3446,7 +3446,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:53:02.586541"
+      "last_checked": "2026-10-01T00:54:26.842703"
     },
     "B121001_카라반_특화야영장": {
       "park_name": "소백산",
@@ -5331,7 +5331,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:53:06.291938"
+      "last_checked": "2026-10-01T00:54:31.014038"
     },
     "B061001": {
       "park_name": "오대산",
@@ -7159,7 +7159,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:53:10.455995"
+      "last_checked": "2026-10-01T00:54:35.744176"
     },
     "B111001": {
       "park_name": "월악산",
@@ -7547,7 +7547,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:53:14.230548"
+      "last_checked": "2026-10-01T00:54:39.293433"
     },
     "B101001": {
       "park_name": "치악산",
@@ -18269,7 +18269,7 @@
       },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-01T00:53:18.094687"
+      "last_checked": "2026-10-01T00:54:44.281923"
     }
   },
   "history": [
@@ -18521,7 +18521,7 @@
     }
   ],
   "baseline_at": "2026-09-30T09:01:23.378377",
-  "updated_at": "2026-10-01T00:53:18.098797",
+  "updated_at": "2026-10-01T00:54:44.288264",
   "users": {
     "user1": {
       "campsites": {
@@ -18534,7 +18534,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:52:50.855365"
+          "last_checked": "2026-10-01T00:54:14.778035"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -19062,7 +19062,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:52:50.855894"
+          "last_checked": "2026-10-01T00:54:14.778540"
         },
         "B051006": {
           "park_name": "덕유산",
@@ -19774,7 +19774,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:52:54.243720"
+          "last_checked": "2026-10-01T00:54:18.442873"
         },
         "B031005": {
           "park_name": "설악산",
@@ -20738,7 +20738,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:52:58.762444"
+          "last_checked": "2026-10-01T00:54:23.741833"
         },
         "B122001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -21975,7 +21975,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:53:02.586541"
+          "last_checked": "2026-10-01T00:54:26.842703"
         },
         "B121001_카라반_특화야영장": {
           "park_name": "소백산",
@@ -23860,7 +23860,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:53:06.291938"
+          "last_checked": "2026-10-01T00:54:31.014038"
         },
         "B061001": {
           "park_name": "오대산",
@@ -25688,7 +25688,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:53:10.455995"
+          "last_checked": "2026-10-01T00:54:35.744176"
         },
         "B111001": {
           "park_name": "월악산",
@@ -26076,7 +26076,7 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:53:14.230548"
+          "last_checked": "2026-10-01T00:54:39.293433"
         },
         "B101001": {
           "park_name": "치악산",
@@ -36798,9 +36798,267 @@
           },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-01T00:53:18.094687"
+          "last_checked": "2026-10-01T00:54:44.281923"
         }
       }
     }
-  }
+  },
+  "cancellation_events": [
+    {
+      "timestamp": "2026-10-01 00:42:32",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-02",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 1
+    },
+    {
+      "timestamp": "2026-10-01 00:42:25",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:40:42",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:36:37",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:32:24",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:28:37",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:28:37",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-30",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-01 00:10:27",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-24",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 23
+    },
+    {
+      "timestamp": "2026-10-01 00:10:27",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-02",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 1
+    },
+    {
+      "timestamp": "2026-10-01 00:08:46",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-24",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 23
+    },
+    {
+      "timestamp": "2026-10-01 00:00:53",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-09",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 8
+    },
+    {
+      "timestamp": "2026-10-01 00:00:53",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-10",
+      "cancel_dow": "목",
+      "cancel_hour": 0,
+      "lead_days": 9
+    },
+    {
+      "timestamp": "2026-09-30 23:58:33",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-09",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 9
+    },
+    {
+      "timestamp": "2026-09-30 23:58:33",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-10",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 10
+    },
+    {
+      "timestamp": "2026-09-30 23:58:33",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-09",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 9
+    },
+    {
+      "timestamp": "2026-09-30 23:58:25",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-17",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 17
+    },
+    {
+      "timestamp": "2026-09-30 23:20:44",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-24",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 24
+    },
+    {
+      "timestamp": "2026-09-30 23:18:23",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 23,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 22:58:36",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-24",
+      "cancel_dow": "수",
+      "cancel_hour": 22,
+      "lead_days": 24
+    },
+    {
+      "timestamp": "2026-09-30 22:42:24",
+      "camp": "설악산 설악동",
+      "target_date": "2026-10-16",
+      "cancel_dow": "수",
+      "cancel_hour": 22,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-09-30 22:08:20",
+      "camp": "덕유산 덕유대3",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 22,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 22:08:20",
+      "camp": "덕유산 덕유대3",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 22,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 22:06:35",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 22,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 21:24:36",
+      "camp": "오대산 소금강산",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 21,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 21:22:44",
+      "camp": "월악산 닷돈재2",
+      "target_date": "2026-10-16",
+      "cancel_dow": "수",
+      "cancel_hour": 21,
+      "lead_days": 16
+    },
+    {
+      "timestamp": "2026-09-30 20:18:31",
+      "camp": "소백산 삼가",
+      "target_date": "2026-10-31",
+      "cancel_dow": "수",
+      "cancel_hour": 20,
+      "lead_days": 31
+    },
+    {
+      "timestamp": "2026-09-30 20:00:49",
+      "camp": "소백산 남천",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 20,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 19:48:29",
+      "camp": "소백산 남천",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 19,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 19:48:29",
+      "camp": "소백산 남천",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 19,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 19:40:45",
+      "camp": "월악산 닷돈재2",
+      "target_date": "2026-10-02",
+      "cancel_dow": "수",
+      "cancel_hour": 19,
+      "lead_days": 2
+    },
+    {
+      "timestamp": "2026-09-30 18:24:29",
+      "camp": "소백산 남천",
+      "target_date": "2026-10-03",
+      "cancel_dow": "수",
+      "cancel_hour": 18,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-09-30 18:06:39",
+      "camp": "월악산 닷돈재2",
+      "target_date": "2026-10-30",
+      "cancel_dow": "수",
+      "cancel_hour": 18,
+      "lead_days": 30
+    }
+  ]
 }
