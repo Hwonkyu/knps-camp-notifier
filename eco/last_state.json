@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T05:30:37.535862"
+      "updated_at": "2026-10-01T05:32:23.555211"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -160,14 +160,35 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T05:30:45.907501"
+      "updated_at": "2026-10-01T05:32:29.708965"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-17_EB18300100038": {
+          "slot_id": "B183001_2026-10-17_EB18300100038",
+          "dept_id": "B183001",
+          "date": "2026-10-17",
+          "dow": "토",
+          "prd_id": "EB18300100038",
+          "prd_name": "[319호]2인실 침대",
+          "category": "(2인실)D타입(적정 수용 2명)",
+          "capacity": 2,
+          "price": 40000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-01T05:30:56.372554"
+      "updated_at": "2026-10-01T05:32:36.454106"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -178,6 +199,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-01 05:32:36",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-17(토) [319호]2인실 침대(2인)"
+      ]
+    },
     {
       "timestamp": "2026-10-01 05:30:45",
       "center": "[User 1] 소백산 생태탐방원",
@@ -414,20 +443,10 @@
       "details": [
         "🔵 [예약가능] 2026-10-02(금) [206호]6인실 침대+온돌(복층)(6인)"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 15:13:16",
-      "center": "[User 2] 설악산 생태탐방원",
-      "summary": "🔵 +3실 예약가능",
-      "details": [
-        "🔵 [예약가능] 2026-10-02(금) [203호]4인실 온돌(산전망)(4인)",
-        "🔵 [예약가능] 2026-10-02(금) [204호]4인실 온돌(산전망)(4인)",
-        "🔵 [예약가능] 2026-10-23(금) [111호]4인실 침대(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-01T05:30:56.674055",
+  "updated_at": "2026-10-01T05:32:36.755533",
   "users": {
     "user1": {
       "centers": {
@@ -443,7 +462,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T05:30:37.535862"
+          "updated_at": "2026-10-01T05:32:23.555211"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -591,14 +610,35 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T05:30:45.907501"
+          "updated_at": "2026-10-01T05:32:29.708965"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {},
+          "rooms": {
+            "B183001_2026-10-17_EB18300100038": {
+              "slot_id": "B183001_2026-10-17_EB18300100038",
+              "dept_id": "B183001",
+              "date": "2026-10-17",
+              "dow": "토",
+              "prd_id": "EB18300100038",
+              "prd_name": "[319호]2인실 침대",
+              "category": "(2인실)D타입(적정 수용 2명)",
+              "capacity": 2,
+              "price": 40000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "변산반도"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-01T05:30:56.372554"
+          "updated_at": "2026-10-01T05:32:36.454106"
         }
       },
       "baseline_at": "2026-09-30T09:01:23.509772"
@@ -997,6 +1037,17 @@
       "cancel_dow": "목",
       "cancel_hour": 5,
       "lead_days": 22
+    },
+    {
+      "timestamp": "2026-10-01 05:32:36",
+      "camp": "변산반도",
+      "park_name": "변산반도",
+      "camp_name": "[319호]2인실 침대",
+      "target_date": "2026-10-17",
+      "target_dow": "토",
+      "cancel_dow": "목",
+      "cancel_hour": 5,
+      "lead_days": 16
     }
   ]
 }
