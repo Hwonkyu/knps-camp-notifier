@@ -6,10 +6,29 @@
       "types": [
         "특화야영장"
       ],
-      "slots": {},
+      "slots": {
+        "20261003_CB18100400005": {
+          "slot_id": "20261003_CB18100400005_R",
+          "site_key": "20261003_CB18100400005",
+          "dept_id": "B181004",
+          "park_name": "변산반도",
+          "camp_name": "고사포2",
+          "site_type": "특화야영장",
+          "site_num": "하우스-26",
+          "full_title": "변산반도-고사포2-특화야영장-하우스-26",
+          "payment_title": "특화야영장 하우스-26",
+          "date": "2026-10-03",
+          "raw_date": "20261003",
+          "dow": "토",
+          "status": "R",
+          "status_text": "예약가능",
+          "price": 90000,
+          "prod_id": "CB18100400005"
+        }
+      },
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-02T19:40:20.903638"
+      "last_checked": "2026-10-02T19:42:17.192842"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -18274,6 +18293,14 @@
   },
   "history": [
     {
+      "timestamp": "2026-10-02 19:42:16",
+      "camp": "변산반도 고사포2 (User 1)",
+      "summary": "[User 1] 🔵 즉시예약 1건",
+      "details": [
+        "🔵 즉시예약: 2026-10-03(토) 특화야영장 하우스-26번 (마감 ➔ 예약가능)"
+      ]
+    },
+    {
       "timestamp": "2026-10-02 09:00:54",
       "camp": "변산반도 고사포2 (User 1)",
       "summary": "📋 [User 1] 정기 종합(06시/18시): 잔여석 0개 (2박 연박 0건)",
@@ -18504,18 +18531,10 @@
       "details": [
         "🟡 대기접수: 2026-10-03(토) 특화야영장 B7번 (예약가능 ➔ 대기예약)"
       ]
-    },
-    {
-      "timestamp": "2026-09-30 19:48:29",
-      "camp": "소백산 남천 (User 2)",
-      "summary": "[User 2] 🔵 즉시예약 1건",
-      "details": [
-        "🔵 즉시예약: 2026-10-03(토) 특화야영장 B7번 (마감 ➔ 예약가능)"
-      ]
     }
   ],
   "baseline_at": "2026-10-02T09:00:54.681731",
-  "updated_at": "2026-10-02T19:40:20.907152",
+  "updated_at": "2026-10-02T19:42:17.196544",
   "users": {
     "user1": {
       "campsites": {
@@ -18525,10 +18544,29 @@
           "types": [
             "특화야영장"
           ],
-          "slots": {},
+          "slots": {
+            "20261003_CB18100400005": {
+              "slot_id": "20261003_CB18100400005_R",
+              "site_key": "20261003_CB18100400005",
+              "dept_id": "B181004",
+              "park_name": "변산반도",
+              "camp_name": "고사포2",
+              "site_type": "특화야영장",
+              "site_num": "하우스-26",
+              "full_title": "변산반도-고사포2-특화야영장-하우스-26",
+              "payment_title": "특화야영장 하우스-26",
+              "date": "2026-10-03",
+              "raw_date": "20261003",
+              "dow": "토",
+              "status": "R",
+              "status_text": "예약가능",
+              "price": 90000,
+              "prod_id": "CB18100400005"
+            }
+          },
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-02T19:40:20.903638"
+          "last_checked": "2026-10-02T19:42:17.192842"
         },
         "B061001_카라반": {
           "park_name": "오대산",
@@ -37064,6 +37102,17 @@
       "cancel_dow": "목",
       "cancel_hour": 1,
       "lead_days": 29
+    },
+    {
+      "timestamp": "2026-10-02 19:42:16",
+      "camp": "변산반도 고사포2",
+      "park_name": "변산반도",
+      "camp_name": "고사포2",
+      "target_date": "2026-10-03",
+      "target_dow": "토",
+      "cancel_dow": "금",
+      "cancel_hour": 19,
+      "lead_days": 1
     }
   ]
 }
