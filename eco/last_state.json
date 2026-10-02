@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T01:22:26.079189"
+      "updated_at": "2026-10-02T01:24:28.279018"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -80,14 +80,35 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T01:22:33.256038"
+      "updated_at": "2026-10-02T01:24:36.964044"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-16_EB18300100024": {
+          "slot_id": "B183001_2026-10-16_EB18300100024",
+          "dept_id": "B183001",
+          "date": "2026-10-16",
+          "dow": "금",
+          "prd_id": "EB18300100024",
+          "prd_name": "[313호]4인실 침대+온돌",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T01:22:41.764699"
+      "updated_at": "2026-10-02T01:24:46.128763"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -98,6 +119,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-02 01:24:46",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-16(금) [313호]4인실 침대+온돌(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-02 01:22:26",
       "center": "[User 1] 설악산 생태탐방원",
@@ -336,16 +365,10 @@
         "2026-10-16(금) [201호]6인실 침대+온돌(복층) (6인실)",
         "2026-10-16(금) [202호]6인실 침대+온돌(복층) (6인실)"
       ]
-    },
-    {
-      "timestamp": "2026-10-01 09:01:01",
-      "center": "[User 1] 설악산 생태탐방원",
-      "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
-      "details": []
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-02T01:22:42.066263",
+  "updated_at": "2026-10-02T01:24:46.430268",
   "users": {
     "user1": {
       "centers": {
@@ -361,7 +384,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T01:22:26.079189"
+          "updated_at": "2026-10-02T01:24:28.279018"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -429,14 +452,35 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T01:22:33.256038"
+          "updated_at": "2026-10-02T01:24:36.964044"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {},
+          "rooms": {
+            "B183001_2026-10-16_EB18300100024": {
+              "slot_id": "B183001_2026-10-16_EB18300100024",
+              "dept_id": "B183001",
+              "date": "2026-10-16",
+              "dow": "금",
+              "prd_id": "EB18300100024",
+              "prd_name": "[313호]4인실 침대+온돌",
+              "category": "(4인실)A타입(적정 수용 4명)",
+              "capacity": 4,
+              "price": 80000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "변산반도"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T01:22:41.764699"
+          "updated_at": "2026-10-02T01:24:46.128763"
         }
       },
       "baseline_at": "2026-10-01T21:00:50.584875"
@@ -1022,6 +1066,17 @@
       "cancel_dow": "금",
       "cancel_hour": 1,
       "lead_days": 1
+    },
+    {
+      "timestamp": "2026-10-02 01:24:45",
+      "camp": "변산반도",
+      "park_name": "변산반도",
+      "camp_name": "[313호]4인실 침대+온돌",
+      "target_date": "2026-10-16",
+      "target_dow": "금",
+      "cancel_dow": "금",
+      "cancel_hour": 1,
+      "lead_days": 14
     }
   ]
 }
