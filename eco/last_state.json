@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T04:42:33.668688"
+      "updated_at": "2026-10-02T04:44:23.664350"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -80,14 +80,35 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T04:42:39.498445"
+      "updated_at": "2026-10-02T04:44:29.677625"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-03_EB18300100043": {
+          "slot_id": "B183001_2026-10-03_EB18300100043",
+          "dept_id": "B183001",
+          "date": "2026-10-03",
+          "dow": "토",
+          "prd_id": "EB18300100043",
+          "prd_name": "[자연의집4호]3인실 온돌(자연의집,복층)",
+          "category": "(3인실)자연의집(적정 수용 3명)",
+          "capacity": 3,
+          "price": 60000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T04:42:46.878842"
+      "updated_at": "2026-10-02T04:44:39.878034"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -98,6 +119,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-02 04:44:39",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-03(토) [자연의집4호]3인실 온돌(자연의집,복층)(3인)"
+      ]
+    },
     {
       "timestamp": "2026-10-02 01:34:41",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -333,16 +362,10 @@
       "details": [
         "🔵 [예약가능] 2026-10-02(금) [201호]4인실 침대+온돌(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-01 09:01:17",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
-      "details": []
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-02T04:42:47.180394",
+  "updated_at": "2026-10-02T04:44:40.179617",
   "users": {
     "user1": {
       "centers": {
@@ -358,7 +381,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T04:42:33.668688"
+          "updated_at": "2026-10-02T04:44:23.664350"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -426,14 +449,35 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T04:42:39.498445"
+          "updated_at": "2026-10-02T04:44:29.677625"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {},
+          "rooms": {
+            "B183001_2026-10-03_EB18300100043": {
+              "slot_id": "B183001_2026-10-03_EB18300100043",
+              "dept_id": "B183001",
+              "date": "2026-10-03",
+              "dow": "토",
+              "prd_id": "EB18300100043",
+              "prd_name": "[자연의집4호]3인실 온돌(자연의집,복층)",
+              "category": "(3인실)자연의집(적정 수용 3명)",
+              "capacity": 3,
+              "price": 60000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "변산반도"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T04:42:46.878842"
+          "updated_at": "2026-10-02T04:44:39.878034"
         }
       },
       "baseline_at": "2026-10-01T21:00:50.584875"
@@ -1030,6 +1074,17 @@
       "cancel_dow": "금",
       "cancel_hour": 1,
       "lead_days": 14
+    },
+    {
+      "timestamp": "2026-10-02 04:44:37",
+      "camp": "변산반도",
+      "park_name": "변산반도",
+      "camp_name": "[자연의집4호]3인실 온돌(자연의집,복층)",
+      "target_date": "2026-10-03",
+      "target_dow": "토",
+      "cancel_dow": "금",
+      "cancel_hour": 4,
+      "lead_days": 1
     }
   ]
 }
