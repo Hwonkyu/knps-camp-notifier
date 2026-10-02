@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T08:28:27.939117"
+      "updated_at": "2026-10-02T08:30:39.615034"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -80,7 +80,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T08:28:34.643385"
+      "updated_at": "2026-10-02T08:30:45.908270"
     },
     "B183001": {
       "dept_id": "B183001",
@@ -105,30 +105,10 @@
           "status_text": "예약가능",
           "is_available": true,
           "center_name": "변산반도"
-        },
-        "B183001_2026-10-16_EB18300100020": {
-          "slot_id": "B183001_2026-10-16_EB18300100020",
-          "dept_id": "B183001",
-          "date": "2026-10-16",
-          "dow": "금",
-          "prd_id": "EB18300100020",
-          "prd_name": "[203호]4인실 침대+온돌(바다전망)",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "변산반도"
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-02T08:28:42.456917"
+      "updated_at": "2026-10-02T08:30:53.291785"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -139,6 +119,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-02 08:30:53",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-16(금) [203호]4인실 침대+온돌(바다전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-02 08:26:43",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -375,20 +363,10 @@
       "details": [
         "🔴 [예약마감] 2026-10-09(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-01 14:26:45",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔥 1개 2박연박 / 🔵 +2실 예약가능",
-      "details": [
-        "🔥 [2박연박] [자연의집3호]3인실 온돌(자연의집,복층)(3인): 2026-10-09~2026-10-10",
-        "🔵 [예약가능] 2026-10-09(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)",
-        "🔵 [예약가능] 2026-10-10(토) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-02T08:28:42.758483",
+  "updated_at": "2026-10-02T08:30:53.593052",
   "users": {
     "user1": {
       "centers": {
@@ -404,7 +382,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T08:28:27.939117"
+          "updated_at": "2026-10-02T08:30:39.615034"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -472,7 +450,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T08:28:34.643385"
+          "updated_at": "2026-10-02T08:30:45.908270"
         },
         "B183001": {
           "dept_id": "B183001",
@@ -497,30 +475,10 @@
               "status_text": "예약가능",
               "is_available": true,
               "center_name": "변산반도"
-            },
-            "B183001_2026-10-16_EB18300100020": {
-              "slot_id": "B183001_2026-10-16_EB18300100020",
-              "dept_id": "B183001",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB18300100020",
-              "prd_name": "[203호]4인실 침대+온돌(바다전망)",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "변산반도"
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-02T08:28:42.456917"
+          "updated_at": "2026-10-02T08:30:53.291785"
         }
       },
       "baseline_at": "2026-10-01T21:00:50.584875"
