@@ -12,12 +12,32 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T12:50:27.425357"
+      "updated_at": "2026-10-04T12:52:23.224781"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {
+        "B123002_2026-10-10_EB12300200021": {
+          "slot_id": "B123002_2026-10-10_EB12300200021",
+          "dept_id": "B123002",
+          "date": "2026-10-10",
+          "dow": "토",
+          "prd_id": "EB12300200021",
+          "prd_name": "[108호]6인실 온돌",
+          "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
+          "capacity": 6,
+          "price": 120000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "소백산"
+        },
         "B123002_2026-10-16_EB12300200015": {
           "slot_id": "B123002_2026-10-16_EB12300200015",
           "dept_id": "B123002",
@@ -100,14 +120,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T12:50:33.908578"
+      "updated_at": "2026-10-04T12:52:28.440589"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T12:50:41.630294"
+      "updated_at": "2026-10-04T12:52:34.849370"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -118,6 +138,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-04 12:52:28",
+      "center": "[User 1] 소백산 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-10(토) [108호]6인실 온돌(6인)"
+      ]
+    },
     {
       "timestamp": "2026-10-04 11:54:36",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -356,19 +384,10 @@
       "center": "[User 1] 설악산 생태탐방원",
       "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
       "details": []
-    },
-    {
-      "timestamp": "2026-10-02 15:14:45",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔴 -2실 마감",
-      "details": [
-        "🔴 [예약마감] 2026-10-09(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)",
-        "🔴 [예약마감] 2026-10-10(토) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-04T12:50:41.931535",
+  "updated_at": "2026-10-04T12:52:35.150932",
   "users": {
     "user1": {
       "centers": {
@@ -384,12 +403,32 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T12:50:27.425357"
+          "updated_at": "2026-10-04T12:52:23.224781"
         },
         "B123002": {
           "dept_id": "B123002",
           "center_name": "소백산",
           "rooms": {
+            "B123002_2026-10-10_EB12300200021": {
+              "slot_id": "B123002_2026-10-10_EB12300200021",
+              "dept_id": "B123002",
+              "date": "2026-10-10",
+              "dow": "토",
+              "prd_id": "EB12300200021",
+              "prd_name": "[108호]6인실 온돌",
+              "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
+              "capacity": 6,
+              "price": 120000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "소백산"
+            },
             "B123002_2026-10-16_EB12300200015": {
               "slot_id": "B123002_2026-10-16_EB12300200015",
               "dept_id": "B123002",
@@ -472,14 +511,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T12:50:33.908578"
+          "updated_at": "2026-10-04T12:52:28.440589"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T12:50:41.630294"
+          "updated_at": "2026-10-04T12:52:34.849370"
         }
       },
       "baseline_at": "2026-10-04T09:00:52.847991"
@@ -1362,6 +1401,17 @@
       "cancel_dow": "일",
       "cancel_hour": 11,
       "lead_days": 26
+    },
+    {
+      "timestamp": "2026-10-04 12:52:28",
+      "camp": "소백산",
+      "park_name": "소백산",
+      "camp_name": "[108호]6인실 온돌",
+      "target_date": "2026-10-10",
+      "target_dow": "토",
+      "cancel_dow": "일",
+      "cancel_hour": 12,
+      "lead_days": 6
     }
   ]
 }
