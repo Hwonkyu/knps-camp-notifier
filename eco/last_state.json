@@ -12,32 +12,12 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T14:58:20.650594"
+      "updated_at": "2026-10-04T15:00:39.873569"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {
-        "B123002_2026-10-16_EB12300200015": {
-          "slot_id": "B123002_2026-10-16_EB12300200015",
-          "dept_id": "B123002",
-          "date": "2026-10-16",
-          "dow": "금",
-          "prd_id": "EB12300200015",
-          "prd_name": "[102호]4인실 침대",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
-        },
         "B123002_2026-10-16_EB12300200022": {
           "slot_id": "B123002_2026-10-16_EB12300200022",
           "dept_id": "B123002",
@@ -120,14 +100,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T14:58:26.067034"
+      "updated_at": "2026-10-04T15:00:45.423058"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T14:58:32.221107"
+      "updated_at": "2026-10-04T15:00:51.502478"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -138,6 +118,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-04 15:00:45",
+      "center": "[User 1] 소백산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-16(금) [102호]4인실 침대(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-04 14:28:31",
       "center": "[User 1] 소백산 생태탐방원",
@@ -376,18 +364,10 @@
       "details": [
         "🔵 [예약가능] 2026-10-09(금) [211호]4인실 침대(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-03 00:24:24",
-      "center": "[User 1] 설악산 생태탐방원",
-      "summary": "🔵 +1실 예약가능",
-      "details": [
-        "🔵 [예약가능] 2026-10-09(금) [208호]4인실 침대(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-04T14:58:32.522369",
+  "updated_at": "2026-10-04T15:00:51.803738",
   "users": {
     "user1": {
       "centers": {
@@ -403,32 +383,12 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T14:58:20.650594"
+          "updated_at": "2026-10-04T15:00:39.873569"
         },
         "B123002": {
           "dept_id": "B123002",
           "center_name": "소백산",
           "rooms": {
-            "B123002_2026-10-16_EB12300200015": {
-              "slot_id": "B123002_2026-10-16_EB12300200015",
-              "dept_id": "B123002",
-              "date": "2026-10-16",
-              "dow": "금",
-              "prd_id": "EB12300200015",
-              "prd_name": "[102호]4인실 침대",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            },
             "B123002_2026-10-16_EB12300200022": {
               "slot_id": "B123002_2026-10-16_EB12300200022",
               "dept_id": "B123002",
@@ -511,14 +471,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T14:58:26.067034"
+          "updated_at": "2026-10-04T15:00:45.423058"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T14:58:32.221107"
+          "updated_at": "2026-10-04T15:00:51.502478"
         }
       },
       "baseline_at": "2026-10-04T09:00:52.847991"
