@@ -12,7 +12,7 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T11:34:21.076565"
+      "updated_at": "2026-10-04T11:36:22.387107"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -100,14 +100,35 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T11:34:25.397498"
+      "updated_at": "2026-10-04T11:36:27.268651"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-30_EB18300100018": {
+          "slot_id": "B183001_2026-10-30_EB18300100018",
+          "dept_id": "B183001",
+          "date": "2026-10-30",
+          "dow": "금",
+          "prd_id": "EB18300100018",
+          "prd_name": "[310호]4인실 침대+온돌(바다전망)",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-04T11:34:31.719726"
+      "updated_at": "2026-10-04T11:36:33.841339"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -118,6 +139,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-04 11:36:33",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-30(금) [310호]4인실 침대+온돌(바다전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-04 09:01:09",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -357,20 +386,10 @@
       "details": [
         "🔴 [예약마감] 2026-10-10(토) [105호]4인실 침대(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-02 15:12:38",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔥 1개 2박연박 / 🔵 +2실 예약가능",
-      "details": [
-        "🔥 [2박연박] [자연의집3호]3인실 온돌(자연의집,복층)(3인): 2026-10-09~2026-10-10",
-        "🔵 [예약가능] 2026-10-09(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)",
-        "🔵 [예약가능] 2026-10-10(토) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-04T11:34:32.021353",
+  "updated_at": "2026-10-04T11:36:34.142943",
   "users": {
     "user1": {
       "centers": {
@@ -386,7 +405,7 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T11:34:21.076565"
+          "updated_at": "2026-10-04T11:36:22.387107"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -474,14 +493,35 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T11:34:25.397498"
+          "updated_at": "2026-10-04T11:36:27.268651"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {},
+          "rooms": {
+            "B183001_2026-10-30_EB18300100018": {
+              "slot_id": "B183001_2026-10-30_EB18300100018",
+              "dept_id": "B183001",
+              "date": "2026-10-30",
+              "dow": "금",
+              "prd_id": "EB18300100018",
+              "prd_name": "[310호]4인실 침대+온돌(바다전망)",
+              "category": "(4인실)A타입(적정 수용 4명)",
+              "capacity": 4,
+              "price": 80000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "변산반도"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-04T11:34:31.719726"
+          "updated_at": "2026-10-04T11:36:33.841339"
         }
       },
       "baseline_at": "2026-10-04T09:00:52.847991"
@@ -1353,6 +1393,17 @@
       "cancel_dow": "토",
       "cancel_hour": 15,
       "lead_days": 13
+    },
+    {
+      "timestamp": "2026-10-04 11:36:33",
+      "camp": "변산반도",
+      "park_name": "변산반도",
+      "camp_name": "[310호]4인실 침대+온돌(바다전망)",
+      "target_date": "2026-10-30",
+      "target_dow": "금",
+      "cancel_dow": "일",
+      "cancel_hour": 11,
+      "lead_days": 26
     }
   ]
 }
