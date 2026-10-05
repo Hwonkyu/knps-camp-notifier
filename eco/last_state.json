@@ -93,7 +93,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:28:22.278614"
+      "updated_at": "2026-10-05T10:30:38.251786"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -181,14 +181,35 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:28:27.359908"
+      "updated_at": "2026-10-05T10:30:43.937612"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {},
+      "rooms": {
+        "B183001_2026-10-17_EB18300100023": {
+          "slot_id": "B183001_2026-10-17_EB18300100023",
+          "dept_id": "B183001",
+          "date": "2026-10-17",
+          "dow": "토",
+          "prd_id": "EB18300100023",
+          "prd_name": "[312호]4인실 침대+온돌",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "변산반도"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:28:33.182159"
+      "updated_at": "2026-10-05T10:30:51.095382"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -199,6 +220,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-05 10:30:51",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔵 +1실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-17(토) [312호]4인실 침대+온돌(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-05 09:42:34",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -442,20 +471,10 @@
         "🔴 [예약마감] 2026-10-09(금) [211호]4인실 침대(4인)",
         "🔴 [예약마감] 2026-10-10(토) [105호]4인실 침대(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-04 15:14:32",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔴 -3실 마감",
-      "details": [
-        "🔴 [예약마감] 2026-10-09(금) [317호]2인실 침대(2인)",
-        "🔴 [예약마감] 2026-10-09(금) [자연의집3호]3인실 온돌(자연의집,복층)(3인)",
-        "🔴 [예약마감] 2026-10-10(토) [자연의집3호]3인실 온돌(자연의집,복층)(3인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-05T10:28:33.483739",
+  "updated_at": "2026-10-05T10:30:51.396658",
   "users": {
     "user1": {
       "centers": {
@@ -552,7 +571,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:28:22.278614"
+          "updated_at": "2026-10-05T10:30:38.251786"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -640,14 +659,35 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:28:27.359908"
+          "updated_at": "2026-10-05T10:30:43.937612"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {},
+          "rooms": {
+            "B183001_2026-10-17_EB18300100023": {
+              "slot_id": "B183001_2026-10-17_EB18300100023",
+              "dept_id": "B183001",
+              "date": "2026-10-17",
+              "dow": "토",
+              "prd_id": "EB18300100023",
+              "prd_name": "[312호]4인실 침대+온돌",
+              "category": "(4인실)A타입(적정 수용 4명)",
+              "capacity": 4,
+              "price": 80000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "변산반도"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:28:33.182159"
+          "updated_at": "2026-10-05T10:30:51.095382"
         }
       },
       "baseline_at": "2026-10-05T09:00:58.755788"
@@ -1827,6 +1867,17 @@
       "cancel_dow": "월",
       "cancel_hour": 9,
       "lead_days": 18
+    },
+    {
+      "timestamp": "2026-10-05 10:30:50",
+      "camp": "변산반도",
+      "park_name": "변산반도",
+      "camp_name": "[312호]4인실 침대+온돌",
+      "target_date": "2026-10-17",
+      "target_dow": "토",
+      "cancel_dow": "월",
+      "cancel_hour": 10,
+      "lead_days": 12
     }
   ]
 }
