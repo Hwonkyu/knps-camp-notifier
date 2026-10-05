@@ -73,7 +73,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T11:02:24.032461"
+      "updated_at": "2026-10-05T20:03:45.832911"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -161,14 +161,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T11:02:31.160920"
+      "updated_at": "2026-10-05T20:03:46.834988"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T11:02:39.075008"
+      "updated_at": "2026-10-05T20:03:47.858118"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -431,7 +431,7 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-05T11:02:39.376317",
+  "updated_at": "2026-10-05T20:03:48.165912",
   "users": {
     "user1": {
       "centers": {
@@ -508,7 +508,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T11:02:24.032461"
+          "updated_at": "2026-10-05T20:03:45.832911"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -596,14 +596,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T11:02:31.160920"
+          "updated_at": "2026-10-05T20:03:46.834988"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T11:02:39.075008"
+          "updated_at": "2026-10-05T20:03:47.858118"
         }
       },
       "baseline_at": "2026-10-05T09:00:58.755788"
@@ -949,851 +949,59 @@
       "lead_days": 23
     },
     {
-      "timestamp": "2026-10-01 02:50:38",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[201호]6인실 침대+온돌(복층)",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 2,
-      "lead_days": 15
-    },
-    {
-      "timestamp": "2026-10-01 05:08:32",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[102호]4인실 침대",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 15
-    },
-    {
-      "timestamp": "2026-10-01 05:14:41",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집4호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 2
-    },
-    {
-      "timestamp": "2026-10-01 05:14:41",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[313호]4인실 침대+온돌",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 2
-    },
-    {
-      "timestamp": "2026-10-01 05:30:45",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[108호]6인실 온돌",
-      "target_date": "2026-10-23",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 22
-    },
-    {
-      "timestamp": "2026-10-01 05:32:36",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[319호]2인실 침대",
-      "target_date": "2026-10-17",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 16
-    },
-    {
-      "timestamp": "2026-10-01 05:36:24",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[109호]4인실 침대(산전망)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 5,
-      "lead_days": 29
-    },
-    {
-      "timestamp": "2026-10-01 07:36:22",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[211호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 7,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-01 07:50:28",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[211호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 7,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-01 09:06:40",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[201호]4인실 침대+온돌",
-      "target_date": "2026-10-02",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 9,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-01 09:22:39",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[308호]4인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 9,
-      "lead_days": 2
-    },
-    {
-      "timestamp": "2026-10-01 11:30:35",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[109호]4인실 침대(산전망)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 11,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-01 12:04:31",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[206호]6인실 침대+온돌(복층)",
-      "target_date": "2026-10-31",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 12,
-      "lead_days": 30
-    },
-    {
-      "timestamp": "2026-10-01 14:26:45",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 14,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-01 14:26:45",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 14,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-01 15:12:43",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[318호]2인실 침대",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 15,
-      "lead_days": 2
-    },
-    {
-      "timestamp": "2026-10-01 15:12:43",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 15,
-      "lead_days": 15
-    },
-    {
-      "timestamp": "2026-10-01 15:14:31",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[108호]4인실 침대(산전망)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "목",
-      "cancel_hour": 15,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-01 16:24:29",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[208호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 16,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-01 16:24:29",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[209호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 16,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-01 19:06:30",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[105호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "목",
-      "cancel_hour": 19,
-      "lead_days": 9
-    },
-    {
-      "timestamp": "2026-10-02 01:20:27",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[108호]4인실 침대(산전망)",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 1,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-02 01:24:45",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[313호]4인실 침대+온돌",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 1,
-      "lead_days": 14
-    },
-    {
-      "timestamp": "2026-10-02 04:44:37",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집4호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 4,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-02 05:22:35",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[101호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 5,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-02 05:36:38",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[317호]2인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 5,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-02 05:36:38",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[317호]2인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 5,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-02 05:56:44",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[303호]4인실 침대+온돌",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 5,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-02 07:28:34",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[109호]6인실 온돌",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 7,
-      "lead_days": 14
-    },
-    {
-      "timestamp": "2026-10-02 08:26:42",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[203호]4인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 8,
-      "lead_days": 14
-    },
-    {
-      "timestamp": "2026-10-02 12:40:41",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[308호]4인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 12,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-02 13:22:41",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[318호]2인실 침대",
-      "target_date": "2026-10-03",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 13,
-      "lead_days": 1
-    },
-    {
-      "timestamp": "2026-10-02 15:12:24",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[105호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 15,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-02 15:12:30",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[102호]4인실 침대",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 15,
-      "lead_days": 14
-    },
-    {
-      "timestamp": "2026-10-02 15:12:30",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[108호]6인실 온돌",
-      "target_date": "2026-10-23",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 15,
-      "lead_days": 21
-    },
-    {
-      "timestamp": "2026-10-02 15:12:38",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "금",
-      "cancel_hour": 15,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-02 15:12:38",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "금",
-      "cancel_hour": 15,
-      "lead_days": 8
-    },
-    {
-      "timestamp": "2026-10-03 00:24:24",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[208호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 0,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-03 00:26:26",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[211호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 0,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-03 05:24:25",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[장애인편의객실][102호]4인실 침대(산전망)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 5,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-03 15:12:21",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[208호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-03 15:12:21",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[209호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-03 15:12:27",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[101호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-03 15:12:27",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[202호]6인실 침대+온돌(복층)",
-      "target_date": "2026-10-17",
-      "target_dow": "토",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 14
-    },
-    {
-      "timestamp": "2026-10-03 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[317호]2인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-03 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[317호]2인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 7
-    },
-    {
-      "timestamp": "2026-10-03 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 13
-    },
-    {
-      "timestamp": "2026-10-03 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[313호]4인실 침대+온돌",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "토",
-      "cancel_hour": 15,
-      "lead_days": 13
-    },
-    {
-      "timestamp": "2026-10-04 11:36:33",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[310호]4인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 11,
-      "lead_days": 26
-    },
-    {
-      "timestamp": "2026-10-04 12:52:28",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[108호]6인실 온돌",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "일",
-      "cancel_hour": 12,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-04 13:00:39",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[109호]4인실 침대(산전망)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 13,
-      "lead_days": 26
-    },
-    {
-      "timestamp": "2026-10-04 14:28:31",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[207호]8인실 침대+온돌(단층)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 14,
-      "lead_days": 26
-    },
-    {
-      "timestamp": "2026-10-04 15:12:22",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[208호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 5
-    },
-    {
-      "timestamp": "2026-10-04 15:12:22",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[211호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 5
-    },
-    {
-      "timestamp": "2026-10-04 15:12:22",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[105호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-04 15:12:28",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[108호]6인실 온돌",
-      "target_date": "2026-10-23",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 19
-    },
-    {
-      "timestamp": "2026-10-04 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[317호]2인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 5
-    },
-    {
-      "timestamp": "2026-10-04 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 5
-    },
-    {
-      "timestamp": "2026-10-04 15:12:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[자연의집3호]3인실 온돌(자연의집,복층)",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "일",
-      "cancel_hour": 15,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-04 22:24:59",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[208호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 22,
-      "lead_days": 5
-    },
-    {
-      "timestamp": "2026-10-04 23:22:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[106호]4인실 침대",
-      "target_date": "2026-10-10",
-      "target_dow": "토",
-      "cancel_dow": "일",
-      "cancel_hour": 23,
-      "lead_days": 6
-    },
-    {
-      "timestamp": "2026-10-04 23:42:38",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[201호]4인실 침대+온돌",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 23,
-      "lead_days": 26
-    },
-    {
-      "timestamp": "2026-10-04 23:44:31",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[108호]6인실 온돌",
-      "target_date": "2026-10-16",
-      "target_dow": "금",
-      "cancel_dow": "일",
-      "cancel_hour": 23,
-      "lead_days": 12
-    },
-    {
-      "timestamp": "2026-10-05 07:46:21",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[장애인편의객실][102호]4인실 침대(산전망)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 7,
-      "lead_days": 25
-    },
-    {
-      "timestamp": "2026-10-05 08:54:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[101호]4인실 침대",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 8,
-      "lead_days": 4
-    },
-    {
-      "timestamp": "2026-10-05 08:54:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[107호]4인실 침대+온돌(장애인편의객실)",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 8,
-      "lead_days": 4
-    },
-    {
-      "timestamp": "2026-10-05 08:54:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[109호]6인실 온돌",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 8,
-      "lead_days": 4
-    },
-    {
-      "timestamp": "2026-10-05 08:54:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[110호]6인실 온돌",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 8,
-      "lead_days": 4
-    },
-    {
-      "timestamp": "2026-10-05 08:54:29",
-      "camp": "소백산",
-      "park_name": "소백산",
-      "camp_name": "[111호]6인실 온돌",
-      "target_date": "2026-10-09",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 8,
-      "lead_days": 4
-    },
-    {
-      "timestamp": "2026-10-05 09:08:21",
+      "timestamp": "2026-10-05 20:03:45",
       "camp": "설악산",
       "park_name": "설악산",
       "camp_name": "[101호]6인실 침대(산전망)",
       "target_date": "2026-10-23",
       "target_dow": "금",
       "cancel_dow": "월",
-      "cancel_hour": 9,
+      "cancel_hour": 20,
       "lead_days": 18
     },
     {
-      "timestamp": "2026-10-05 09:08:34",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[202호]8인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-30",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 9,
-      "lead_days": 25
-    },
-    {
-      "timestamp": "2026-10-05 09:10:27",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[104호]4인실 침대(산전망)",
-      "target_date": "2026-10-23",
-      "target_dow": "금",
-      "cancel_dow": "월",
-      "cancel_hour": 9,
-      "lead_days": 18
-    },
-    {
-      "timestamp": "2026-10-05 09:10:27",
+      "timestamp": "2026-10-05 20:03:45",
       "camp": "설악산",
       "park_name": "설악산",
       "camp_name": "[109호]4인실 침대(산전망)",
       "target_date": "2026-10-30",
       "target_dow": "금",
       "cancel_dow": "월",
-      "cancel_hour": 9,
+      "cancel_hour": 20,
       "lead_days": 25
     },
     {
-      "timestamp": "2026-10-05 09:10:27",
+      "timestamp": "2026-10-05 20:03:45",
       "camp": "설악산",
       "park_name": "설악산",
       "camp_name": "[장애인편의객실][102호]4인실 침대(산전망)",
       "target_date": "2026-10-30",
       "target_dow": "금",
       "cancel_dow": "월",
-      "cancel_hour": 9,
+      "cancel_hour": 20,
       "lead_days": 25
     },
     {
-      "timestamp": "2026-10-05 09:10:39",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[307호]4인실 침대+온돌(바다전망)",
-      "target_date": "2026-10-30",
+      "timestamp": "2026-10-05 20:03:46",
+      "camp": "소백산",
+      "park_name": "소백산",
+      "camp_name": "[108호]6인실 온돌",
+      "target_date": "2026-10-16",
       "target_dow": "금",
       "cancel_dow": "월",
-      "cancel_hour": 9,
-      "lead_days": 25
+      "cancel_hour": 20,
+      "lead_days": 11
     },
     {
-      "timestamp": "2026-10-05 09:28:24",
-      "camp": "설악산",
-      "park_name": "설악산",
-      "camp_name": "[110호]4인실 침대",
+      "timestamp": "2026-10-05 20:03:46",
+      "camp": "소백산",
+      "park_name": "소백산",
+      "camp_name": "[108호]6인실 온돌",
       "target_date": "2026-10-23",
       "target_dow": "금",
       "cancel_dow": "월",
-      "cancel_hour": 9,
+      "cancel_hour": 20,
       "lead_days": 18
-    },
-    {
-      "timestamp": "2026-10-05 10:30:50",
-      "camp": "변산반도",
-      "park_name": "변산반도",
-      "camp_name": "[312호]4인실 침대+온돌",
-      "target_date": "2026-10-17",
-      "target_dow": "토",
-      "cancel_dow": "월",
-      "cancel_hour": 10,
-      "lead_days": 12
     }
   ]
 }

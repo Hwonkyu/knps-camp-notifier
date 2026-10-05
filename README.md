@@ -1,10 +1,12 @@
-# 🏕️ 국립공원 야영장 & 🏡 생태탐방원 빈자리 자동 알림 봇 (KNPS Notifier)
+# 🏕️ 국립공원 야영장 & 🏡 생태탐방원 & 🏕️ 서울시 글램핑존 빈자리 자동 알림 봇
 
 [![야영장 실시간 현황](https://img.shields.io/badge/야영장_현황-campsite%2FSTATUS.md_보기-success?style=for-the-badge&logo=markdown)](campsite/STATUS.md)
 [![생태탐방원 실시간 현황](https://img.shields.io/badge/생태탐방원_현황-eco%2FSTATUS.md_보기-blue?style=for-the-badge&logo=markdown)](eco/STATUS.md)
+[![서울시 글램핑존 실시간 현황](https://img.shields.io/badge/서울시_글램핑존_현황-seoul%2FSTATUS.md_보기-orange?style=for-the-badge&logo=markdown)](seoul/STATUS.md)
 
 > 📊 **[👉 야영장 실시간 잔여석 표 및 히스토리 (campsite/STATUS.md) 바로가기](campsite/STATUS.md)**  
 > 🏡 **[👉 생태탐방원 실시간 잔여 객실 표 및 히스토리 (eco/STATUS.md) 바로가기](eco/STATUS.md)**  
+> 🏕️ **[👉 서울시 글램핑존 실시간 현황 및 히스토리 (seoul/STATUS.md) 바로가기](seoul/STATUS.md)**  
 > 깃허브 저장소에서 언제든지 2박(금,토) 연박 가능 자리, 실시간 잔여석, 최근 알림 발송 이력을 표 형태로 확인하실 수 있습니다.
 
 국립공원공단 예약시스템([res.knps.or.kr](https://res.knps.or.kr))의 실시간 잔여석을 감시하여, **원하는 야영장 / 생태탐방원 / 날짜 / 인실**에 빈자리가 생기면 즉시 **스마트폰 푸시 알림(디스코드, 텔레그램, 이메일)**을 발송해 주는 프로그램입니다.

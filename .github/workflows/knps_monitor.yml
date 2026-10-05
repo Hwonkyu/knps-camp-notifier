@@ -78,7 +78,31 @@ jobs:
         run: |
           python -u eco/main.py
 
-      # 3. 변동 사항이 발생한 경우 통합 Git 커밋 & 푸시
+      # 3. 서울시 공공서비스예약 글램핑존 빈자리 모니터링 (오류 격리)
+      - name: 🏕️ 서울시 공공서비스예약 글램핑존 빈자리 모니터링 실행
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_USER1: ${{ secrets.DISCORD_WEBHOOK_URL_USER1 }}
+          DISCORD_WEBHOOK_URL_USER2: ${{ secrets.DISCORD_WEBHOOK_URL_USER2 }}
+          DISCORD_WEBHOOK_URL_USER3: ${{ secrets.DISCORD_WEBHOOK_URL_USER3 }}
+          TELEGRAM_BOT_TOKEN_USER1: ${{ secrets.TELEGRAM_BOT_TOKEN_USER1 }}
+          TELEGRAM_CHAT_ID_USER1: ${{ secrets.TELEGRAM_CHAT_ID_USER1 }}
+          TELEGRAM_BOT_TOKEN_USER2: ${{ secrets.TELEGRAM_BOT_TOKEN_USER2 }}
+          TELEGRAM_CHAT_ID_USER2: ${{ secrets.TELEGRAM_CHAT_ID_USER2 }}
+          TELEGRAM_BOT_TOKEN_USER3: ${{ secrets.TELEGRAM_BOT_TOKEN_USER3 }}
+          TELEGRAM_CHAT_ID_USER3: ${{ secrets.TELEGRAM_CHAT_ID_USER3 }}
+          EMAIL_SMTP_HOST: ${{ secrets.EMAIL_SMTP_HOST }}
+          EMAIL_SMTP_PORT: ${{ secrets.EMAIL_SMTP_PORT }}
+          EMAIL_SMTP_USER: ${{ secrets.EMAIL_SMTP_USER }}
+          EMAIL_SMTP_PASS: ${{ secrets.EMAIL_SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python -u seoul/main.py
+
+      # 4. 변동 사항이 발생한 경우 통합 Git 커밋 & 푸시
       - name: 실시간 현황(STATUS.md) 및 상태(last_state.json) Git 커밋 & 푸시
         if: always()
         run: |
@@ -87,10 +111,10 @@ jobs:
           for i in 1 2 3; do
             git fetch origin main
             git reset origin/main
-            git add campsite/STATUS.md campsite/last_state.json eco/STATUS.md eco/last_state.json
+            git add campsite/STATUS.md campsite/last_state.json eco/STATUS.md eco/last_state.json seoul/STATUS.md seoul/last_state.json
             if ! git diff --staged --quiet; then
-              echo "최신 현황(야영장 & 생태탐방원)을 GitHub 저장소에 커밋 및 푸시합니다. (시도 $i)"
-              git commit -m "docs: 실시간 빈자리 현황(야영장 & 생태탐방원) 및 상태 업데이트 [자동]"
+              echo "최신 현황(야영장/생태탐방원/서울시)을 GitHub 저장소에 커밋 및 푸시합니다. (시도 $i)"
+              git commit -m "docs: 실시간 빈자리 현황(국립공원/생태탐방원/서울시) 및 상태 업데이트 [자동]"
               if git push origin main; then
                 echo "푸시 완료 ✅"
                 break

@@ -1,0 +1,40 @@
+# 서울시 공공서비스예약 (난지캠핑장 글램핑존 등) 자동 모니터링 설정 파일
+# 날짜를 별도로 입력하지 않아도 당월 및 익월(다음 달) 일정을 100% 자동 추적합니다.
+
+targets:
+  - id: "nanji_glamping"
+    name: "난지캠핑장 글램핑존"
+    keyword: "글램핑"
+    match_title: "글램핑"
+    enabled: true
+
+users:
+  - id: "user1"
+    name: "User 1"
+    enabled: true
+    notification:
+      only_new_slots: true
+      notify_closed_slots: false
+      notify_new_schedule_open: true  # 신규 월 오픈(안내중 -> 접수중) 및 신규 등록 알림
+      discord:
+        enabled: true
+        webhook_url: ""
+      telegram:
+        enabled: false
+        bot_token: ""
+        chat_id: ""
+
+  - id: "user2"
+    name: "User 2"
+    enabled: true
+    notification:
+      only_new_slots: true
+      notify_closed_slots: false
+      notify_new_schedule_open: true
+      discord:
+        enabled: true
+        webhook_url: "https://discordapp.com/api/webhooks/1554689795597537285/h5BBWx1HnNekuQAgYIIQkCwL1O-8wlpd7LMsVzfkj6NIxVUGaL78gpqfTA9eO6CXheAE"
+      telegram:
+        enabled: false
+        bot_token: ""
+        chat_id: ""
