@@ -93,7 +93,7 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:30:38.251786"
+      "updated_at": "2026-10-05T10:32:23.507863"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -181,35 +181,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:30:43.937612"
+      "updated_at": "2026-10-05T10:32:28.482264"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
-      "rooms": {
-        "B183001_2026-10-17_EB18300100023": {
-          "slot_id": "B183001_2026-10-17_EB18300100023",
-          "dept_id": "B183001",
-          "date": "2026-10-17",
-          "dow": "토",
-          "prd_id": "EB18300100023",
-          "prd_name": "[312호]4인실 침대+온돌",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "변산반도"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T10:30:51.095382"
+      "updated_at": "2026-10-05T10:32:34.626178"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -220,6 +199,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-05 10:32:34",
+      "center": "[User 1] 변산반도 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-17(토) [312호]4인실 침대+온돌(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-05 10:30:51",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -461,20 +448,10 @@
       "details": [
         "🔴 [예약마감] 2026-10-16(금) [202호]6인실 침대+온돌(복층)(6인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-04 15:16:22",
-      "center": "[User 1] 설악산 생태탐방원",
-      "summary": "🔴 -3실 마감",
-      "details": [
-        "🔴 [예약마감] 2026-10-09(금) [208호]4인실 침대(4인)",
-        "🔴 [예약마감] 2026-10-09(금) [211호]4인실 침대(4인)",
-        "🔴 [예약마감] 2026-10-10(토) [105호]4인실 침대(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-05T10:30:51.396658",
+  "updated_at": "2026-10-05T10:32:34.927383",
   "users": {
     "user1": {
       "centers": {
@@ -571,7 +548,7 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:30:38.251786"
+          "updated_at": "2026-10-05T10:32:23.507863"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -659,35 +636,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:30:43.937612"
+          "updated_at": "2026-10-05T10:32:28.482264"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
-          "rooms": {
-            "B183001_2026-10-17_EB18300100023": {
-              "slot_id": "B183001_2026-10-17_EB18300100023",
-              "dept_id": "B183001",
-              "date": "2026-10-17",
-              "dow": "토",
-              "prd_id": "EB18300100023",
-              "prd_name": "[312호]4인실 침대+온돌",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "변산반도"
-            }
-          },
+          "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T10:30:51.095382"
+          "updated_at": "2026-10-05T10:32:34.626178"
         }
       },
       "baseline_at": "2026-10-05T09:00:58.755788"
