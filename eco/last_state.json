@@ -10,30 +10,9 @@
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {
-        "B301002_2026-10-30_EB30100200018": {
-          "slot_id": "B301002_2026-10-30_EB30100200018",
-          "dept_id": "B301002",
-          "date": "2026-10-30",
-          "dow": "금",
-          "prd_id": "EB30100200018",
-          "prd_name": "[장애인편의객실][102호]4인실 침대(산전망)",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T07:46:22.214329"
+      "updated_at": "2026-10-05T07:48:26.026333"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -121,14 +100,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T07:46:27.509295"
+      "updated_at": "2026-10-05T07:48:31.748823"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-05T07:46:33.359306"
+      "updated_at": "2026-10-05T07:48:38.580254"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -139,6 +118,14 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-05 07:48:26",
+      "center": "[User 1] 설악산 생태탐방원",
+      "summary": "🔴 -1실 마감",
+      "details": [
+        "🔴 [예약마감] 2026-10-30(금) [장애인편의객실][102호]4인실 침대(산전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-05 07:46:22",
       "center": "[User 1] 설악산 생태탐방원",
@@ -376,16 +363,10 @@
       "center": "[User 1] 설악산 생태탐방원",
       "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
       "details": []
-    },
-    {
-      "timestamp": "2026-10-03 21:01:12",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "📋 정기 종합(06시/18시): 잔여 0실 (2박 연박 0건)",
-      "details": []
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-05T07:46:33.660808",
+  "updated_at": "2026-10-05T07:48:38.941963",
   "users": {
     "user1": {
       "centers": {
@@ -399,30 +380,9 @@
         "B301002": {
           "dept_id": "B301002",
           "center_name": "설악산",
-          "rooms": {
-            "B301002_2026-10-30_EB30100200018": {
-              "slot_id": "B301002_2026-10-30_EB30100200018",
-              "dept_id": "B301002",
-              "date": "2026-10-30",
-              "dow": "금",
-              "prd_id": "EB30100200018",
-              "prd_name": "[장애인편의객실][102호]4인실 침대(산전망)",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "설악산"
-            }
-          },
+          "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T07:46:22.214329"
+          "updated_at": "2026-10-05T07:48:26.026333"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -510,14 +470,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T07:46:27.509295"
+          "updated_at": "2026-10-05T07:48:31.748823"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-05T07:46:33.359306"
+          "updated_at": "2026-10-05T07:48:38.580254"
         }
       },
       "baseline_at": "2026-10-04T21:00:56.095043"
