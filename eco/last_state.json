@@ -12,42 +12,21 @@
       "center_name": "설악산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T11:42:21.089864"
+      "updated_at": "2026-10-06T11:44:19.708045"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
-      "rooms": {
-        "B123002_2026-10-10_EB12300200021": {
-          "slot_id": "B123002_2026-10-10_EB12300200021",
-          "dept_id": "B123002",
-          "date": "2026-10-10",
-          "dow": "토",
-          "prd_id": "EB12300200021",
-          "prd_name": "[108호]6인실 온돌",
-          "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
-          "capacity": 6,
-          "price": 120000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "소백산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T11:42:22.895868"
+      "updated_at": "2026-10-06T11:44:21.286148"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T11:42:24.752703"
+      "updated_at": "2026-10-06T11:44:23.056919"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -332,7 +311,7 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-06T11:42:25.058678",
+  "updated_at": "2026-10-06T11:44:23.362545",
   "users": {
     "user1": {
       "centers": {
@@ -348,42 +327,21 @@
           "center_name": "설악산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T11:42:21.089864"
+          "updated_at": "2026-10-06T11:44:19.708045"
         },
         "B123002": {
           "dept_id": "B123002",
           "center_name": "소백산",
-          "rooms": {
-            "B123002_2026-10-10_EB12300200021": {
-              "slot_id": "B123002_2026-10-10_EB12300200021",
-              "dept_id": "B123002",
-              "date": "2026-10-10",
-              "dow": "토",
-              "prd_id": "EB12300200021",
-              "prd_name": "[108호]6인실 온돌",
-              "category": "(6인실)B_1타입(적정 수용 6명)(단층)",
-              "capacity": 6,
-              "price": 120000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "소백산"
-            }
-          },
+          "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T11:42:22.895868"
+          "updated_at": "2026-10-06T11:44:21.286148"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T11:42:24.752703"
+          "updated_at": "2026-10-06T11:44:23.056919"
         }
       },
       "baseline_at": "2026-10-06T09:00:52.732394"
