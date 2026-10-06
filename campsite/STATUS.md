@@ -1,6 +1,6 @@
 # 🏕️ 국립공원 야영장 실시간 잔여석 및 알림 현황
 
-> 🕒 **마지막 모니터링 시각**: `2026-10-06 10:14:21` (KST)  
+> 🕒 **마지막 모니터링 시각**: `2026-10-06 10:16:23` (KST)  
 > 👤 **활성 사용자**: User 1, User 2  
 
 > 🎯 **감시 야영장**: **변산반도 고사포2**[특화야영장]  
@@ -337,12 +337,6 @@
 | 태백산 | 소도 | 2026-10-10 (토) | 자동차야영장 | **C26** | 🟡 대기예약 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-10 (토) | 자동차야영장 | **C5** | 🔵 예약가능 | 30,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-10 (토) | 캠핑용자동차 전용야영지 | **B6** | 🟡 대기예약 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 변산반도 | 고사포2 | 2026-10-12 (월) | 특화야영장 | **하우스-28** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-12 (월) | 특화야영장 | **하우스-35** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-13 (화) | 특화야영장 | **하우스-33** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-14 (수) | 특화야영장 | **하우스-30** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-14 (수) | 특화야영장 | **하우스-31** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-14 (수) | 특화야영장 | **하우스-32** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
 | 덕유산 | 덕유대3 | 2026-10-16 (금) | 카라반 | **카라반 10호(4인)** | 🔵 예약가능 | 100,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
 | 덕유산 | 덕유대3 | 2026-10-16 (금) | 카라반 | **카라반 11호(8인)** | 🔵 예약가능 | 150,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
 | 덕유산 | 덕유대3 | 2026-10-16 (금) | 카라반 | **카라반 12호(8인)** | 🔵 예약가능 | 150,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
@@ -602,21 +596,6 @@
 | 태백산 | 소도 | 2026-10-17 (토) | 캠핑용자동차 전용야영지 | **B6** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-17 (토) | 캠핑용자동차 전용야영지 | **B7** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
 | 태백산 | 소도 | 2026-10-17 (토) | 캠핑용자동차 전용야영지 | **B8** | 🔵 예약가능 | 35,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do) |
-| 변산반도 | 고사포2 | 2026-10-19 (월) | 특화야영장 | **하우스-29** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-20 (화) | 특화야영장 | **하우스-29** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-20 (화) | 특화야영장 | **하우스-30** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-20 (화) | 특화야영장 | **하우스-31** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-20 (화) | 특화야영장 | **하우스-35** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-25** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-27** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-28** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-29** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-30** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-31** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-33** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-21 (수) | 특화야영장 | **하우스-35** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-22 (목) | 특화야영장 | **하우스-33** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
-| 변산반도 | 고사포2 | 2026-10-22 (목) | 특화야영장 | **하우스-35** | 🔵 예약가능 | 90,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B181004) |
 | 덕유산 | 덕유대3 | 2026-10-23 (금) | 카라반 | **카라반 10호(4인)** | 🔵 예약가능 | 100,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
 | 덕유산 | 덕유대3 | 2026-10-23 (금) | 카라반 | **카라반 12호(8인)** | 🔵 예약가능 | 150,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
 | 덕유산 | 덕유대3 | 2026-10-23 (금) | 카라반 | **카라반 2호(4인)** | 🔵 예약가능 | 100,000원 | [⚡ 즉시예약](https://reservation.knps.or.kr/reservation/searchSimpleCampReservation.do?deptId=B051006) |
