@@ -10,9 +10,50 @@
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {},
+      "rooms": {
+        "B301002_2026-10-09_EB30100200031": {
+          "slot_id": "B301002_2026-10-09_EB30100200031",
+          "dept_id": "B301002",
+          "date": "2026-10-09",
+          "dow": "금",
+          "prd_id": "EB30100200031",
+          "prd_name": "[203호]4인실 온돌(산전망)",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "설악산"
+        },
+        "B301002_2026-10-09_EB30100200033": {
+          "slot_id": "B301002_2026-10-09_EB30100200033",
+          "dept_id": "B301002",
+          "date": "2026-10-09",
+          "dow": "금",
+          "prd_id": "EB30100200033",
+          "prd_name": "[205호]4인실 온돌(산전망)",
+          "category": "(4인실)A타입(적정 수용 4명)",
+          "capacity": 4,
+          "price": 80000,
+          "pet_allowed": false,
+          "barrier_free": false,
+          "remaining": 1,
+          "max_count": 1,
+          "reserved_count": 0,
+          "status": "R",
+          "status_text": "예약가능",
+          "is_available": true,
+          "center_name": "설악산"
+        }
+      },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T02:02:22.595975"
+      "updated_at": "2026-10-06T02:04:23.322581"
     },
     "B123002": {
       "dept_id": "B123002",
@@ -100,14 +141,14 @@
         }
       },
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T02:02:29.208717"
+      "updated_at": "2026-10-06T02:04:29.598929"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T02:02:36.981286"
+      "updated_at": "2026-10-06T02:04:37.450448"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -118,6 +159,15 @@
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-06 02:04:23",
+      "center": "[User 1] 설악산 생태탐방원",
+      "summary": "🔵 +2실 예약가능",
+      "details": [
+        "🔵 [예약가능] 2026-10-09(금) [203호]4인실 온돌(산전망)(4인)",
+        "🔵 [예약가능] 2026-10-09(금) [205호]4인실 온돌(산전망)(4인)"
+      ]
+    },
     {
       "timestamp": "2026-10-06 01:58:36",
       "center": "[User 1] 변산반도 생태탐방원",
@@ -351,18 +401,10 @@
       "details": [
         "🔴 [예약마감] 2026-10-17(토) [312호]4인실 침대+온돌(4인)"
       ]
-    },
-    {
-      "timestamp": "2026-10-05 10:30:51",
-      "center": "[User 1] 변산반도 생태탐방원",
-      "summary": "🔵 +1실 예약가능",
-      "details": [
-        "🔵 [예약가능] 2026-10-17(토) [312호]4인실 침대+온돌(4인)"
-      ]
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-06T02:02:37.282953",
+  "updated_at": "2026-10-06T02:04:37.752022",
   "users": {
     "user1": {
       "centers": {
@@ -376,9 +418,50 @@
         "B301002": {
           "dept_id": "B301002",
           "center_name": "설악산",
-          "rooms": {},
+          "rooms": {
+            "B301002_2026-10-09_EB30100200031": {
+              "slot_id": "B301002_2026-10-09_EB30100200031",
+              "dept_id": "B301002",
+              "date": "2026-10-09",
+              "dow": "금",
+              "prd_id": "EB30100200031",
+              "prd_name": "[203호]4인실 온돌(산전망)",
+              "category": "(4인실)A타입(적정 수용 4명)",
+              "capacity": 4,
+              "price": 80000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "설악산"
+            },
+            "B301002_2026-10-09_EB30100200033": {
+              "slot_id": "B301002_2026-10-09_EB30100200033",
+              "dept_id": "B301002",
+              "date": "2026-10-09",
+              "dow": "금",
+              "prd_id": "EB30100200033",
+              "prd_name": "[205호]4인실 온돌(산전망)",
+              "category": "(4인실)A타입(적정 수용 4명)",
+              "capacity": 4,
+              "price": 80000,
+              "pet_allowed": false,
+              "barrier_free": false,
+              "remaining": 1,
+              "max_count": 1,
+              "reserved_count": 0,
+              "status": "R",
+              "status_text": "예약가능",
+              "is_available": true,
+              "center_name": "설악산"
+            }
+          },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T02:02:22.595975"
+          "updated_at": "2026-10-06T02:04:23.322581"
         },
         "B123002": {
           "dept_id": "B123002",
@@ -466,14 +549,14 @@
             }
           },
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T02:02:29.208717"
+          "updated_at": "2026-10-06T02:04:29.598929"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T02:02:36.981286"
+          "updated_at": "2026-10-06T02:04:37.450448"
         }
       },
       "baseline_at": "2026-10-05T21:06:39.714529"
@@ -1796,6 +1879,28 @@
       "cancel_dow": "화",
       "cancel_hour": 1,
       "lead_days": 10
+    },
+    {
+      "timestamp": "2026-10-06 02:04:23",
+      "camp": "설악산",
+      "park_name": "설악산",
+      "camp_name": "[203호]4인실 온돌(산전망)",
+      "target_date": "2026-10-09",
+      "target_dow": "금",
+      "cancel_dow": "화",
+      "cancel_hour": 2,
+      "lead_days": 3
+    },
+    {
+      "timestamp": "2026-10-06 02:04:23",
+      "camp": "설악산",
+      "park_name": "설악산",
+      "camp_name": "[205호]4인실 온돌(산전망)",
+      "target_date": "2026-10-09",
+      "target_dow": "금",
+      "cancel_dow": "화",
+      "cancel_hour": 2,
+      "lead_days": 3
     }
   ]
 }
