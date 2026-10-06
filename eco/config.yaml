@@ -6,8 +6,8 @@ users:
     enabled: true
     notification:
       only_new_slots: true
-      notify_closed_slots: true
-      notify_consecutive_weekend: true
+      notify_closed_slots: false
+      notify_consecutive_weekend: false
       discord:
         enabled: true
         webhook_url: ""
@@ -29,7 +29,7 @@ users:
       target_dates: []
       start_date: "2026-10-01"
       end_date: "2026-10-31"
-      target_weekdays: ["금", "토"]
+      target_weekdays: []
       pet_only: false
 
   - id: "user2"
