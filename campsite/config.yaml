@@ -24,8 +24,8 @@ users:
         types: ["특화야영장"]
     filters:
       target_dates: []
-      start_date: "2026-10-01"
-      end_date: "2026-10-31"
+      start_date: "2026-10-09"
+      end_date: "2026-10-10"
       target_weekdays: []
       target_types: []
       target_sites: []
