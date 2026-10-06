@@ -6,9 +6,9 @@ users:
     enabled: true
     notification:
       only_new_slots: true
-      notify_closed_slots: true
+      notify_closed_slots: false
       notify_status_changes: true
-      notify_consecutive_weekend: true
+      notify_consecutive_weekend: false
       consecutive_include_waiting: false
       discord:
         enabled: true
@@ -26,10 +26,10 @@ users:
       target_dates: []
       start_date: "2026-10-01"
       end_date: "2026-10-31"
-      target_weekdays: ["토"]
+      target_weekdays: []
       target_types: []
       target_sites: []
-      include_waiting: true
+      include_waiting: false
 
   - id: "user2"
     name: "User 2"
