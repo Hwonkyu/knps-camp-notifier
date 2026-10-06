@@ -27,8 +27,8 @@ users:
         capacities: []
     filters:
       target_dates: []
-      start_date: "2026-10-09"
-      end_date: "2026-10-10"
+      start_date: "2026-10-05"
+      end_date: "2026-10-06"
       target_weekdays: []
       pet_only: false
 
