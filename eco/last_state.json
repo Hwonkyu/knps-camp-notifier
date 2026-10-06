@@ -10,44 +10,23 @@
     "B301002": {
       "dept_id": "B301002",
       "center_name": "설악산",
-      "rooms": {
-        "B301002_2026-10-09_EB30100200029": {
-          "slot_id": "B301002_2026-10-09_EB30100200029",
-          "dept_id": "B301002",
-          "date": "2026-10-09",
-          "dow": "금",
-          "prd_id": "EB30100200029",
-          "prd_name": "[111호]4인실 침대",
-          "category": "(4인실)A타입(적정 수용 4명)",
-          "capacity": 4,
-          "price": 80000,
-          "pet_allowed": false,
-          "barrier_free": false,
-          "remaining": 1,
-          "max_count": 1,
-          "reserved_count": 0,
-          "status": "R",
-          "status_text": "예약가능",
-          "is_available": true,
-          "center_name": "설악산"
-        }
-      },
+      "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T10:16:24.988068"
+      "updated_at": "2026-10-06T10:18:24.151362"
     },
     "B123002": {
       "dept_id": "B123002",
       "center_name": "소백산",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T10:16:26.657673"
+      "updated_at": "2026-10-06T10:18:25.704969"
     },
     "B183001": {
       "dept_id": "B183001",
       "center_name": "변산반도",
       "rooms": {},
       "consecutive_pairs": [],
-      "updated_at": "2026-10-06T10:16:28.525880"
+      "updated_at": "2026-10-06T10:18:27.722929"
     },
     "B163001": {
       "dept_id": "B163001",
@@ -333,7 +312,7 @@
     }
   ],
   "baseline_at": "2026-09-28T21:01:06.667956",
-  "updated_at": "2026-10-06T10:16:28.828011",
+  "updated_at": "2026-10-06T10:18:28.029346",
   "users": {
     "user1": {
       "centers": {
@@ -347,44 +326,23 @@
         "B301002": {
           "dept_id": "B301002",
           "center_name": "설악산",
-          "rooms": {
-            "B301002_2026-10-09_EB30100200029": {
-              "slot_id": "B301002_2026-10-09_EB30100200029",
-              "dept_id": "B301002",
-              "date": "2026-10-09",
-              "dow": "금",
-              "prd_id": "EB30100200029",
-              "prd_name": "[111호]4인실 침대",
-              "category": "(4인실)A타입(적정 수용 4명)",
-              "capacity": 4,
-              "price": 80000,
-              "pet_allowed": false,
-              "barrier_free": false,
-              "remaining": 1,
-              "max_count": 1,
-              "reserved_count": 0,
-              "status": "R",
-              "status_text": "예약가능",
-              "is_available": true,
-              "center_name": "설악산"
-            }
-          },
+          "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T10:16:24.988068"
+          "updated_at": "2026-10-06T10:18:24.151362"
         },
         "B123002": {
           "dept_id": "B123002",
           "center_name": "소백산",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T10:16:26.657673"
+          "updated_at": "2026-10-06T10:18:25.704969"
         },
         "B183001": {
           "dept_id": "B183001",
           "center_name": "변산반도",
           "rooms": {},
           "consecutive_pairs": [],
-          "updated_at": "2026-10-06T10:16:28.525880"
+          "updated_at": "2026-10-06T10:18:27.722929"
         }
       },
       "baseline_at": "2026-10-06T09:00:52.732394"
