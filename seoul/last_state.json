@@ -3,10 +3,10 @@
     "S260901165106276774": {
       "svc_id": "S260901165106276774",
       "title": "10월 글램핑존 (4인용) 26년 한강공원 난지캠핑장",
-      "status": "접수중",
-      "is_available": true,
+      "status": "예약마감",
+      "is_available": false,
       "is_notice": false,
-      "is_closed": false,
+      "is_closed": true,
       "pay": "유료",
       "rcpt_date": "2026.09.15 ~ 2026.10.31",
       "use_date": "2026.10.01 ~ 2026.10.31",
@@ -15,7 +15,7 @@
       "rcpt_start": "2026-09-15",
       "direct_url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S260901165106276774",
       "login_url": "https://yeyak.seoul.go.kr/web/loginForm.do",
-      "updated_at": "2026-10-08T00:20:24.832082"
+      "updated_at": "2026-10-08T00:22:17.853128"
     },
     "S260929212427230056": {
       "svc_id": "S260929212427230056",
@@ -32,10 +32,18 @@
       "rcpt_start": "2026-10-15",
       "direct_url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S260929212427230056",
       "login_url": "https://yeyak.seoul.go.kr/web/loginForm.do",
-      "updated_at": "2026-10-08T00:20:24.832116"
+      "updated_at": "2026-10-08T00:22:17.853105"
     }
   },
   "history": [
+    {
+      "timestamp": "2026-10-08 00:22:17",
+      "target": "난지캠핑장 글램핑존",
+      "summary": "접수중 ➔ 예약마감",
+      "details": [
+        "[예약마감] 10월 글램핑존 (4인용) 26년 한강공원 난지캠핑장 (이용: 2026.10.01 ~ 2026.10.31)"
+      ]
+    },
     {
       "timestamp": "2026-10-06 21:44:21",
       "target": "난지캠핑장 글램핑존",
@@ -53,5 +61,5 @@
       ]
     }
   ],
-  "updated_at": "2026-10-08T00:20:25.132366"
+  "updated_at": "2026-10-08T00:22:18.153300"
 }
