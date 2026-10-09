@@ -9,7 +9,7 @@
       "slots": {},
       "consecutive_pairs": [],
       "consecutive_pairs_data": [],
-      "last_checked": "2026-10-09T02:38:19.147434"
+      "last_checked": "2026-10-09T02:40:21.484547"
     },
     "B061001_카라반": {
       "park_name": "오대산",
@@ -18492,7 +18492,7 @@
     }
   ],
   "baseline_at": "2026-10-08T21:00:49.055804",
-  "updated_at": "2026-10-09T02:38:19.151125",
+  "updated_at": "2026-10-09T02:40:21.488057",
   "users": {
     "user1": {
       "campsites": {
@@ -18505,7 +18505,7 @@
           "slots": {},
           "consecutive_pairs": [],
           "consecutive_pairs_data": [],
-          "last_checked": "2026-10-09T02:38:19.147434"
+          "last_checked": "2026-10-09T02:40:21.484547"
         },
         "B061001_카라반": {
           "park_name": "오대산",
