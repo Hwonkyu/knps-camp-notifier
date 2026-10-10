@@ -15,7 +15,7 @@
       "rcpt_start": "2026-09-15",
       "direct_url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S260901165106276774",
       "login_url": "https://yeyak.seoul.go.kr/web/loginForm.do",
-      "updated_at": "2026-10-10T19:18:21.367510"
+      "updated_at": "2026-10-10T19:20:23.798600"
     },
     "S260929212427230056": {
       "svc_id": "S260929212427230056",
@@ -32,7 +32,7 @@
       "rcpt_start": "2026-10-15",
       "direct_url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S260929212427230056",
       "login_url": "https://yeyak.seoul.go.kr/web/loginForm.do",
-      "updated_at": "2026-10-10T19:18:21.367473"
+      "updated_at": "2026-10-10T19:20:23.798564"
     }
   },
   "history": [
@@ -61,5 +61,5 @@
       ]
     }
   ],
-  "updated_at": "2026-10-10T19:18:21.667681"
+  "updated_at": "2026-10-10T19:20:24.098797"
 }
